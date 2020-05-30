@@ -160,6 +160,13 @@ p {
     border: 2px solid #6EC59A;
 }
 
+.tags {
+    height: 10px;
+    width: 72px;
+    font-size: .5em;
+    letter-spacing: 1px;
+}
+
 /*------------------------------------------------------------------ Media Queries */
 
 @media screen and (max-width: 768px) {
@@ -239,5 +246,13 @@ p {
     .instrument {
         height: 55px;
         width: 55px;
+    }
+
+    .tags {
+        height: 10px;
+        width: 75px;
+        font-family: 'Michroma', sans-serif;
+        font-size: 6px;
+        letter-spacing: 1px;
     }
 }
