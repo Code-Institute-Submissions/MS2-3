@@ -1,0 +1,80 @@
+/*------------------------------------------------------------------------ General */
+body {
+    background-color: #EAECF2;
+    background-image: url("../images/game-background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    height: 100vh;
+}
+
+/*------------------------------------------------------------------------ Colours */
+
+
+
+/*--------------------------------------------------------------------- Typography */
+
+
+
+/*------------------------------------------------------------ Image / Adjustments */
+
+
+
+/*------------------------------------------------------------------- Drum Console */
+
+.drum-console {
+    width: 490px;
+    min-height: 400px;
+    background: #EBECF0;
+    box-shadow: -9px -9px 17px 0 #FAFBFF, 9px 9px 17px 0 rgba(166, 171, 189, 0.80);
+    border-radius: 28px;
+    font-family: 'Michroma', sans-serif;
+    color: #696969;
+}
+
+.title {
+    height: 139px;
+}
+
+
+/*------------------------------------------------------------------ Media Queries */
+
+@media screen and (max-width: 768px) {
+
+    /* Hide console background for smaller screen sizes */
+    .drum-console {
+        background-color: transparent;
+        box-shadow: none;
+        background-image: none;
+    }
+
+    .title {
+        height: 139px;
+        margin-top: -25px;
+    }
+}
+
+/* Scale for short screen height */
+@media screen and (max-height: 700px) {
+    .drum-console {
+        transform: scale(0.5);
+    }
+}
+
+@media screen and (max-width: 575px) {
+
+    .drum-console {
+        background-color: transparent;
+        width: 310px;
+        height: 530px;
+        box-shadow: none;
+        background-image: none;
+        border-radius: 0;
+        transform: scale(0.9);
+    }
+
+    .title {
+        height: 117px;
+    }
+
+}
