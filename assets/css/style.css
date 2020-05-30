@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+
 /*------------------------------------------------------------------------ General */
 body {
     background-color: #EAECF2;
@@ -6,6 +8,16 @@ body {
     background-repeat: no-repeat;
     background-position: center bottom;
     height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-family: 'Michroma', sans-serif;
 }
 
 /*------------------------------------------------------------------------ Colours */
@@ -36,6 +48,34 @@ body {
     height: 139px;
 }
 
+.level {
+    letter-spacing: 4px;
+    font-size: 1.3em;
+}
+
+.score {
+    background: #1B1C21;
+    background-image: linear-gradient(-42deg, rgba(255, 255, 255, 0.0) 0%, #45474E 100%);
+    border: 2px solid #DC3131;
+    box-shadow: -6px -6px 12px 0 #FAFBFF,
+        6px 6px 12px 0 rgba(166, 171, 189, 0.80);
+    border-radius: 11px;
+    height: 40px;
+    width: 145px;
+    color: white;
+}
+
+.digits {
+    color: white;
+    letter-spacing: 4px;
+    font-size: 1.5em;
+}
+
+.points {
+    font-size: .8em;
+    letter-spacing: 2px;
+    padding-left: 4px;
+}
 
 /*------------------------------------------------------------------ Media Queries */
 
@@ -77,4 +117,28 @@ body {
         height: 117px;
     }
 
+    .level {
+        font-family: 'Michroma', sans-serif;
+        letter-spacing: 4px;
+        font-size: .65em;
+    }
+
+    .score {
+        height: 28px;
+        width: 120px;
+        border-radius: 8px;
+        border: 1.4px solid #DC3131;
+    }
+
+    .digits {
+        color: white;
+        letter-spacing: 4px;
+        font-size: .9em;
+    }
+
+    .points {
+        font-size: .5em;
+        letter-spacing: 1px;
+        padding-left: 2px;
+    }
 }
