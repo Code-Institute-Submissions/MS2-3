@@ -33,9 +33,71 @@ button:focus {
 
 
 
-/*------------------------------------------------------------ Image / Adjustments */
+/*------------------------------------------------------------- Image / Animations */
 
+.vinyl {
+    position: fixed;
+    height: 60vw;
+    margin-left: -30.5%;
+    margin-top: 25%;
+    -webkit-animation: spin 2s linear infinite;
+    -moz-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    z-index: -10;
+    /* Add drop shadow to png shape: https://stackoverflow.com/questions/6441332/can-you-add-a-non-square-drop-shadow-to-png-content-with-css/17102959 */
+    -webkit-filter: drop-shadow(0px 0px 8px #000);
+    filter: drop-shadow(0px 0px 8px #000);
+}
 
+@-moz-keyframes spin {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.needle-arm {
+    position: fixed;
+    height: 35vw;
+    margin-left: -10%;
+    margin-top: 5%;
+    -webkit-animation: rotate 12s linear infinite;
+    -moz-animation: rotate 12s linear infinite;
+    animation: rotate 12s linear infinite;
+    z-index: -9;
+    transform-origin: 0% 0%;
+}
+
+@-moz-keyframes rotate {
+    2% {
+        -moz-transform: rotate(-5deg);
+    }
+}
+
+@-webkit-keyframes rotate {
+    2% {
+        -webkit-transform: rotate(-5deg);
+    }
+}
+
+@keyframes rotate {
+    2% {
+        -webkit-transform: rotate(-5deg);
+        transform: rotate(-deg);
+    }
+}
 
 /*------------------------------------------------------------------- Drum Console */
 
@@ -366,5 +428,17 @@ button:focus {
         height: 30px;
         width: 30px;
         background-image: url("../images/volume-icon.png");
+    }
+
+    .needle-arm {
+        height: 29vw;
+        margin-left: -10%;
+        margin-top: 3.7%;
+    }
+
+    .vinyl {
+        height: 52vw;
+        margin-left: -30.5%;
+        margin-top: 14%;
     }
 }
