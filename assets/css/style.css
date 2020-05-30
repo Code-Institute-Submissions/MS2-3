@@ -20,6 +20,11 @@ p {
     font-family: 'Michroma', sans-serif;
 }
 
+/* Remove blue border on button when clicked */
+button:focus {
+    outline: 0;
+}
+
 /*------------------------------------------------------------------------ Colours */
 
 
@@ -95,7 +100,7 @@ p {
     cursor: pointer;
 }
 
-/*------------------------------------------------- Drum Console Transport Buttons */
+/*----------------------------------------------------------- Drum Select Buttons */
 
 .instrument {
     background-color: #EBECF0;
@@ -165,6 +170,80 @@ p {
     width: 72px;
     font-size: .5em;
     letter-spacing: 1px;
+}
+
+/*------------------------------------------------- Drum Console Transport Buttons */
+
+.home-btn {
+    background-color: #EBECF0;
+    background-image: url("../images/home-icon.png");
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    box-shadow:
+        1px 1px 3px 0 rgba(166, 171, 189, 0.8),
+        -1px -1px 3px 0 rgba(250, 251, 255, 1);
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.16);
+    height: 40px;
+    width: 40px;
+}
+
+.home-btn:hover {
+    background-image: url("../images/home-icon.png");
+    box-shadow:
+        inset 1px 1px 3px 0 rgba(220, 49, 49, .8),
+        inset -1px -1px 3px 0 rgba(250, 251, 255, 1);
+}
+
+.play-btn {
+    background-color: #2bb972;
+    box-shadow:
+        5px 5px 10px 0 rgba(166, 171, 189, 0.8),
+        10px 10px 14px 0 rgba(250, 251, 255, 1);
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.16);
+    height: 40px;
+    width: 115px;
+    font-size: .9em;
+    color: white;
+    letter-spacing: 2.5px;
+}
+
+.retry-btn {
+    background-color: #dc3131;
+    box-shadow:
+        5px 5px 10px 0 rgba(166, 171, 189, 0.8),
+        10px 10px 14px 0 rgba(250, 251, 255, 1);
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.16);
+    height: 40px;
+    width: 115px;
+    font-size: .9em;
+    color: white;
+    letter-spacing: 2.5px;
+}
+
+.mute-btn {
+    background-color: #EBECF0;
+    background-image: url("../images/volume-icon.png");
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    box-shadow:
+        1px 1px 3px 0 rgba(166, 171, 189, 0.8),
+        -1px -1px 3px 0 rgba(250, 251, 255, 1);
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.16);
+    height: 40px;
+    width: 40px;
+}
+
+.mute-btn:hover {
+    background-image: url("../images/mute-volume-icon.png");
+    box-shadow:
+        inset 1px 1px 3px 0 rgba(220, 49, 49, .8),
+        inset -1px -1px 3px 0 rgba(250, 251, 255, 1);
 }
 
 /*------------------------------------------------------------------ Media Queries */
@@ -254,5 +333,38 @@ p {
         font-family: 'Michroma', sans-serif;
         font-size: 6px;
         letter-spacing: 1px;
+    }
+
+    /* TRANSPORT BUTTONS */
+
+    .home-btn {
+        height: 30px;
+        width: 30px;
+    }
+
+    .play-btn {
+        height: 30px;
+        width: 85px;
+        box-shadow:
+            4px 4px 8px 0 rgba(166, 171, 189, 0.8),
+            8px 8px 10px 0 rgba(250, 251, 255, 1);
+        font-size: .75em;
+        letter-spacing: 1.5px;
+    }
+
+    .retry-btn {
+        height: 30px;
+        width: 85px;
+        box-shadow:
+            4px 4px 8px 0 rgba(166, 171, 189, 0.8),
+            8px 8px 10px 0 rgba(250, 251, 255, 1);
+        font-size: .75em;
+        letter-spacing: 1.5px;
+    }
+
+    .mute-btn {
+        height: 30px;
+        width: 30px;
+        background-image: url("../images/volume-icon.png");
     }
 }
