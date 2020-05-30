@@ -77,6 +77,24 @@ p {
     padding-left: 4px;
 }
 
+/*-------------------------------------------------------------- Drum Console Pads */
+
+.drum-pad {
+    background-color: #EBECF0;
+    box-shadow:
+        5px 5px 10px 0 rgba(166, 171, 189, 0.8),
+        10px 10px 14px 0 rgba(250, 251, 255, 1);
+    border-radius: 11.51%;
+    border: 2px solid rgba(255, 255, 255, 0.16);
+    height: 75px;
+    width: 75px;
+    padding: 2px 0 0 10px;
+}
+
+.kick-drum {
+    cursor: pointer;
+}
+
 /*------------------------------------------------------------------ Media Queries */
 
 @media screen and (max-width: 768px) {
@@ -140,5 +158,16 @@ p {
         font-size: .5em;
         letter-spacing: 1px;
         padding-left: 2px;
+    }
+
+    .drum-pad {
+        height: 55px;
+        width: 100px;
+        box-shadow:
+            4px 4px 8px 0 rgba(166, 171, 189, 0.8),
+            8px 8px 10px 0 rgba(250, 251, 255, 1);
+        border: 2px solid rgba(255, 255, 255, 0.16);
+        font-size: .5em;
+        padding: 0 0 0 10px;
     }
 }
