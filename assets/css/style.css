@@ -31,6 +31,31 @@ button:focus {
 
 /*--------------------------------------------------------------------- Typography */
 
+/*----------------------------------------------------------------- Landing Screen */
+
+#landing {
+    position: absolute;
+    background-image: url("../images/BTB-Splash-BG.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    z-index: 1000;
+}
+
+.game-landing {
+    width: 100%;
+    font-family: 'Michroma', sans-serif;
+    color: #D8D8D8;
+}
+
+.game-landing h1 {
+    line-height: 1.6em;
+}
+
+.letter-spacing {
+    letter-spacing: 4px;
+}
+
 
 
 /*------------------------------------------------------------- Image / Animations */
