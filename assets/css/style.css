@@ -430,6 +430,13 @@ button:focus {
         height: 139px;
         margin-top: -25px;
     }
+
+    .game-landing h1 {
+        padding: 10px 0 10px 0;
+        line-height: 1.8em;
+        font-size: .7em;
+    }
+
 }
 
 /* Scale for short screen height */
