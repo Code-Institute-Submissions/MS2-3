@@ -9,6 +9,8 @@ $("#start-game").click(function () {
     // Display main game console 
     $("main").removeClass("d-none");
     $("main").addClass("d-flex");
+    // Remove parallax dust particles 
+    $(".parallax").addClass("d-none");
 });
 
 // Return to home screen when drum console home icon is clicked 
