@@ -205,6 +205,33 @@ button:focus {
     }
 }
 
+.game-title {
+    align-self: flex-end;
+    animation-duration: 3.5s;
+    animation-iteration-count: infinite;
+}
+
+
+.hover {
+    animation-name: hover;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes hover {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
 /*------------------------------------------------------------------- Drum Console */
 
 .drum-console {
