@@ -35,7 +35,7 @@ button:focus {
 
 #landing {
     position: absolute;
-    background-image: url("../images/BTB-Splash-BG.jpg");
+    background-image: url("../images/btb-splash-background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center bottom;
