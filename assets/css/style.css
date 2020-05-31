@@ -31,6 +31,10 @@ button:focus {
 
 /*--------------------------------------------------------------------- Typography */
 
+.letter-spacing {
+    letter-spacing: 4px;
+}
+
 /*----------------------------------------------------------------- Landing Screen */
 
 #landing {
@@ -52,8 +56,49 @@ button:focus {
     line-height: 1.6em;
 }
 
-.letter-spacing {
-    letter-spacing: 4px;
+
+.btn-start-game {
+    background-color: #dc3131;
+    border: 2px solid rgba(73, 8, 8, 0.16);
+    color: white;
+    border-radius: 20px;
+    box-shadow:
+        inset 1px 1px 3px 0 rgba(49, 7, 7, 0.8),
+        inset -2px -2px 5px 0 rgba(46, 7, 7, .8);
+}
+
+.btn-start-game:hover {
+    background-color: #dc3131;
+    box-shadow:
+        -8px 7px 0px rgba(166, 171, 189, 0.8),
+        0px 0px 0px #dc3131;
+    box-shadow:
+        inset 2px 6px 6px 0 rgba(49, 7, 7, 0.8),
+        inset 2px 2px 3px 0 rgb(224, 102, 102);
+    color: white;
+    border-radius: 20px;
+}
+
+.btn-how-to-play {
+    background-color: #29ABE0;
+    border: 2px solid rgba(12, 43, 88, 0.16);
+    color: white;
+    border-radius: 20px;
+    box-shadow:
+        inset 1px 1px 3px 0 rgba(82, 13, 13, 0.8),
+        inset -2px -2px 5px 0 rgba(46, 7, 7, .8);
+}
+
+.btn-how-to-play:hover {
+    background-color: #29ABE0;
+    box-shadow:
+        -8px 7px 0px rgba(166, 171, 189, 0.8),
+        0px 0px 0px #29ABE0;
+    box-shadow:
+        inset -2px 6px 6px 0 rgba(21, 64, 105, 0.8),
+        inset 2px 2px 3px 0 rgb(10, 49, 71);
+    color: white;
+    border-radius: 20px;
 }
 
 
@@ -121,6 +166,43 @@ button:focus {
     2% {
         -webkit-transform: rotate(-5deg);
         transform: rotate(-deg);
+    }
+}
+
+.boom-box {
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    transform-origin: bottom;
+}
+
+.bounce {
+    animation-name: bounce;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(1);
+    }
+
+    49% {
+        transform: scale(0.98);
+    }
+
+    52% {
+        transform: scale(1);
+    }
+
+    63.5% {
+        transform: scale(0.98);
+    }
+
+    66.5% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0.98);
     }
 }
 
@@ -355,6 +437,18 @@ button:focus {
     .drum-console {
         transform: scale(0.5);
     }
+
+}
+
+/* Landscape iPad */
+@media screen and (max-height: 768px) {
+    #boombox {
+        display: none !important;
+    }
+
+    #landing {
+        align-items: center !important;
+    }
 }
 
 @media screen and (max-width: 575px) {
@@ -422,7 +516,7 @@ button:focus {
         letter-spacing: 1px;
     }
 
-    /* TRANSPORT BUTTONS */
+    /* Transport Buttons */
 
     .home-btn {
         height: 30px;
@@ -454,6 +548,8 @@ button:focus {
         width: 30px;
         background-image: url("../images/volume-icon.png");
     }
+
+    /* Record and needle arm */
 
     .needle-arm {
         height: 29vw;
