@@ -6,6 +6,9 @@ $("#start-game").click(function () {
     // Display spinning vinyl and needle arm animation 
     $("#spinningVinyl").removeClass("d-none");
     $("#spinningVinyl").addClass("d-flex");
+    // Display main game console 
+    $("main").removeClass("d-none");
+    $("main").addClass("d-flex");
 });
 
 // Return to home screen when drum console home icon is clicked 
