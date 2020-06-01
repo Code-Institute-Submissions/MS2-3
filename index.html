@@ -131,26 +131,32 @@
                 </div>
                 <div class="modal-body p-0">
                     <div class="row d-none d-sm-flex justify-content-center my-3">
-                        <img class="text-uppercase text-center p-2 col-10 col-md-3 hover"
+                        <img class="text-uppercase text-center p-2 col-10 col-md-3"
                             src="./assets/images/difficulty-easy.png" alt="Bronze vinyl record">
-                        <img class="text-uppercase text-center p-2 mx-md-3 col-10 col-md-3 hover"
+                        <img class="text-uppercase text-center p-2 mx-md-3 col-10 col-md-3"
                             src="./assets/images/difficulty-normal.png" alt="Silver vinyl record">
-                        <img class="text-uppercase text-center p-2 col-10 col-md-3 hover"
+                        <img class="text-uppercase text-center p-2 col-10 col-md-3"
                             src="./assets/images/difficulty-hard.png" alt="Gold vinyl record">
                     </div>
-                    <div class="row d-flex justify-content-center">
+                    <div class="row d-flex justify-content-center pb-sm-3">
                         <button id="start-game-easy" data-dismiss="modal"
-                            class="btn btn-start-game col-10 col-md-3 text-uppercase text-center h5 p-2 mr-0 letter-spacing">Easy</button>
+                            class="btn btn-select-difficulty col-10 col-md-3 text-uppercase text-center h5 p-2 mr-0 letter-spacing">
+                            <span class="highlight">
+                            </span><span class="text-change">Easy</span></button>
                         <button id="start-game-normal" data-dismiss="modal"
-                            class="btn btn-start-game col-10 col-md-3 text-uppercase text-center h5 p-2 mr-0 mx-md-3 letter-spacing">Normal</button>
+                            class="btn btn-select-difficulty col-10 col-md-3 text-uppercase text-center h5 p-2 mr-0 mx-md-3 letter-spacing"><span
+                                class="highlight">
+                            </span><span class="text-change">Normal</span></button>
                         <button id="start-game-hard" data-dismiss="modal"
-                            class="btn btn-start-game col-10 col-md-3 text-uppercase text-center h5 p-2 mr-0 letter-spacing">Hard</button>
+                            class="btn btn-select-difficulty col-10 col-md-3 text-uppercase text-center h5 p-2 mr-0 letter-spacing"><span
+                                class="highlight">
+                            </span><span class="text-change">Hard</span></button>
                     </div>
                 </div>
-                <div class="modal-footer border-0 d-flex justify-content-center mb-3">
-                    <!-- <button id="start-game" data-target="#selectDifficulty" data-dismiss="modal"
-                        class="btn btn-start-game col-10 col-md-3 text-uppercase text-center h5 p-2 ml-0 ml-sm-2 letter-spacing">START
-                        GAME</button> -->
+                <div class="modal-footer border-0 d-flex d-sm-none justify-content-center">
+                    <p>Easy Mode: 20 attempts</p>
+                    <p>Normal Mode: 10 attempts</p>
+                    <p>Hard Mode: 5 attempts</p>
                 </div>
             </div>
         </div>
@@ -167,7 +173,6 @@
     </div>
 
     <main class="d-none align-items-center vh-100">
-
         <div class="container-fluid text-center drum-console">
             <div class="row d-flex justify-content-center">
                 <img class="col-sm-9 mt-sm-4 pt-2 title" src="./assets/images/beat-the-break-title.png"

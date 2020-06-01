@@ -108,30 +108,6 @@ button:focus {
     border-radius: 20px;
 }
 
-.btn-select-difficulty {
-    background-color: #29ABE0;
-    height: 100px;
-    width: 100px;
-    border: 2px solid rgba(12, 43, 88, 0.16);
-    color: white;
-    border-radius: 50%;
-    box-shadow:
-        inset 1px 1px 3px 0 rgba(82, 13, 13, 0.8),
-        inset -2px -2px 5px 0 rgba(46, 7, 7, .8);
-    z-index: 1020;
-}
-
-.btn-select-difficulty:hover {
-    background-color: #29ABE0;
-    box-shadow:
-        -8px 7px 0 rgba(166, 171, 189, 0.8),
-        0 0 0 #29ABE0;
-    box-shadow:
-        inset -2px 6px 6px 0 rgba(21, 64, 105, 0.8),
-        inset 2px 2px 3px 0 rgb(10, 49, 71);
-    color: white;
-}
-
 /* Modal */
 
 .modal-content {
@@ -140,6 +116,74 @@ button:focus {
     border-radius: 1.3rem;
     color: white;
     box-shadow: 0 0 90px 0 rgba(220, 49, 49, .6);
+}
+
+.btn-select-difficulty {
+    background-color: #dc3131;
+    border: 2px solid rgba(73, 8, 8, 0.16);
+    color: white;
+    border-radius: 20px;
+    box-shadow:
+        inset 1px 1px 3px 0 rgba(49, 7, 7, 0.8),
+        inset -2px -2px 5px 0 rgba(46, 7, 7, .8);
+    z-index: 1020;
+    cursor: pointer;
+}
+
+.btn-select-difficulty:hover {
+    background-color: #dc3131;
+    box-shadow:
+        -8px 7px 0 rgba(166, 171, 189, 0.8),
+        0 0 0 #dc3131;
+    box-shadow:
+        inset 2px 6px 6px 0 rgba(49, 7, 7, 0.8),
+        inset 2px 2px 3px 0 rgb(224, 102, 102);
+    color: white;
+    border-radius: 20px;
+}
+
+.btn-select-difficulty:hover .text-change {
+    display: none;
+}
+
+#start-game-easy.btn-select-difficulty:hover:before {
+    content: "20 Attempts";
+}
+
+#start-game-normal.btn-select-difficulty:hover:before {
+    content: "10 Attempts";
+}
+
+#start-game-hard.btn-select-difficulty:hover:before {
+    content: "5 Attempts";
+}
+
+.btn-select-difficulty:hover .highlight {
+    transform: translate(-100px, -58px);
+    opacity: 1;
+}
+
+.highlight {
+    font-family: 'Michroma', sans-serif;
+    border: 2px solid rgba(220, 49, 49, 1);
+    border-radius: 50%;
+    color: white;
+    box-shadow: 0 0 90px 0 rgba(220, 49, 49, .6);
+    color: #000;
+    height: 200px;
+    width: 200px;
+    font-size: 1.3em;
+    letter-spacing: 2px;
+    padding: 15px 30px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s ease;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
 }
 
 /*----------------------------------------------------------------------- Parallax */
