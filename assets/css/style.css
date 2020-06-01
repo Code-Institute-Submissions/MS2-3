@@ -424,6 +424,7 @@ button:focus {
     box-shadow:
         inset 1px 1px 3px 0 rgba(220, 49, 49, .8),
         inset -1px -1px 3px 0 rgba(250, 251, 255, 1);
+
 }
 
 .play-btn {
