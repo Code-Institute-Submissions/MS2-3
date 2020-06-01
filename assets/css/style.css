@@ -326,7 +326,10 @@ button:focus {
     padding: 2px 0 0 10px;
 }
 
-.kick-drum {
+.kick-drum,
+.snare-drum,
+.hihat-drum,
+.openhh-drum {
     cursor: pointer;
 }
 
