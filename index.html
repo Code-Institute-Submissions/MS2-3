@@ -34,8 +34,8 @@
                         class="btn btn-how-to-play col-10 col-md-3 text-uppercase text-center h5 p-2 mr-0 mr-md-3 letter-spacing text-uppercase">How
                         To Play</button>
                     <button data-toggle="modal" data-target="#selectDifficulty"
-                        class="btn btn-start-game col-10 col-md-3 text-uppercase text-center h5 p-2 ml-0 ml-md-3 letter-spacing text-uppercase">Select
-                        Difficulty</button>
+                        class="btn btn-start-game col-10 col-md-3 text-uppercase text-center h5 p-2 ml-0 ml-md-3 letter-spacing text-uppercase">Start
+                        Game</button>
                 </div>
             </div>
             <div id="boombox" class="row d-none d-sm-flex float-right pb-4 pt-0">
@@ -131,26 +131,26 @@
                 </div>
                 <div class="modal-body p-0">
                     <div class="row d-none d-sm-flex justify-content-center my-3">
-                        <img class=" text-uppercase text-center p-2mr-md-3 col-10 col-md-3 boom-box bounce"
-                            src="./assets/images/btb-splash-boombox.png" alt="Animated boom-box">
-                        <img class=" text-uppercase text-center p-2mr-md-3 col-10 col-md-3 boom-box bounce"
-                            src="./assets/images/btb-splash-boombox.png" alt="Animated boom-box">
-                        <img class=" text-uppercase text-center p-2mr-md-3 col-10 col-md-3 boom-box bounce"
-                            src="./assets/images/btb-splash-boombox.png" alt="Animated boom-box">
+                        <img class="text-uppercase text-center p-2 col-10 col-md-3 hover"
+                            src="./assets/images/difficulty-easy.png" alt="Bronze vinyl record">
+                        <img class="text-uppercase text-center p-2 mx-md-3 col-10 col-md-3 hover"
+                            src="./assets/images/difficulty-normal.png" alt="Silver vinyl record">
+                        <img class="text-uppercase text-center p-2 col-10 col-md-3 hover"
+                            src="./assets/images/difficulty-hard.png" alt="Gold vinyl record">
                     </div>
                     <div class="row d-flex justify-content-center">
-                        <button
-                            class="btn btn-how-to-play col-10 col-md-3 text-uppercase text-center h5 p-2 mr-0 mr-md-3 letter-spacing">Easy</button>
-                        <button
-                            class="btn btn-how-to-play col-10 col-md-3 text-uppercase text-center h5 p-2 mr-0 mr-md-3 letter-spacing">Normal</button>
-                        <button
-                            class="btn btn-how-to-play col-10 col-md-3 text-uppercase text-center h5 p-2 mr-0 letter-spacing">Hard</button>
+                        <button id="start-game-easy" data-dismiss="modal"
+                            class="btn btn-start-game col-10 col-md-3 text-uppercase text-center h5 p-2 mr-0 letter-spacing">Easy</button>
+                        <button id="start-game-normal" data-dismiss="modal"
+                            class="btn btn-start-game col-10 col-md-3 text-uppercase text-center h5 p-2 mr-0 mx-md-3 letter-spacing">Normal</button>
+                        <button id="start-game-hard" data-dismiss="modal"
+                            class="btn btn-start-game col-10 col-md-3 text-uppercase text-center h5 p-2 mr-0 letter-spacing">Hard</button>
                     </div>
                 </div>
                 <div class="modal-footer border-0 d-flex justify-content-center mb-3">
-                    <button id="start-game" data-target="#selectDifficulty" data-dismiss="modal"
-                        class="btn btn-start-game col-10 col-md-3 text-uppercase text-center h5 p-2 ml-0 ml-md-3 letter-spacing">START
-                        GAME</button>
+                    <!-- <button id="start-game" data-target="#selectDifficulty" data-dismiss="modal"
+                        class="btn btn-start-game col-10 col-md-3 text-uppercase text-center h5 p-2 ml-0 ml-sm-2 letter-spacing">START
+                        GAME</button> -->
                 </div>
             </div>
         </div>

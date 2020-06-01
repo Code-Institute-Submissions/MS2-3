@@ -2,7 +2,7 @@
 
 // Remove landing screen to show main game area when "Start Game" button is clicked 
 
-$("#start-game").click(function () {
+$("#start-game-easy, #start-game-normal, #start-game-hard").click(function () {
     $("#landing").removeClass("d-flex");
     $("#landing").addClass("d-none");
     // Display spinning vinyl and needle arm animation 
