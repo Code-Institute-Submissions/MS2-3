@@ -101,6 +101,12 @@ $(".home-btn").click(function () {
     window.location.reload()
 });
 
+// Toggle vinyl spin and needle arm rotation when clicked
+$(".play-btn").click(function() {
+    $(".vinyl").toggleClass("spin");
+    $(".needle-arm").toggleClass("rotate");
+});
+
 /*--------------------------------- Step Sequencer ------------------------------*/
 
 class DrumKit {
