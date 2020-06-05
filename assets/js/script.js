@@ -126,6 +126,7 @@ class DrumKit {
 
         // Loops over the pads in unison
         activePad.forEach(beat => {
+            beat.style.animation = `pulse .65s`;
             // Check if pads are selected
             if (beat.classList.contains("selected")) {
                 // If pad is selected corresponding sound plays
