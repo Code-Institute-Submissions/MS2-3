@@ -115,12 +115,37 @@ class DrumKit {
         this.bpm = 160;
     }
 
+     // On/Off toggle for pads
+     activePad() {
+        this.classList.toggle("selected");
+    }
+
     cycle() {
         let step = this.index % 16;
         const activePad = document.querySelectorAll(`.pad-${step}`);
 
         // Loops over the pads in unison
         activePad.forEach(beat => {
+            // Check if pads are selected
+            if (beat.classList.contains("selected")) {
+                // If pad is selected corresponding sound plays
+                if (beat.classList.contains("kick-drum")) {
+                    this.kickAudio.currentTime = 0;
+                    this.kickAudio.play();
+                }
+                if (beat.classList.contains("snare-drum")) {
+                    this.snareAudio.currentTime = 0;
+                    this.snareAudio.play();
+                }
+                if (beat.classList.contains("hihat-drum")) {
+                    this.hihatAudio.currentTime = 0;
+                    this.hihatAudio.play();
+                }
+                if (beat.classList.contains("openhh-drum")) {
+                    this.openhhAudio.currentTime = 0;
+                    this.openhhAudio.play();
+                }
+            }
         });
         this.index++;
     }
