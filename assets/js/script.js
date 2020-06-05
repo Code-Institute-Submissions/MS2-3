@@ -157,6 +157,12 @@ class DrumKit {
             this.isPlaying = setInterval(() => {
                 this.cycle();
             }, interval);
+        } else {
+            //Clear the Interval
+            clearInterval(this.isPlaying);
+            this.isPlaying = null;
+            // Reset index back to 0 - Pad plays from beginning
+            this.index = 0;
         }
     }
 
@@ -164,4 +170,6 @@ class DrumKit {
 
 const drumKit = new DrumKit();
 
-drumKit.start();
+drumKit.playButton.addEventListener("click", function () {
+    drumKit.start();
+});
