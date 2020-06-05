@@ -170,6 +170,15 @@ class DrumKit {
 
 const drumKit = new DrumKit();
 
+// Adds animation to each pad when looped over
+drumKit.pads.forEach(pad => {
+    pad.addEventListener("click", drumKit.activePad);
+    pad.addEventListener("animationend", function () {
+        this.style.animation = "";
+    });
+});
+
+// Plays step sequencer when play button is clicked
 drumKit.playButton.addEventListener("click", function () {
     drumKit.start();
 });
