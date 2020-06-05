@@ -124,12 +124,12 @@ class DrumKit {
         let step = this.index % 16;
         const activePad = document.querySelectorAll(`.pad-${step}`);
 
-        // Loops over the pads in unison
+        // Loop over the pads
         activePad.forEach(beat => {
             beat.style.animation = `pulse .65s`;
             // Check if pads are selected
             if (beat.classList.contains("selected")) {
-                // If pad is selected corresponding sound plays
+                // Check each sound in here
                 if (beat.classList.contains("kick-drum")) {
                     this.kickAudio.currentTime = 0;
                     this.kickAudio.play();
@@ -167,6 +167,16 @@ class DrumKit {
         }
     }
 
+    updateBtn() {
+        if (!this.isPlaying) {
+            this.playButton.innerText = "STOP";
+            this.playButton.classList.add("retry-btn");
+        } else {
+            this.playButton.innerText = "PLAY";
+            this.playButton.classList.remove("retry-btn");
+        }
+    }
+
 }
 
 const drumKit = new DrumKit();
@@ -180,6 +190,8 @@ drumKit.pads.forEach(pad => {
 });
 
 // Plays step sequencer when play button is clicked
+// Changes Play button to Stop button when clicked
 drumKit.playButton.addEventListener("click", function () {
+    drumKit.updateBtn();
     drumKit.start();
 });
