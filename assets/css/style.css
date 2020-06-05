@@ -147,15 +147,15 @@ button:focus {
 }
 
 #start-game-easy.btn-select-difficulty:hover:before {
-    content: "20 Attempts";
+    content: "20 Shots";
 }
 
 #start-game-normal.btn-select-difficulty:hover:before {
-    content: "10 Attempts";
+    content: "10 Shots";
 }
 
 #start-game-hard.btn-select-difficulty:hover:before {
-    content: "5 Attempts";
+    content: "5 Shots";
 }
 
 .btn-select-difficulty:hover .highlight {
@@ -403,7 +403,7 @@ button:focus {
     font-size: 1.5em;
 }
 
-.points {
+.shots {
     font-size: .8em;
     letter-spacing: 2px;
     padding-left: 4px;
@@ -671,7 +671,7 @@ button:focus {
         font-size: .9em;
     }
 
-    .points {
+    .shots {
         font-size: .5em;
         letter-spacing: 1px;
         padding-left: 2px;
