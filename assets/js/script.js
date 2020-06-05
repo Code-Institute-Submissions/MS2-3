@@ -150,4 +150,18 @@ class DrumKit {
         this.index++;
     }
 
+    start() {
+        const interval = (60 / this.bpm) * 500;
+        // Check if it is playing
+        if (!this.isPlaying) {
+            this.isPlaying = setInterval(() => {
+                this.cycle();
+            }, interval);
+        }
+    }
+
 }
+
+const drumKit = new DrumKit();
+
+drumKit.start();
