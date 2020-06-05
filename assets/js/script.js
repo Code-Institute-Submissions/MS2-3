@@ -15,6 +15,19 @@ $("#start-game-easy, #start-game-normal, #start-game-hard").click(function () {
     $(".parallax").addClass("d-none");
 });
 
+// Set shots counter for each difficulty
+$("#start-game-easy").click(function () {
+    $(".digits").text("20");
+});
+
+$("#start-game-normal").click(function () {
+    $(".digits").text("10"); 
+});
+
+$("#start-game-hard").click(function () {
+    $(".digits").text("1");
+});
+
 // Landing screen dust particle parallax effect
 // Based on source: https://codepen.io/SabAsan/pen/gOaRJzV
 
