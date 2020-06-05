@@ -100,3 +100,16 @@ $("#open-hh").click(function () {
 $(".home-btn").click(function () {
     window.location.reload()
 });
+
+/*--------------------------------- Step Sequencer ------------------------------*/
+
+class DrumKit {
+    constructor() {
+        this.pads = document.querySelectorAll(".drum-pad");
+        this.playButton = document.querySelector(".play-btn");
+        this.kickAudio = document.querySelector(".kick-audio");
+        this.snareAudio = document.querySelector(".snare-audio");
+        this.hihatAudio = document.querySelector(".hihat-audio");
+        this.openhhAudio = document.querySelector(".openhh-audio");
+    }
+}
