@@ -111,5 +111,18 @@ class DrumKit {
         this.snareAudio = document.querySelector(".snare-audio");
         this.hihatAudio = document.querySelector(".hihat-audio");
         this.openhhAudio = document.querySelector(".openhh-audio");
+        this.index = 0;
+        this.bpm = 160;
     }
+
+    cycle() {
+        let step = this.index % 16;
+        const activePad = document.querySelectorAll(`.pad-${step}`);
+
+        // Loops over the pads in unison
+        activePad.forEach(beat => {
+        });
+        this.index++;
+    }
+
 }
