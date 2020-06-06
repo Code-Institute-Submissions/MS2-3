@@ -25,7 +25,7 @@ $("#start-game-normal").click(function () {
 });
 
 $("#start-game-hard").click(function () {
-    $(".digits").text("1");
+    $(".digits").text("5");
 });
 
 // Landing screen dust particle parallax effect
