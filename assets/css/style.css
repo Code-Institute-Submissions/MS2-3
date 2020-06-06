@@ -257,6 +257,31 @@ button:focus {
     }
 }
 
+.flip {
+    -webkit-animation: flip .4s linear;
+    -moz-animation: flip .4s linear;
+    animation: flip .4s linear;
+}
+
+@-moz-keyframes flip {
+    100% {
+        -moz-transform: rotate3d(0, 1, 0, 1turn);
+    }
+}
+
+@-webkit-keyframes flip {
+    100% {
+        -webkit-transform: rotate3d(0, 1, 0, 1turn);
+    }
+}
+
+@keyframes flip {
+    100% {
+        -webkit-transform: rotate3d(0, 1, 0, 1turn);
+        transform: rotate3d(0, 1, 0, 1turn);
+    }
+}
+
 .needle-arm {
     position: fixed;
     height: 35vw;

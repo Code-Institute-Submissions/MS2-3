@@ -21,12 +21,40 @@ $("#start-game-easy").click(function () {
 });
 
 $("#start-game-normal").click(function () {
-    $(".digits").text("10"); 
+    $(".digits").text("10");
 });
 
 $("#start-game-hard").click(function () {
     $(".digits").text("5");
 });
+
+// Flip records when hovering difficulty select buttons 
+$("#start-game-easy").hover(
+    function() {
+        $("#bronze").addClass("flip");
+    },
+    function() {
+        $("#bronze").removeClass("flip");
+    }
+);
+
+$("#start-game-normal").hover(
+    function() {
+        $("#silver").addClass("flip");
+    },
+    function() {
+        $("#silver").removeClass("flip");
+    }
+);
+
+$("#start-game-hard").hover(
+    function() {
+        $("#gold").addClass("flip");
+    },
+    function() {
+        $("#gold").removeClass("flip");
+    }
+);
 
 // Landing screen dust particle parallax effect
 // Based on source: https://codepen.io/SabAsan/pen/gOaRJzV
@@ -115,7 +143,7 @@ $(".home-btn").click(function () {
 });
 
 // Toggle vinyl spin, needle arm rotation and play button scale animations when clicked
-$(".play-btn").click(function() {
+$(".play-btn").click(function () {
     $(".vinyl").toggleClass("spin");
     $(".needle-arm").toggleClass("rotate");
     $(".play-btn").toggleClass("scale");
@@ -135,8 +163,8 @@ class DrumKit {
         this.bpm = 160;
     }
 
-     // On/Off toggle for pads
-     activePad() {
+    // On/Off toggle for pads
+    activePad() {
         this.classList.toggle("selected");
     }
 
