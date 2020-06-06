@@ -114,10 +114,11 @@ $(".home-btn").click(function () {
     window.location.reload()
 });
 
-// Toggle vinyl spin and needle arm rotation when clicked
+// Toggle vinyl spin, needle arm rotation and play button scale animations when clicked
 $(".play-btn").click(function() {
     $(".vinyl").toggleClass("spin");
     $(".needle-arm").toggleClass("rotate");
+    $(".play-btn").toggleClass("scale");
 });
 
 /*--------------------------------- Step Sequencer ------------------------------*/
