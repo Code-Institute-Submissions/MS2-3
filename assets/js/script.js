@@ -143,10 +143,12 @@ $(".home-btn").click(function () {
 });
 
 // Toggle vinyl spin, needle arm rotation and play button scale animations when clicked
+// Activate drum pads
 $(".play-btn").click(function () {
     $(".vinyl").toggleClass("spin");
     $(".needle-arm").toggleClass("rotate");
     $(this).toggleClass("scale");
+    $("#all-pads").toggleClass("disabled-drum-pad");
 });
 
 /*--------------------------------- Step Sequencer ------------------------------*/

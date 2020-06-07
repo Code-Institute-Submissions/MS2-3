@@ -470,6 +470,11 @@ button:focus {
     padding: 2px 0 0 10px;
 }
 
+.disabled-drum-pad {
+    pointer-events: none;
+    opacity: .4;
+}
+
 .kick-drum,
 .snare-drum,
 .hihat-drum,

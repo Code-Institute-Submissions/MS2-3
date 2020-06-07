@@ -28,6 +28,7 @@
                 <div class="row d-flex justify-content-center pb-1">
                     <h1 class="col-10 col-md-8 text-uppercase text-center h5 letter-spacing text-uppercase">Match the
                         correct beat sequence to beat the break</h1>
+                    <div id="data"></div>
                 </div>
                 <div class="row d-flex justify-content-center mt-4 pb-1">
                     <button data-toggle="modal" data-target="#howToPlayModal"
@@ -185,115 +186,117 @@
                 </div>
             </div>
 
-            <!-- Kick Drum Pads -->
-            <div class="kick-pads">
-                <div class="d-flex justify-content-center mt-2">
-                    <div class="kick-drum mr-3 drum-pad text-left pt-2 text-muted small pad-0">1</div>
-                    <div class="kick-drum mr-3 drum-pad text-left pt-2 text-muted small pad-1">2</div>
-                    <div class="kick-drum mr-3 drum-pad text-left pt-2 text-muted small pad-2">3</div>
-                    <div class="kick-drum drum-pad text-left pt-2 text-muted small pad-3">4</div>
+            <div id="all-pads" class="disabled-drum-pad">
+                <!-- Kick Drum Pads -->
+                <div class="kick-pads">
+                    <div class="d-flex justify-content-center mt-2">
+                        <div class="kick-drum mr-3 drum-pad text-left pt-2 text-muted small pad-0">1</div>
+                        <div class="kick-drum mr-3 drum-pad text-left pt-2 text-muted small pad-1">2</div>
+                        <div class="kick-drum mr-3 drum-pad text-left pt-2 text-muted small pad-2">3</div>
+                        <div class="kick-drum drum-pad text-left pt-2 text-muted small pad-3">4</div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-3">
+                        <div class="kick-drum mr-3 drum-pad text-left pt-2 text-muted small pad-4">5</div>
+                        <div class="kick-drum mr-3 drum-pad text-left pt-2 text-muted small pad-5">6</div>
+                        <div class="kick-drum mr-3 drum-pad text-left pt-2 text-muted small pad-6">7</div>
+                        <div class="kick-drum drum-pad text-left pt-2 text-muted small pad-7">8</div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-3">
+                        <div class="kick-drum mr-3 drum-pad text-left pt-2 text-muted small pad-8">9</div>
+                        <div class="kick-drum mr-3 drum-pad text-left pt-2 text-muted small pad-9">10</div>
+                        <div class="kick-drum mr-3 drum-pad text-left pt-2 text-muted small pad-10">11</div>
+                        <div class="kick-drum drum-pad text-left pt-2 text-muted small pad-11">12</div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-3">
+                        <div class="kick-drum mr-3 drum-pad text-left pt-2 text-muted small pad-12">13</div>
+                        <div class="kick-drum mr-3 drum-pad text-left pt-2 text-muted small pad-13">14</div>
+                        <div class="kick-drum mr-3 drum-pad text-left pt-2 text-muted small pad-14">15</div>
+                        <div class="kick-drum drum-pad text-left pt-2 text-muted small pad-15">16</div>
+                    </div>
                 </div>
-                <div class="d-flex justify-content-center mt-3">
-                    <div class="kick-drum mr-3 drum-pad text-left pt-2 text-muted small pad-4">5</div>
-                    <div class="kick-drum mr-3 drum-pad text-left pt-2 text-muted small pad-5">6</div>
-                    <div class="kick-drum mr-3 drum-pad text-left pt-2 text-muted small pad-6">7</div>
-                    <div class="kick-drum drum-pad text-left pt-2 text-muted small pad-7">8</div>
-                </div>
-                <div class="d-flex justify-content-center mt-3">
-                    <div class="kick-drum mr-3 drum-pad text-left pt-2 text-muted small pad-8">9</div>
-                    <div class="kick-drum mr-3 drum-pad text-left pt-2 text-muted small pad-9">10</div>
-                    <div class="kick-drum mr-3 drum-pad text-left pt-2 text-muted small pad-10">11</div>
-                    <div class="kick-drum drum-pad text-left pt-2 text-muted small pad-11">12</div>
-                </div>
-                <div class="d-flex justify-content-center mt-3">
-                    <div class="kick-drum mr-3 drum-pad text-left pt-2 text-muted small pad-12">13</div>
-                    <div class="kick-drum mr-3 drum-pad text-left pt-2 text-muted small pad-13">14</div>
-                    <div class="kick-drum mr-3 drum-pad text-left pt-2 text-muted small pad-14">15</div>
-                    <div class="kick-drum drum-pad text-left pt-2 text-muted small pad-15">16</div>
-                </div>
-            </div>
 
-            <!-- Snare Drum Pads -->
-            <div class="snare-pads">
-                <div class="d-flex justify-content-center mt-2">
-                    <div class="snare-drum mr-3 drum-pad text-left pt-2 text-muted small pad-0">1</div>
-                    <div class="snare-drum mr-3 drum-pad text-left pt-2 text-muted small pad-1">2</div>
-                    <div class="snare-drum mr-3 drum-pad text-left pt-2 text-muted small pad-2">3</div>
-                    <div class="snare-drum drum-pad text-left pt-2 text-muted small pad-3">4</div>
+                <!-- Snare Drum Pads -->
+                <div class="snare-pads">
+                    <div class="d-flex justify-content-center mt-2">
+                        <div class="snare-drum mr-3 drum-pad text-left pt-2 text-muted small pad-0">1</div>
+                        <div class="snare-drum mr-3 drum-pad text-left pt-2 text-muted small pad-1">2</div>
+                        <div class="snare-drum mr-3 drum-pad text-left pt-2 text-muted small pad-2">3</div>
+                        <div class="snare-drum drum-pad text-left pt-2 text-muted small pad-3">4</div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-3">
+                        <div class="snare-drum mr-3 drum-pad text-left pt-2 text-muted small pad-4">5</div>
+                        <div class="snare-drum mr-3 drum-pad text-left pt-2 text-muted small pad-5">6</div>
+                        <div class="snare-drum mr-3 drum-pad text-left pt-2 text-muted small pad-6">7</div>
+                        <div class="snare-drum drum-pad text-left pt-2 text-muted small pad-7">8</div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-3">
+                        <div class="snare-drum mr-3 drum-pad text-left pt-2 text-muted small pad-8">9</div>
+                        <div class="snare-drum mr-3 drum-pad text-left pt-2 text-muted small pad-9">10</div>
+                        <div class="snare-drum mr-3 drum-pad text-left pt-2 text-muted small pad-10">11</div>
+                        <div class="snare-drum drum-pad text-left pt-2 text-muted small pad-11">12</div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-3">
+                        <div class="snare-drum mr-3 drum-pad text-left pt-2 text-muted small pad-12">13</div>
+                        <div class="snare-drum mr-3 drum-pad text-left pt-2 text-muted small pad-13">14</div>
+                        <div class="snare-drum mr-3 drum-pad text-left pt-2 text-muted small pad-14">15</div>
+                        <div class="snare-drum drum-pad text-left pt-2 text-muted small pad-15">16</div>
+                    </div>
                 </div>
-                <div class="d-flex justify-content-center mt-3">
-                    <div class="snare-drum mr-3 drum-pad text-left pt-2 text-muted small pad-4">5</div>
-                    <div class="snare-drum mr-3 drum-pad text-left pt-2 text-muted small pad-5">6</div>
-                    <div class="snare-drum mr-3 drum-pad text-left pt-2 text-muted small pad-6">7</div>
-                    <div class="snare-drum drum-pad text-left pt-2 text-muted small pad-7">8</div>
-                </div>
-                <div class="d-flex justify-content-center mt-3">
-                    <div class="snare-drum mr-3 drum-pad text-left pt-2 text-muted small pad-8">9</div>
-                    <div class="snare-drum mr-3 drum-pad text-left pt-2 text-muted small pad-9">10</div>
-                    <div class="snare-drum mr-3 drum-pad text-left pt-2 text-muted small pad-10">11</div>
-                    <div class="snare-drum drum-pad text-left pt-2 text-muted small pad-11">12</div>
-                </div>
-                <div class="d-flex justify-content-center mt-3">
-                    <div class="snare-drum mr-3 drum-pad text-left pt-2 text-muted small pad-12">13</div>
-                    <div class="snare-drum mr-3 drum-pad text-left pt-2 text-muted small pad-13">14</div>
-                    <div class="snare-drum mr-3 drum-pad text-left pt-2 text-muted small pad-14">15</div>
-                    <div class="snare-drum drum-pad text-left pt-2 text-muted small pad-15">16</div>
-                </div>
-            </div>
 
-            <!-- Hihat Drum Pads -->
-            <div class="hihat-pads">
-                <div class="d-flex justify-content-center mt-2">
-                    <div class="hihat-drum mr-3 drum-pad text-left pt-2 text-muted small pad-0">1</div>
-                    <div class="hihat-drum mr-3 drum-pad text-left pt-2 text-muted small pad-1">2</div>
-                    <div class="hihat-drum mr-3 drum-pad text-left pt-2 text-muted small pad-2">3</div>
-                    <div class="hihat-drum drum-pad text-left pt-2 text-muted small pad-3">4</div>
+                <!-- Hihat Drum Pads -->
+                <div class="hihat-pads">
+                    <div class="d-flex justify-content-center mt-2">
+                        <div class="hihat-drum mr-3 drum-pad text-left pt-2 text-muted small pad-0">1</div>
+                        <div class="hihat-drum mr-3 drum-pad text-left pt-2 text-muted small pad-1">2</div>
+                        <div class="hihat-drum mr-3 drum-pad text-left pt-2 text-muted small pad-2">3</div>
+                        <div class="hihat-drum drum-pad text-left pt-2 text-muted small pad-3">4</div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-3">
+                        <div class="hihat-drum mr-3 drum-pad text-left pt-2 text-muted small pad-4">5</div>
+                        <div class="hihat-drum mr-3 drum-pad text-left pt-2 text-muted small pad-5">6</div>
+                        <div class="hihat-drum mr-3 drum-pad text-left pt-2 text-muted small pad-6">7</div>
+                        <div class="hihat-drum drum-pad text-left pt-2 text-muted small pad-7">8</div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-3">
+                        <div class="hihat-drum mr-3 drum-pad text-left pt-2 text-muted small pad-8">9</div>
+                        <div class="hihat-drum mr-3 drum-pad text-left pt-2 text-muted small pad-9">10</div>
+                        <div class="hihat-drum mr-3 drum-pad text-left pt-2 text-muted small pad-10">11</div>
+                        <div class="hihat-drum drum-pad text-left pt-2 text-muted small pad-11">12</div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-3">
+                        <div class="hihat-drum mr-3 drum-pad text-left pt-2 text-muted small pad-12">13</div>
+                        <div class="hihat-drum mr-3 drum-pad text-left pt-2 text-muted small pad-13">14</div>
+                        <div class="hihat-drum mr-3 drum-pad text-left pt-2 text-muted small pad-14">15</div>
+                        <div class="hihat-drum drum-pad text-left pt-2 text-muted small pad-15">16</div>
+                    </div>
                 </div>
-                <div class="d-flex justify-content-center mt-3">
-                    <div class="hihat-drum mr-3 drum-pad text-left pt-2 text-muted small pad-4">5</div>
-                    <div class="hihat-drum mr-3 drum-pad text-left pt-2 text-muted small pad-5">6</div>
-                    <div class="hihat-drum mr-3 drum-pad text-left pt-2 text-muted small pad-6">7</div>
-                    <div class="hihat-drum drum-pad text-left pt-2 text-muted small pad-7">8</div>
-                </div>
-                <div class="d-flex justify-content-center mt-3">
-                    <div class="hihat-drum mr-3 drum-pad text-left pt-2 text-muted small pad-8">9</div>
-                    <div class="hihat-drum mr-3 drum-pad text-left pt-2 text-muted small pad-9">10</div>
-                    <div class="hihat-drum mr-3 drum-pad text-left pt-2 text-muted small pad-10">11</div>
-                    <div class="hihat-drum drum-pad text-left pt-2 text-muted small pad-11">12</div>
-                </div>
-                <div class="d-flex justify-content-center mt-3">
-                    <div class="hihat-drum mr-3 drum-pad text-left pt-2 text-muted small pad-12">13</div>
-                    <div class="hihat-drum mr-3 drum-pad text-left pt-2 text-muted small pad-13">14</div>
-                    <div class="hihat-drum mr-3 drum-pad text-left pt-2 text-muted small pad-14">15</div>
-                    <div class="hihat-drum drum-pad text-left pt-2 text-muted small pad-15">16</div>
-                </div>
-            </div>
 
-            <!-- Open Hihat Drum Pads -->
-            <div class="openhh-pads">
-                <div class="d-flex justify-content-center mt-2">
-                    <div class="openhh-drum mr-3 drum-pad text-left pt-2 text-muted small pad-0">1</div>
-                    <div class="openhh-drum mr-3 drum-pad text-left pt-2 text-muted small pad-1">2</div>
-                    <div class="openhh-drum mr-3 drum-pad text-left pt-2 text-muted small pad-2">3</div>
-                    <div class="openhh-drum drum-pad text-left pt-2 text-muted small pad-3">4</div>
-                </div>
-                <div class="d-flex justify-content-center mt-3">
-                    <div class="openhh-drum mr-3 drum-pad text-left pt-2 text-muted small pad-4">5</div>
-                    <div class="openhh-drum mr-3 drum-pad text-left pt-2 text-muted small pad-5">6</div>
-                    <div class="openhh-drum mr-3 drum-pad text-left pt-2 text-muted small pad-6">7</div>
-                    <div class="openhh-drum drum-pad text-left pt-2 text-muted small pad-7">8</div>
-                </div>
-                <div class="d-flex justify-content-center mt-3">
-                    <div class="openhh-drum mr-3 drum-pad text-left pt-2 text-muted small pad-8">9</div>
-                    <div class="openhh-drum mr-3 drum-pad text-left pt-2 text-muted small pad-9">10</div>
-                    <div class="openhh-drum mr-3 drum-pad text-left pt-2 text-muted small pad-10">11</div>
-                    <div class="openhh-drum drum-pad text-left pt-2 text-muted small pad-11">12</div>
-                </div>
-                <div class="d-flex justify-content-center mt-3">
-                    <div class="openhh-drum mr-3 drum-pad text-left pt-2 text-muted small pad-12">13</div>
-                    <div class="openhh-drum mr-3 drum-pad text-left pt-2 text-muted small pad-13">14</div>
-                    <div class="openhh-drum mr-3 drum-pad text-left pt-2 text-muted small pad-14">15</div>
-                    <div class="openhh-drum drum-pad text-left pt-2 text-muted small pad-15">16</div>
+                <!-- Open Hihat Drum Pads -->
+                <div class="openhh-pads">
+                    <div class="d-flex justify-content-center mt-2">
+                        <div class="openhh-drum mr-3 drum-pad text-left pt-2 text-muted small pad-0">1</div>
+                        <div class="openhh-drum mr-3 drum-pad text-left pt-2 text-muted small pad-1">2</div>
+                        <div class="openhh-drum mr-3 drum-pad text-left pt-2 text-muted small pad-2">3</div>
+                        <div class="openhh-drum drum-pad text-left pt-2 text-muted small pad-3">4</div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-3">
+                        <div class="openhh-drum mr-3 drum-pad text-left pt-2 text-muted small pad-4">5</div>
+                        <div class="openhh-drum mr-3 drum-pad text-left pt-2 text-muted small pad-5">6</div>
+                        <div class="openhh-drum mr-3 drum-pad text-left pt-2 text-muted small pad-6">7</div>
+                        <div class="openhh-drum drum-pad text-left pt-2 text-muted small pad-7">8</div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-3">
+                        <div class="openhh-drum mr-3 drum-pad text-left pt-2 text-muted small pad-8">9</div>
+                        <div class="openhh-drum mr-3 drum-pad text-left pt-2 text-muted small pad-9">10</div>
+                        <div class="openhh-drum mr-3 drum-pad text-left pt-2 text-muted small pad-10">11</div>
+                        <div class="openhh-drum drum-pad text-left pt-2 text-muted small pad-11">12</div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-3">
+                        <div class="openhh-drum mr-3 drum-pad text-left pt-2 text-muted small pad-12">13</div>
+                        <div class="openhh-drum mr-3 drum-pad text-left pt-2 text-muted small pad-13">14</div>
+                        <div class="openhh-drum mr-3 drum-pad text-left pt-2 text-muted small pad-14">15</div>
+                        <div class="openhh-drum drum-pad text-left pt-2 text-muted small pad-15">16</div>
+                    </div>
                 </div>
             </div>
 
@@ -320,7 +323,7 @@
                 <div class="mt-sm-3 mt-2 d-flex">
                     <button class="mr-sm-4 mr-1 home-btn"></button>
                     <button class="ml-sm-4 mr-sm-4 ml-2 mr-2 play-btn text-uppercase scale">Play</button>
-                    <button class="mr-sm-4 mr-2 retry-btn text-uppercase">Retry</button>
+                    <button class="mr-sm-4 mr-2 retry-btn text-uppercase" disabled>Retry</button>
                     <button class="mute-btn ml-sm-4 ml-1"></button>
                 </div>
             </div>
