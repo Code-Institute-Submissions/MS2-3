@@ -107,7 +107,7 @@ $(".snare-pads, .hihat-pads, .openhh-pads").hide();
 $("#kick").click(function () {
     $(".snare-pads, .hihat-pads, .openhh-pads").hide();
     $(".kick-pads").show();
-    $("#kick").addClass("trigger");
+    $(this).addClass("trigger");
     $("#hi-hats, #snare, #open-hh").removeClass("trigger");
 });
 
@@ -115,7 +115,7 @@ $("#kick").click(function () {
 $("#snare").click(function () {
     $(".kick-pads, .hihat-pads, .openhh-pads").hide();
     $(".snare-pads").show();
-    $("#snare").addClass("trigger");
+    $(this).addClass("trigger");
     $("#hi-hats, #open-hh, #kick").removeClass("trigger");
 });
 
@@ -123,7 +123,7 @@ $("#snare").click(function () {
 $("#hi-hats").click(function () {
     $(".snare-pads, .kick-pads, .openhh-pads").hide();
     $(".hihat-pads").show("show");
-    $("#hi-hats").addClass("trigger");
+    $(this).addClass("trigger");
     $("#open-hh, #snare, #kick").removeClass("trigger");
 });
 
@@ -131,7 +131,7 @@ $("#hi-hats").click(function () {
 $("#open-hh").click(function () {
     $(".snare-pads, .hihat-pads, .kick-pads").hide();
     $(".openhh-pads").show("show");
-    $("#open-hh").addClass("trigger");
+    $(this).addClass("trigger");
     $("#hi-hats, #snare, #kick").removeClass("trigger");
 });
 
@@ -146,7 +146,7 @@ $(".home-btn").click(function () {
 $(".play-btn").click(function () {
     $(".vinyl").toggleClass("spin");
     $(".needle-arm").toggleClass("rotate");
-    $(".play-btn").toggleClass("scale");
+    $(this).toggleClass("scale");
 });
 
 /*--------------------------------- Step Sequencer ------------------------------*/
