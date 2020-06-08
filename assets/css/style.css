@@ -118,7 +118,7 @@ button:focus {
     box-shadow: 0 0 90px 0 rgba(220, 49, 49, .6);
 }
 
-.btn-select-difficulty {
+.btn-arcade {
     background-color: #dc3131;
     border: 2px solid rgba(73, 8, 8, 0.16);
     color: white;
@@ -130,7 +130,7 @@ button:focus {
     cursor: pointer;
 }
 
-.btn-select-difficulty:hover {
+.btn-arcade:hover {
     background-color: #dc3131;
     box-shadow:
         -8px 7px 0 rgba(166, 171, 189, 0.8),
@@ -142,23 +142,23 @@ button:focus {
     border-radius: 20px;
 }
 
-.btn-select-difficulty:hover .text-change {
+.btn-arcade:hover .text-change {
     display: none;
 }
 
-#start-game-easy.btn-select-difficulty:hover:before {
+#start-game-easy.btn-arcade:hover:before {
     content: "20 Shots";
 }
 
-#start-game-normal.btn-select-difficulty:hover:before {
+#start-game-normal.btn-arcade:hover:before {
     content: "10 Shots";
 }
 
-#start-game-hard.btn-select-difficulty:hover:before {
+#start-game-hard.btn-arcade:hover:before {
     content: "5 Shots";
 }
 
-.btn-select-difficulty:hover .highlight {
+.btn-arcade:hover .highlight {
     transform: translate(-100px, -58px);
     opacity: 1;
 }
