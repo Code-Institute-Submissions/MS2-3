@@ -167,6 +167,10 @@ button:focus {
     content: "Let's Do It";
 }
 
+#try-again.btn-arcade:hover:before {
+    content: "You Got This";
+}
+
 .btn-arcade:hover .highlight {
     transform: translate(-100px, -58px);
     opacity: 1;
