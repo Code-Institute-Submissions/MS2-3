@@ -151,6 +151,15 @@ $(".play-btn").click(function () {
     $("#all-pads").toggleClass("disabled-drum-pad");
 });
 
+// Testing lose modal show if element has a certain class
+
+// $("#open-hh").click(function() {
+//     if ($(this).hasClass("trigger")){
+//         $("#tryAgainModal").modal("show");
+//     }
+// });
+
+
 /*--------------------------------- Step Sequencer ------------------------------*/
 
 class DrumKit {
@@ -244,4 +253,17 @@ drumKit.pads.forEach(pad => {
 drumKit.playButton.addEventListener("click", function () {
     drumKit.updateBtn();
     drumKit.start();
+});
+
+
+//Howler.js
+
+var sound = new Howl({
+    src: ["./assets/sounds/btb-sprite.mp3", "./assets/sounds/btb-sprite.ogg"],
+    sprite: {
+        kick: [0, 230],
+        snare: [250, 230],
+        hihat: [500, 230],
+        openhh: [750, 230]
+    }
 });
