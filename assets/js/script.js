@@ -23,16 +23,19 @@ $("#start-game-easy, #start-game-normal, #start-game-hard").click(function () {
 $("#start-game-easy").click(function () {
     retry = 20;
     $(".digits").text("20");
+    sound.play('start');
 });
 
 $("#start-game-normal").click(function () {
     retry = 10;
     $(".digits").text("10");
+    sound.play('start');
 });
 
 $("#start-game-hard").click(function () {
     retry = 5;
     $(".digits").text("5");
+    sound.play('start');
 });
 
 // Flip records when hovering difficulty select buttons 
@@ -156,7 +159,11 @@ $("#open-hh").click(function () {
 // Return to home screen when drum console home icon is clicked 
 
 $(".home-btn").click(function () {
-    window.location.reload()
+    sound.play("exit");
+    // Sets timeout so exit sound plays in full before reload
+    //ensures that the function will always be called in the context of window.location
+    //SRC: https://stackoverflow.com/questions/39407803/why-does-settimeoutlocation-reload-throw-a-typeerror/39407908
+    window.setTimeout(window.location.reload.bind(window.location), 500);
 });
 
 // Toggle vinyl spin, needle arm rotation and play button scale animations when clicked
@@ -243,7 +250,9 @@ class DrumKit {
             this.playButton.innerText = "PLAY";
             this.playButton.classList.remove("retry-btn");
             // Resets the counter to the correct value for each difficulty
+            // Plays vinyl back spin sound
             $(".digits").text(retry);
+                sound.play('backSpin');
             // Clears all pads when reset
             $(".kick-drum, .snare-drum, .hihat-drum, .openhh-drum").removeClass("selected");
         }
@@ -272,11 +281,46 @@ drumKit.playButton.addEventListener("click", function () {
 //Howler.js
 
 var sound = new Howl({
-    src: ["./assets/sounds/btb-sprite.mp3", "./assets/sounds/btb-sprite.ogg"],
+    src: ["./assets/sounds/btb-sprite-2.mp3", "./assets/sounds/btb-sprite-2.ogg"],
     sprite: {
-        kick: [0, 230],
-        snare: [250, 230],
-        hihat: [500, 230],
-        openhh: [750, 230]
+        kick: [0, 240],
+        snare: [250, 240],
+        hihat: [500, 240],
+        openhh: [750, 240],
+        backSpin: [1000, 900],
+        easy: [2000, 400],
+        normal: [2500, 450],
+        hard: [3000, 520],
+        exit: [3750, 420],
+        start: [4250, 550],
+        error: [5000, 460],
+        button: [5500, 500]
     }
+});
+
+// Hover Sounds
+
+// Plays sound when hovering over disks
+$("#start-game-easy").hover(function () {
+    sound.play('easy');
+}, function () {
+    sound.play('');
+});
+
+$("#start-game-normal").hover(function () {
+    sound.play('normal');
+}, function () {
+    sound.play('');
+});
+
+$("#start-game-hard").hover(function () {
+    sound.play('hard');
+}, function () {
+    sound.play('');
+});
+
+$(".btn-how-to-play, .btn-start-game").hover(function () {
+    sound.play('button');
+}, function () {
+    sound.play('');
 });
