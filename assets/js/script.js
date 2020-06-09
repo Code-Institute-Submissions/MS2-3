@@ -12,7 +12,7 @@ $("#start-game-easy, #start-game-normal, #start-game-hard").click(function () {
     $("main").removeClass("d-none");
     $("main").addClass("d-flex");
     // Remove parallax dust particles 
-    $(".parallax").addClass("d-none");
+    $(".parallax").removeClass("d-sm-flex");
 });
 
 // Set shots counter for each difficulty
@@ -220,11 +220,13 @@ class DrumKit {
 
     updateBtn() {
         if (!this.isPlaying) {
-            this.playButton.innerText = "STOP";
+            this.playButton.innerText = "RESET";
             this.playButton.classList.add("retry-btn");
         } else {
             this.playButton.innerText = "PLAY";
             this.playButton.classList.remove("retry-btn");
+            // Clears all pads when reset
+            $(".kick-drum, .snare-drum, .hihat-drum, .openhh-drum").removeClass("selected");
         }
     }
 
