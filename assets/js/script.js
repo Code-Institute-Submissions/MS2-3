@@ -166,10 +166,6 @@ class DrumKit {
     constructor() {
         this.pads = document.querySelectorAll(".drum-pad");
         this.playButton = document.querySelector(".play-btn");
-        this.kickAudio = document.querySelector(".kick-audio");
-        this.snareAudio = document.querySelector(".snare-audio");
-        this.hihatAudio = document.querySelector(".hihat-audio");
-        this.openhhAudio = document.querySelector(".openhh-audio");
         this.index = 0;
         this.bpm = 160;
     }
@@ -190,20 +186,16 @@ class DrumKit {
             if (beat.classList.contains("selected")) {
                 // Check each sound in here
                 if (beat.classList.contains("kick-drum")) {
-                    this.kickAudio.currentTime = 0;
-                    this.kickAudio.play();
+                    sound.play('kick');
                 }
                 if (beat.classList.contains("snare-drum")) {
-                    this.snareAudio.currentTime = 0;
-                    this.snareAudio.play();
+                    sound.play('snare');
                 }
                 if (beat.classList.contains("hihat-drum")) {
-                    this.hihatAudio.currentTime = 0;
-                    this.hihatAudio.play();
+                    sound.play('hihat');
                 }
                 if (beat.classList.contains("openhh-drum")) {
-                    this.openhhAudio.currentTime = 0;
-                    this.openhhAudio.play();
+                    sound.play('openhh');
                 }
             }
         });
