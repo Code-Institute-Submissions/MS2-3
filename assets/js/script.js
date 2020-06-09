@@ -1,3 +1,6 @@
+// Global Variables
+let retry = 0;
+
 /*--------------------------------- Landing Screen ------------------------------*/
 
 // Remove landing screen to show main game area when "Start Game" button is clicked 
@@ -15,18 +18,32 @@ $("#start-game-easy, #start-game-normal, #start-game-hard").click(function () {
     $(".parallax").removeClass("d-sm-flex");
 });
 
+
 // Set shots counter for each difficulty
 $("#start-game-easy").click(function () {
+    retry = 20;
     $(".digits").text("20");
 });
 
 $("#start-game-normal").click(function () {
+    retry = 10;
     $(".digits").text("10");
 });
 
 $("#start-game-hard").click(function () {
+    retry = 5;
     $(".digits").text("5");
 });
+
+// Flip records when hovering difficulty select buttons 
+$("#start-game-easy").hover(
+    function () {
+        $("#bronze").addClass("flip");
+    },
+    function () {
+        $("#bronze").removeClass("flip");
+    }
+);
 
 // Flip records when hovering difficulty select buttons 
 $("#start-game-easy").hover(
@@ -225,6 +242,8 @@ class DrumKit {
         } else {
             this.playButton.innerText = "PLAY";
             this.playButton.classList.remove("retry-btn");
+            // Resets the counter to the correct value for each difficulty
+            $(".digits").text(retry);
             // Clears all pads when reset
             $(".kick-drum, .snare-drum, .hihat-drum, .openhh-drum").removeClass("selected");
         }
