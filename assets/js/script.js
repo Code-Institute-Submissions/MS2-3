@@ -331,6 +331,15 @@ var xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         let beatBank = JSON.parse(this.responseText);
+        let kickSplit = Object.values(beatBank)[1].kick;
+        // Declare beatIndex which will hold a random number to select random beats from the json object list
+        let beatIndex = [];
+        // Creates random number based on the amount on json objects
+        for(let i = 0; i < (beatBank.length)-1; i++){
+            let randomNumber = Math.round(Math.random())
+            //Pushed random number into beatIndex to be used as the index selector for the beat
+            beatIndex.push(randomNumber);
+        }
     }
 };
 
