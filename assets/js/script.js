@@ -324,3 +324,16 @@ $(".btn-how-to-play, .btn-start-game").hover(function () {
 }, function () {
     sound.play('');
 });
+
+// JSON
+var xhr = new XMLHttpRequest();
+
+xhr.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        let beatBank = JSON.parse(this.responseText);
+    }
+};
+
+xhr.open("GET", "beats.json");
+
+xhr.send();
