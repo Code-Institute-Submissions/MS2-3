@@ -330,51 +330,55 @@ $(".btn-how-to-play, .btn-start-game").hover(function () {
 });
 
 // JSON
-var xhr = new XMLHttpRequest();
 
-xhr.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        let beatBank = JSON.parse(this.responseText);
-        let kickSplit = Object.values(beatBank)[1].kick;
-        
-        // Declare beatIndex which will hold a random number to select random beats from the json object list
-        let beatIndex = [];
-        
-        // Creates random number based on the amount on json objects
-        for(let i = 0; i < (beatBank.length)-1; i++){
-            let randomNumber = Math.round(Math.random())
-            //Pushed random number into beatIndex to be used as the index selector for the beat
-            beatIndex.push(randomNumber);
+function getData(loadBeats) {
+    var xhr = new XMLHttpRequest();
+
+    xhr.open("GET", "beats.json");
+    xhr.send();
+
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            loadBeats(JSON.parse(this.responseText));
         }
+    };
+}
 
-        // Creates an array from the string of numbers in the json boject for each drum and stores beat pattern array for each drum in a variable
-        let kickArray = Array.from(String((beatBank)[beatIndex].kick), Number);
-        let snareArray = Array.from(String((beatBank)[beatIndex].snare), Number);
-        let hihatArray = Array.from(String((beatBank)[beatIndex].closedHat), Number);
-        let openhhArray = Array.from(String((beatBank)[beatIndex].openHat), Number);
-        
-        // For loop loops through the length of the drum arrays
-        // Then pushes the number to the pads which activates the correct pad
-        // The number 1 in the json object string is active
-        // The number 0 in the json object string is not active
-        // If the pad is = 1 the the selected class is applied
-        for(let i = 0; i < kickArray.length; i++){
-            if(kickArray[i] === 1){
-                $(`.kick-drum.pad-${i}`).addClass("selected");
-            }
-            if(snareArray[i] === 1){
-                $(`.snare-drum.pad-${i}`).addClass("selected");
-            }
-            if(hihatArray[i] === 1){
-                $(`.hihat-drum.pad-${i}`).addClass("selected");
-            }
-            if(openhhArray[i] === 1){
-                $(`.openhh-drum.pad-${i}`).addClass("selected");
-            }
+function setPatterns(beats) {
+    let beatIndex = [];
+
+    // Creates random number between 1 and 20 to be used to select each json object based on index
+        let randomNumber = Math.floor((Math.random()*21));
+        console.log(randomNumber);
+        //Pushed random number into beatIndex to be used as the index selector for the beat
+        beatIndex.push(randomNumber);
+
+    // Creates an array from the string of numbers in the json boject for each drum and stores beat pattern array for each drum in a variable
+    let kickArray = Array.from(String((beats)[beatIndex].kick), Number);
+    let snareArray = Array.from(String((beats)[beatIndex].snare), Number);
+    let hihatArray = Array.from(String((beats)[beatIndex].closedHat), Number);
+    let openhhArray = Array.from(String((beats)[beatIndex].openHat), Number);
+
+    // For loop loops through the length of the drum arrays
+    // Then pushes the number to the pads which activates the correct pad
+    // The number 1 in the json object string is active
+    // The number 0 in the json object string is not active
+    // If the pad is = 1 the the selected class is applied
+    for (let i = 0; i < kickArray.length; i++) {
+        if (kickArray[i] === 1) {
+            $(`.kick-drum.pad-${i}`).addClass("selected");
+        }
+        if (snareArray[i] === 1) {
+            $(`.snare-drum.pad-${i}`).addClass("selected");
+        }
+        if (hihatArray[i] === 1) {
+            $(`.hihat-drum.pad-${i}`).addClass("selected");
+        }
+        if (openhhArray[i] === 1) {
+            $(`.openhh-drum.pad-${i}`).addClass("selected");
         }
     }
-};
+}
 
-xhr.open("GET", "beats.json");
-
-xhr.send();
+// Sets the pad pattern
+getData(setPatterns);
