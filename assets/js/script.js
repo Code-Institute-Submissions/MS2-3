@@ -176,15 +176,6 @@ $(".home-btn").click(function () {
     window.setTimeout(window.location.reload.bind(window.location), 500);
 });
 
-// Toggle vinyl spin, needle arm rotation and play button scale animations when clicked
-// Activate drum pads
-$(".play-btn").click(function () {
-    $(".vinyl").toggleClass("spin");
-    $(".needle-arm").toggleClass("rotate");
-    $(this).toggleClass("scale");
-    $("#all-pads").toggleClass("disabled-drum-pad");
-});
-
 
 // Function to decrease score by one and update shot counter text
 function minusShots() {
@@ -207,12 +198,11 @@ function resetConsole() {
     sound.play('backSpin');
     // Clears all pads when reset
     $(".kick-drum, .snare-drum, .hihat-drum, .openhh-drum").removeClass("correct wrong");
-    // Adds or removes disabled-drum-pad class to revert to correct state when reset
-    if ($("#all-pads").hasClass("disabled-drum-pad")) {
-        $("#all-pads").removeClass("disabled-drum-pad");
-    } else {
-        $("#all-pads").addClass("disabled-drum-pad");
-    }
+    // Revert back to kick instrument pads
+    $(".snare-pads, .hihat-pads, .openhh-pads").hide();
+    $(".kick-pads").show();
+    $("#kick").addClass("trigger");
+    $("#hi-hats, #snare, #open-hh").removeClass("trigger");
 };
 
 /*--------------------------------- Step Sequencer ------------------------------*/
@@ -279,6 +269,12 @@ class DrumKit {
             this.index = 0;
             resetConsole();
         }
+        // Toggle vinyl spin, needle arm rotation and play button scale animations when clicked
+        // Activate drum pads
+        $(".vinyl").toggleClass("spin");
+        $(".needle-arm").toggleClass("rotate");
+        $(".play-btn").toggleClass("scale");
+        $("#all-pads").toggleClass("disabled-drum-pad");
     }
 
     updateBtn() {
