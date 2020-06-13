@@ -179,15 +179,6 @@ $(".play-btn").click(function () {
     $("#all-pads").toggleClass("disabled-drum-pad");
 });
 
-// Testing lose modal show if element has a certain class
-
-// $("#open-hh").click(function() {
-//     if ($(this).hasClass("trigger")){
-//         $("#tryAgainModal").modal("show");
-//     }
-// });
-
-
 /*--------------------------------- Step Sequencer ------------------------------*/
 
 class DrumKit {
@@ -200,7 +191,7 @@ class DrumKit {
 
     // On/Off toggle for pads
     activePad() {
-        this.classList.toggle("selected");
+        this.classList.contains("playing");
     }
 
     cycle() {
@@ -210,8 +201,8 @@ class DrumKit {
         // Loop over the pads
         activePad.forEach(beat => {
             beat.style.animation = `pulse .65s`;
-            // Check if pads are selected
-            if (beat.classList.contains("selected")) {
+            // Check if pads are should play sound based on arrays from setPattern function
+            if (beat.classList.contains("playing")) {
                 // Check each sound in here
                 if (beat.classList.contains("kick-drum")) {
                     sound.play('kick');
@@ -225,7 +216,7 @@ class DrumKit {
                 if (beat.classList.contains("openhh-drum")) {
                     sound.play('openhh');
                 }
-            }
+            } 
         });
         this.index++;
     }
@@ -258,7 +249,7 @@ class DrumKit {
             $(".digits").text(retry);
                 sound.play('backSpin');
             // Clears all pads when reset
-            $(".kick-drum, .snare-drum, .hihat-drum, .openhh-drum").removeClass("selected");
+            $(".kick-drum, .snare-drum, .hihat-drum, .openhh-drum").removeClass("correct wrong");
         }
     }
 
@@ -365,20 +356,20 @@ function setPatterns(beats) {
     // Then pushes the number to the pads which activates the correct pad
     // The number 1 in the json object string is active
     // The number 0 in the json object string is not active
-    // If the pad is = 1 the the selected class is applied
+    // If the pad is = 1 the playing class is applied - this will in turn play the correct sound in the sequencer
     for (let i = 0; i < kickArray.length; i++) {
         if (kickArray[i] === 1) {
-            $(`.kick-drum.pad-${i}`).addClass("selected");
-        }
+            $(`.kick-drum.pad-${i}`).addClass("playing");
+        } 
         if (snareArray[i] === 1) {
-            $(`.snare-drum.pad-${i}`).addClass("selected");
-        }
+            $(`.snare-drum.pad-${i}`).addClass("playing");
+        } 
         if (hihatArray[i] === 1) {
-            $(`.hihat-drum.pad-${i}`).addClass("selected");
-        }
+            $(`.hihat-drum.pad-${i}`).addClass("playing");
+        } 
         if (openhhArray[i] === 1) {
-            $(`.openhh-drum.pad-${i}`).addClass("selected");
-        }
+            $(`.openhh-drum.pad-${i}`).addClass("playing");
+        } 
     }
 }
 
