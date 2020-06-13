@@ -26,23 +26,23 @@ $("#start-game-easy, #start-game-normal, #start-game-hard").click(function () {
 
 // Set shots counter for each difficulty
 $("#start-game-easy").click(function () {
-    shots = 75;
-    retry = 75;
-    $(".digits").text(75);
+    shots = 20;
+    retry = 20;
+    $(".digits").text(20);
     sound.play('start');
 });
 
 $("#start-game-normal").click(function () {
     shots = 10;
-    retry = normalScore;
-    $(".digits").text(normalScore);
+    retry = 10;
+    $(".digits").text(10);
     sound.play('start');
 });
 
 $("#start-game-hard").click(function () {
     shots = 5;
-    retry = hardScore;
-    $(".digits").text(hardScore);
+    retry = 5;
+    $(".digits").text(5);
     sound.play('start');
 });
 
