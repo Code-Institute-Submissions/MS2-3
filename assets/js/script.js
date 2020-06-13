@@ -4,6 +4,9 @@ let kickArray = [];
 let snareArray = [];
 let hihatArray = [];
 let openhhArray = [];
+let easyScore = 20;
+let normalScore = 10;
+let hardScore = 5;
 
 /*--------------------------------- Landing Screen ------------------------------*/
 
@@ -26,19 +29,19 @@ $("#start-game-easy, #start-game-normal, #start-game-hard").click(function () {
 // Set shots counter for each difficulty
 $("#start-game-easy").click(function () {
     retry = 20;
-    $(".digits").text("20");
+    $(".digits").text(easyScore);
     sound.play('start');
 });
 
 $("#start-game-normal").click(function () {
     retry = 10;
-    $(".digits").text("10");
+    $(".digits").text(normalScore);
     sound.play('start');
 });
 
 $("#start-game-hard").click(function () {
     retry = 5;
-    $(".digits").text("5");
+    $(".digits").text(hardScore);
     sound.play('start');
 });
 
