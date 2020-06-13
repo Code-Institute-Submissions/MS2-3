@@ -302,6 +302,9 @@ var sound = new Howl({
     }
 });
 
+// Plays game title loop
+sound.play("btbTitle");
+
 // Hover Sounds
 
 // Plays sound when hovering over disks
@@ -347,9 +350,8 @@ function getData(loadBeats) {
 function setPatterns(beats) {
     let beatIndex = [];
 
-    // Creates random number between 1 and 20 to be used to select each json object based on index
-        let randomNumber = Math.floor((Math.random()*21));
-        console.log(randomNumber);
+    // Creates random number between 0 and 19 to be used to select each json object based on index of 20 beat objeacts
+        let randomNumber = Math.floor((Math.random()*20));
         //Pushed random number into beatIndex to be used as the index selector for the beat
         beatIndex.push(randomNumber);
 
