@@ -188,6 +188,8 @@ function youLose() {
     if (shots == 0) {
         $("#tryAgainModal").modal("show");
         sound.play('backSpin');
+        // Set Howler global volume to 50%
+        Howler.volume(0.5);
     };
 };
 
@@ -203,6 +205,8 @@ function resetConsole() {
     $(".kick-pads").show();
     $("#kick").addClass("trigger");
     $("#hi-hats, #snare, #open-hh").removeClass("trigger");
+    // Reset Howler global volume to 100%
+    Howler.volume(1);
 };
 
 /*--------------------------------- Step Sequencer ------------------------------*/
