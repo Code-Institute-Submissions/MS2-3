@@ -4,9 +4,7 @@ let kickArray = [];
 let snareArray = [];
 let hihatArray = [];
 let openhhArray = [];
-let easyScore = 20;
-let normalScore = 10;
-let hardScore = 5;
+let shots;
 
 /*--------------------------------- Landing Screen ------------------------------*/
 
@@ -28,19 +26,22 @@ $("#start-game-easy, #start-game-normal, #start-game-hard").click(function () {
 
 // Set shots counter for each difficulty
 $("#start-game-easy").click(function () {
-    retry = 20;
-    $(".digits").text(easyScore);
+    shots = 75;
+    retry = 75;
+    $(".digits").text(75);
     sound.play('start');
 });
 
 $("#start-game-normal").click(function () {
-    retry = 10;
+    shots = 10;
+    retry = normalScore;
     $(".digits").text(normalScore);
     sound.play('start');
 });
 
 $("#start-game-hard").click(function () {
-    retry = 5;
+    shots = 5;
+    retry = hardScore;
     $(".digits").text(hardScore);
     sound.play('start');
 });
@@ -182,6 +183,13 @@ $(".play-btn").click(function () {
     $("#all-pads").toggleClass("disabled-drum-pad");
 });
 
+
+// Function to decrease score by one and update shot counter text
+function minusShots() {
+    shots--;
+    $(".digits").text(shots);
+}
+
 /*--------------------------------- Step Sequencer ------------------------------*/
 
 class DrumKit {
@@ -197,7 +205,8 @@ class DrumKit {
         if(this.classList.contains("playing")){
             this.classList.toggle("correct");
         } else {
-            this.classList.toggle("wrong");
+            this.classList.add("wrong");
+            minusShots();
         }
     }
 
@@ -251,8 +260,10 @@ class DrumKit {
         } else {
             this.playButton.innerText = "PLAY";
             this.playButton.classList.remove("retry-btn");
+            // Resets shots to retry value so minusShots() function begins at original number 
             // Resets the counter to the correct value for each difficulty
             // Plays vinyl back spin sound
+            shots = retry;
             $(".digits").text(retry);
                 sound.play('backSpin');
             // Clears all pads when reset
@@ -382,3 +393,8 @@ function setPatterns(beats) {
 
 // Sets the pad pattern
 getData(setPatterns);
+
+
+$(".mute-btn").click(function(){
+    console.log("minus");
+});
