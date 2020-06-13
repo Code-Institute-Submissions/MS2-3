@@ -207,6 +207,12 @@ function resetConsole() {
     sound.play('backSpin');
     // Clears all pads when reset
     $(".kick-drum, .snare-drum, .hihat-drum, .openhh-drum").removeClass("correct wrong");
+    // Adds or removes disabled-drum-pad class to revert to correct state when reset
+    if ($("#all-pads").hasClass("disabled-drum-pad")) {
+        $("#all-pads").removeClass("disabled-drum-pad");
+    } else {
+        $("#all-pads").addClass("disabled-drum-pad");
+    }
 };
 
 /*--------------------------------- Step Sequencer ------------------------------*/
