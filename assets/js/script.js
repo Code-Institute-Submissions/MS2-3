@@ -200,12 +200,22 @@ function youLose() {
     };
 };
 
+// Reset
+function resetConsole() {
+    shots = retry;
+    $(".digits").text(retry);
+    sound.play('backSpin');
+    // Clears all pads when reset
+    $(".kick-drum, .snare-drum, .hihat-drum, .openhh-drum").removeClass("correct wrong");
+};
+
 /*--------------------------------- Step Sequencer ------------------------------*/
 
 class DrumKit {
     constructor() {
         this.pads = document.querySelectorAll(".drum-pad");
         this.playButton = document.querySelector(".play-btn");
+        this.tryAgainButton = document.querySelector(".try-again");
         this.index = 0;
         this.bpm = 160;
     }
@@ -261,6 +271,7 @@ class DrumKit {
             this.isPlaying = null;
             // Reset index back to 0 - Pad plays from beginning
             this.index = 0;
+            resetConsole();
         }
     }
 
@@ -274,11 +285,6 @@ class DrumKit {
             // Resets shots to retry value so minusShots() function begins at original number 
             // Resets the counter to the correct value for each difficulty
             // Plays vinyl back spin sound
-            shots = retry;
-            $(".digits").text(retry);
-            sound.play('backSpin');
-            // Clears all pads when reset
-            $(".kick-drum, .snare-drum, .hihat-drum, .openhh-drum").removeClass("correct wrong");
         }
     }
 
@@ -297,6 +303,11 @@ drumKit.pads.forEach(pad => {
 // Plays step sequencer when play button is clicked
 // Changes Play button to Stop button when clicked
 drumKit.playButton.addEventListener("click", function () {
+    drumKit.updateBtn();
+    drumKit.start();
+});
+
+drumKit.tryAgainButton.addEventListener("click", function () {
     drumKit.updateBtn();
     drumKit.start();
 });
