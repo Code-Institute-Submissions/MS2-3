@@ -191,7 +191,11 @@ class DrumKit {
 
     // On/Off toggle for pads
     activePad() {
-        this.classList.contains("playing");
+        if(this.classList.contains("playing")){
+            this.classList.toggle("correct");
+        } else {
+            this.classList.toggle("wrong");
+        }
     }
 
     cycle() {
