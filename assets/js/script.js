@@ -6,6 +6,8 @@ let hihatArray = [];
 let openhhArray = [];
 let shots;
 
+
+
 /*--------------------------------- Landing Screen ------------------------------*/
 
 // Remove landing screen to show main game area when "Start Game" button is clicked 
@@ -58,28 +60,28 @@ $("#start-game-easy").hover(
 
 // Flip records when hovering difficulty select buttons 
 $("#start-game-easy").hover(
-    function() {
+    function () {
         $("#bronze").addClass("flip");
     },
-    function() {
+    function () {
         $("#bronze").removeClass("flip");
     }
 );
 
 $("#start-game-normal").hover(
-    function() {
+    function () {
         $("#silver").addClass("flip");
     },
-    function() {
+    function () {
         $("#silver").removeClass("flip");
     }
 );
 
 $("#start-game-hard").hover(
-    function() {
+    function () {
         $("#gold").addClass("flip");
     },
-    function() {
+    function () {
         $("#gold").removeClass("flip");
     }
 );
@@ -190,6 +192,14 @@ function minusShots() {
     $(".digits").text(shots);
 }
 
+// Funtcion to open try again modal and play sound
+function youLose() {
+    if (shots == 0) {
+        $("#tryAgainModal").modal("show");
+        sound.play('backSpin');
+    };
+};
+
 /*--------------------------------- Step Sequencer ------------------------------*/
 
 class DrumKit {
@@ -202,11 +212,12 @@ class DrumKit {
 
     // On/Off toggle for pads
     activePad() {
-        if(this.classList.contains("playing")){
+        if (this.classList.contains("playing")) {
             this.classList.toggle("correct");
         } else {
             this.classList.add("wrong");
             minusShots();
+            youLose();
         }
     }
 
@@ -232,7 +243,7 @@ class DrumKit {
                 if (beat.classList.contains("openhh-drum")) {
                     sound.play('openhh');
                 }
-            } 
+            }
         });
         this.index++;
     }
@@ -265,7 +276,7 @@ class DrumKit {
             // Plays vinyl back spin sound
             shots = retry;
             $(".digits").text(retry);
-                sound.play('backSpin');
+            sound.play('backSpin');
             // Clears all pads when reset
             $(".kick-drum, .snare-drum, .hihat-drum, .openhh-drum").removeClass("correct wrong");
         }
@@ -360,9 +371,9 @@ function setPatterns(beats) {
     let beatIndex = [];
 
     // Creates random number between 0 and 19 to be used to select each json object based on index of 20 beat objeacts
-        let randomNumber = Math.floor((Math.random()*20));
-        //Pushed random number into beatIndex to be used as the index selector for the beat
-        beatIndex.push(randomNumber);
+    let randomNumber = Math.floor((Math.random() * 20));
+    //Pushed random number into beatIndex to be used as the index selector for the beat
+    beatIndex.push(randomNumber);
 
     // Creates an array from the string of numbers in the json boject for each drum and stores beat pattern array for each drum in a variable
     let kickArray = Array.from(String((beats)[beatIndex].kick), Number);
@@ -378,23 +389,18 @@ function setPatterns(beats) {
     for (let i = 0; i < kickArray.length; i++) {
         if (kickArray[i] === 1) {
             $(`.kick-drum.pad-${i}`).addClass("playing");
-        } 
+        }
         if (snareArray[i] === 1) {
             $(`.snare-drum.pad-${i}`).addClass("playing");
-        } 
+        }
         if (hihatArray[i] === 1) {
             $(`.hihat-drum.pad-${i}`).addClass("playing");
-        } 
+        }
         if (openhhArray[i] === 1) {
             $(`.openhh-drum.pad-${i}`).addClass("playing");
-        } 
+        }
     }
 }
 
 // Sets the pad pattern
 getData(setPatterns);
-
-
-$(".mute-btn").click(function(){
-    console.log("minus");
-});
