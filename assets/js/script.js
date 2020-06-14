@@ -242,16 +242,32 @@ class DrumKit {
             if (beat.classList.contains("playing")) {
                 // Check each sound in here
                 if (beat.classList.contains("kick-drum")) {
-                    sound.play('kick');
+                    if (beat.classList.contains("kick-drum") && beat.classList.contains("correct")) {
+                        sound.play('kick');
+                    } else {
+                        sound.play('kick2');
+                    }
                 }
                 if (beat.classList.contains("snare-drum")) {
-                    sound.play('snare');
+                    if (beat.classList.contains("snare-drum") && beat.classList.contains("correct")) {
+                        sound.play('snare');
+                    } else {
+                        sound.play('snare2');
+                    }
                 }
                 if (beat.classList.contains("hihat-drum")) {
-                    sound.play('hihat');
+                    if (beat.classList.contains("hihat-drum") && beat.classList.contains("correct")) {
+                        sound.play('hihat');
+                    } else {
+                        sound.play('hihat2');
+                    }
                 }
                 if (beat.classList.contains("openhh-drum")) {
-                    sound.play('openhh');
+                    if (beat.classList.contains("openhh-drum") && beat.classList.contains("correct")) {
+                        sound.play('openhh');
+                    } else {
+                        sound.play('openhh2');
+                    }
                 }
             }
         });
@@ -335,7 +351,11 @@ var sound = new Howl({
         exit: [3750, 420],
         start: [4250, 550],
         error: [5000, 460],
-        button: [5500, 500]
+        button: [5500, 500],
+        kick2: [6000, 240],
+        snare2: [6250, 240],
+        hihat2: [6500, 240],
+        openhh2: [6750, 240],
     }
 });
 
