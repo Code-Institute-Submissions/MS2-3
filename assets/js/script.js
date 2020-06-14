@@ -38,8 +38,20 @@ function setPatterns(beats) {
     let hihatArray = Array.from(String((beats)[beatIndex].closedHat), Number);
     let openhhArray = Array.from(String((beats)[beatIndex].openHat), Number);
 
-    // Gets the sum of the Kick array and assigns it to a variable
-    let addKickArrayValue = kickArray.reduce(function addingKick(a, b) {
+    // Gets the sum of the each array and assigns them to variables
+    let sumOfKickArray = kickArray.reduce(function addingKick(a, b) {
+        return a + b;
+    }, 0);
+    
+    let sumOfSnareArray = snareArray.reduce(function addingSnare(a, b) {
+        return a + b;
+    }, 0);
+    
+    let sumOfHihatArray = hihatArray.reduce(function addingHiHat(a, b) {
+        return a + b;
+    }, 0);
+    
+    let sumOfOpenHHArray = openhhArray.reduce(function addingOpenHH(a, b) {
         return a + b;
     }, 0);
 
@@ -76,7 +88,7 @@ function setPatterns(beats) {
             kickCounter++;
             // Checks if kick counter matches the value of the sum of the kick array
             // If the values are equal the snare is activated
-            if(kickCounter === addKickArrayValue) {
+            if(kickCounter === sumOfKickArray) {
                 $(".kick-pads, .hihat-pads, .openhh-pads").hide();
                 $(".snare-pads").show();
                 $("#snare").addClass("trigger");
