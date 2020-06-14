@@ -223,6 +223,7 @@ class DrumKit {
         this.pads = document.querySelectorAll(".drum-pad");
         this.playButton = document.querySelector(".play-btn");
         this.tryAgainButton = document.querySelector(".try-again");
+        // this.triggerKick = document.getElementById("#kick");
         this.index = 0;
         this.bpm = 160;
     }
@@ -245,31 +246,33 @@ class DrumKit {
         // Loop over the pads
         activePad.forEach(beat => {
             beat.style.animation = `pulse .65s`;
+            
+            // console.log(this.triggerKick);
             // Check if pads are should play sound based on arrays from setPattern function
             if (beat.classList.contains("playing")) {
                 // Check each sound in here
-                if (beat.classList.contains("kick-drum")) {
+                if (beat.classList.contains("kick-drum") && $("#kick").hasClass("trigger")) {
                     if (beat.classList.contains("kick-drum") && beat.classList.contains("correct")) {
                         sound.play('kick');
                     } else {
                         sound.play('kick2');
                     }
                 }
-                if (beat.classList.contains("snare-drum")) {
+                if (beat.classList.contains("snare-drum") && $("#snare").hasClass("trigger")) {
                     if (beat.classList.contains("snare-drum") && beat.classList.contains("correct")) {
                         sound.play('snare');
                     } else {
                         sound.play('snare2');
                     }
                 }
-                if (beat.classList.contains("hihat-drum")) {
+                if (beat.classList.contains("hihat-drum") && $("#hi-hats").hasClass("trigger")) {
                     if (beat.classList.contains("hihat-drum") && beat.classList.contains("correct")) {
                         sound.play('hihat');
                     } else {
                         sound.play('hihat2');
                     }
                 }
-                if (beat.classList.contains("openhh-drum")) {
+                if (beat.classList.contains("openhh-drum") && $("#open-hh").hasClass("trigger")) {
                     if (beat.classList.contains("openhh-drum") && beat.classList.contains("correct")) {
                         sound.play('openhh');
                     } else {
