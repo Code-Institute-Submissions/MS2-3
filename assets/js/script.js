@@ -42,15 +42,15 @@ function setPatterns(beats) {
     let sumOfKickArray = kickArray.reduce(function addingKick(a, b) {
         return a + b;
     }, 0);
-    
+
     let sumOfSnareArray = snareArray.reduce(function addingSnare(a, b) {
         return a + b;
     }, 0);
-    
+    console.log(sumOfSnareArray);
     let sumOfHihatArray = hihatArray.reduce(function addingHiHat(a, b) {
         return a + b;
     }, 0);
-    
+
     let sumOfOpenHHArray = openhhArray.reduce(function addingOpenHH(a, b) {
         return a + b;
     }, 0);
@@ -88,7 +88,7 @@ function setPatterns(beats) {
             kickCounter++;
             // Checks if kick counter matches the value of the sum of the kick array
             // If the values are equal the snare is activated
-            if(kickCounter === sumOfKickArray) {
+            if (kickCounter === sumOfKickArray) {
                 $(".kick-pads, .hihat-pads, .openhh-pads").hide();
                 $(".snare-pads").show();
                 $("#snare").addClass("trigger");
@@ -97,14 +97,31 @@ function setPatterns(beats) {
         }
         if ($("#snare").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
             snareCounter++;
+            if (snareCounter === sumOfSnareArray) {
+                $(".snare-pads, .kick-pads, .openhh-pads").hide();
+                $(".hihat-pads").show("show");
+                $("#hi-hats").addClass("trigger");
+                $("#open-hh, #snare, #kick").removeClass("trigger");
+            }
             console.log(`snare counter inside padActive function = ${snareCounter}`);
         }
         if ($("#hi-hats").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
             hiHatsCounter++;
+            if (hiHatsCounter === sumOfHihatArray) {
+                $(".snare-pads, .hihat-pads, .kick-pads").hide();
+                $(".openhh-pads").show("show");
+                $("#open-hh").addClass("trigger");
+                $("#hi-hats, #snare, #kick").removeClass("trigger");
+            }
             console.log(`HH counter inside padActive function = ${hiHatsCounter}`);
         }
         if ($("#open-hh").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
             openHCounter++;
+            if (openHCounter === sumOfOpenHHArray) {
+                resetConsole();
+                drumKit.updateBtn();
+                drumKit.start();
+            }
             console.log(`OHH counter inside padActive function = ${openHCounter}`);
         }
     }
