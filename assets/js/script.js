@@ -5,7 +5,10 @@ let snareArray = [];
 let hihatArray = [];
 let openhhArray = [];
 let shots;
-
+let kickCounter = 0;
+let snareCounter = 0;
+let hiHatsCounter = 0;
+let openHCounter = 0;
 
 
 /*--------------------------------- Landing Screen ------------------------------*/
@@ -132,7 +135,7 @@ window.addEventListener('load', function () {
 
 //Show kick pads only on load
 $(".snare-pads, .hihat-pads, .openhh-pads").hide();
-$("#hi-hats, #snare, #open-hh").addClass("disabled-drum-pad");
+// $("#hi-hats, #snare, #open-hh").addClass("disabled-drum-pad");
 
 //Show kick pads only when clicked
 $("#kick").click(function () {
@@ -140,7 +143,7 @@ $("#kick").click(function () {
     $(".kick-pads").show();
     $(this).addClass("trigger");
     $("#hi-hats, #snare, #open-hh").removeClass("trigger");
-    $("#hi-hats, #snare, #open-hh").addClass("disabled-drum-pad");
+    // $("#hi-hats, #snare, #open-hh").addClass("disabled-drum-pad");
 });
 
 //Show snare pads only when clicked
@@ -150,7 +153,7 @@ $("#snare").click(function () {
     $(".snare-pads").show();
     $(this).addClass("trigger");
     $("#hi-hats, #open-hh, #kick").removeClass("trigger");
-    $("#hi-hats, #open-hh, #kick").addClass("disabled-drum-pad");
+    // $("#hi-hats, #open-hh, #kick").addClass("disabled-drum-pad");
 });
 
 //Show hi-hat pads only when clicked
@@ -159,7 +162,7 @@ $("#hi-hats").click(function () {
     $(".hihat-pads").show("show");
     $(this).addClass("trigger");
     $("#open-hh, #snare, #kick").removeClass("trigger");
-    $("#open-hh, #snare, #kick").addClass("disabled-drum-pad");
+    // $("#open-hh, #snare, #kick").addClass("disabled-drum-pad");
 });
 
 //Show open hi-hat pads only when clicked
@@ -168,7 +171,7 @@ $("#open-hh").click(function () {
     $(".openhh-pads").show("show");
     $(this).addClass("trigger");
     $("#hi-hats, #snare, #kick").removeClass("trigger");
-    $("#hi-hats, #snare, #kick").addClass("disabled-drum-pad");
+    // $("#hi-hats, #snare, #kick").addClass("disabled-drum-pad");
 });
 
 
@@ -188,6 +191,26 @@ function minusShots() {
     shots--;
     $(".digits").text(shots);
     sound.play("error");
+}
+
+
+function padActiveCalculator() {
+    if ($("#kick").hasClass("trigger") && $(".kick-drum").hasClass("correct")) {
+        kickCounter++;
+        console.log(`kick counter inside padActive function = ${kickCounter}`);
+    }
+    if ($("#snare").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
+        snareCounter++;
+        console.log(`snare counter inside padActive function = ${snareCounter}`);
+    }
+    if ($("#hi-hats").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
+        hiHatsCounter++;
+        console.log(`HH counter inside padActive function = ${hiHatsCounter}`);
+    }
+    if ($("#open-hh").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
+        openHCounter++;
+        console.log(`OHH counter inside padActive function = ${openHCounter}`);
+    }
 }
 
 // Funtcion to open try again modal and play sound
@@ -223,7 +246,6 @@ class DrumKit {
         this.pads = document.querySelectorAll(".drum-pad");
         this.playButton = document.querySelector(".play-btn");
         this.tryAgainButton = document.querySelector(".try-again");
-        // this.triggerKick = document.getElementById("#kick");
         this.index = 0;
         this.bpm = 160;
     }
@@ -231,7 +253,8 @@ class DrumKit {
     // On/Off toggle for pads
     activePad() {
         if (this.classList.contains("playing")) {
-            this.classList.toggle("correct");
+            this.classList.add("correct");
+            padActiveCalculator();
         } else {
             this.classList.add("wrong");
             minusShots();
@@ -246,9 +269,7 @@ class DrumKit {
         // Loop over the pads
         activePad.forEach(beat => {
             beat.style.animation = `pulse .65s`;
-            
-            // console.log(this.triggerKick);
-            // Check if pads are should play sound based on arrays from setPattern function
+                        // Check if pads are should play sound based on arrays from setPattern function
             if (beat.classList.contains("playing")) {
                 // Check each sound in here
                 if (beat.classList.contains("kick-drum") && $("#kick").hasClass("trigger")) {
@@ -420,6 +441,8 @@ function getData(loadBeats) {
         }
     };
 }
+
+// console.log(`I am above sum Kick array ${sumOfKickArray}`);
 
 function setPatterns(beats) {
     let beatIndex = [];
