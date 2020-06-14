@@ -382,43 +382,6 @@ window.addEventListener('load', function () {
 $(".snare-pads, .hihat-pads, .openhh-pads").hide();
 // $("#hi-hats, #snare, #open-hh").addClass("disabled-drum-pad");
 
-//Show kick pads only when clicked
-$("#kick").click(function () {
-    $(".snare-pads, .hihat-pads, .openhh-pads").hide();
-    $(".kick-pads").show();
-    $(this).addClass("trigger");
-    $("#hi-hats, #snare, #open-hh").removeClass("trigger");
-    // $("#hi-hats, #snare, #open-hh").addClass("disabled-drum-pad");
-});
-
-//Show snare pads only when clicked
-// Add disable-drum-pad class to other drum selectors so user can only work on one drum sequence before progressing
-$("#snare").click(function () {
-    $(".kick-pads, .hihat-pads, .openhh-pads").hide();
-    $(".snare-pads").show();
-    $(this).addClass("trigger");
-    $("#hi-hats, #open-hh, #kick").removeClass("trigger");
-    // $("#hi-hats, #open-hh, #kick").addClass("disabled-drum-pad");
-});
-
-//Show hi-hat pads only when clicked
-$("#hi-hats").click(function () {
-    $(".snare-pads, .kick-pads, .openhh-pads").hide();
-    $(".hihat-pads").show("show");
-    $(this).addClass("trigger");
-    $("#open-hh, #snare, #kick").removeClass("trigger");
-    // $("#open-hh, #snare, #kick").addClass("disabled-drum-pad");
-});
-
-//Show open hi-hat pads only when clicked
-$("#open-hh").click(function () {
-    $(".snare-pads, .hihat-pads, .kick-pads").hide();
-    $(".openhh-pads").show("show");
-    $(this).addClass("trigger");
-    $("#hi-hats, #snare, #kick").removeClass("trigger");
-    // $("#hi-hats, #snare, #kick").addClass("disabled-drum-pad");
-});
-
 
 // Return to home screen when drum console home icon is clicked 
 
@@ -429,9 +392,6 @@ $(".home-btn").click(function () {
     //SRC: https://stackoverflow.com/questions/39407803/why-does-settimeoutlocation-reload-throw-a-typeerror/39407908
     window.setTimeout(window.location.reload.bind(window.location), 500);
 });
-
-
-
 
 
 //Howler.js
