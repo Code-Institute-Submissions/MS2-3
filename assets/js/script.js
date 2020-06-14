@@ -187,6 +187,7 @@ $(".home-btn").click(function () {
 function minusShots() {
     shots--;
     $(".digits").text(shots);
+    sound.play("error");
 }
 
 // Funtcion to open try again modal and play sound
@@ -362,6 +363,8 @@ var sound = new Howl({
         snare2: [6250, 240],
         hihat2: [6500, 240],
         openhh2: [6750, 240],
+        yeah: [7250, 350],
+        letsGo: [7750, 550],
     }
 });
 
@@ -393,6 +396,11 @@ $(".btn-how-to-play, .btn-start-game").hover(function () {
     sound.play('button');
 }, function () {
     sound.play('');
+});
+
+// Play start sound when clicked
+$(".btn-start-game").click(function () {
+    sound.play('start');
 });
 
 // JSON
