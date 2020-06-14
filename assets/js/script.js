@@ -38,6 +38,11 @@ function setPatterns(beats) {
     let hihatArray = Array.from(String((beats)[beatIndex].closedHat), Number);
     let openhhArray = Array.from(String((beats)[beatIndex].openHat), Number);
 
+    // Gets the sum of the Kick array and assigns it to a variable
+    let addKickArrayValue = kickArray.reduce(function addingKick(a, b) {
+        return a + b;
+    }, 0);
+
     // For loop loops through the length of the drum arrays
     // Then pushes the number to the pads which activates the correct pad
     // The number 1 in the json object string is active
@@ -65,10 +70,18 @@ function setPatterns(beats) {
         sound.play("error");
     }
 
+    // Increments counter variables by 1 if the corresponding pad is clicked
     function padActiveCalculator() {
         if ($("#kick").hasClass("trigger") && $(".kick-drum").hasClass("correct")) {
             kickCounter++;
-            console.log(`kick counter inside padActive function = ${kickCounter}`);
+            // Checks if kick counter matches the value of the sum of the kick array
+            // If the values are equal the snare is activated
+            if(kickCounter === addKickArrayValue) {
+                $(".kick-pads, .hihat-pads, .openhh-pads").hide();
+                $(".snare-pads").show();
+                $("#snare").addClass("trigger");
+                $("#hi-hats, #open-hh, #kick").removeClass("trigger");
+            }
         }
         if ($("#snare").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
             snareCounter++;
@@ -83,7 +96,6 @@ function setPatterns(beats) {
             console.log(`OHH counter inside padActive function = ${openHCounter}`);
         }
     }
-
 
     // Funtcion to open try again modal and play sound
     function youLose() {
