@@ -10,6 +10,239 @@ let snareCounter = 0;
 let hiHatsCounter = 0;
 let openHCounter = 0;
 
+// JSON
+
+function getData(loadBeats) {
+    var xhr = new XMLHttpRequest();
+
+    xhr.open("GET", "beats.json");
+    xhr.send();
+
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            loadBeats(JSON.parse(this.responseText));
+        }
+    };
+}
+
+function setPatterns(beats) {
+    let beatIndex = [];
+    // Creates random number between 0 and 19 to be used to select each json object based on index of 20 beat objeacts
+    let randomNumber = Math.floor((Math.random() * 20));
+    //Pushed random number into beatIndex to be used as the index selector for the beat
+    beatIndex.push(randomNumber);
+
+    // Creates an array from the string of numbers in the json boject for each drum and stores beat pattern array for each drum in a variable
+    let kickArray = Array.from(String((beats)[beatIndex].kick), Number);
+    let snareArray = Array.from(String((beats)[beatIndex].snare), Number);
+    let hihatArray = Array.from(String((beats)[beatIndex].closedHat), Number);
+    let openhhArray = Array.from(String((beats)[beatIndex].openHat), Number);
+
+    // For loop loops through the length of the drum arrays
+    // Then pushes the number to the pads which activates the correct pad
+    // The number 1 in the json object string is active
+    // The number 0 in the json object string is not active
+    // If the pad is = 1 the playing class is applied - this will in turn play the correct sound in the sequencer
+    for (let i = 0; i < kickArray.length; i++) {
+        if (kickArray[i] === 1) {
+            $(`.kick-drum.pad-${i}`).addClass("playing");
+        }
+        if (snareArray[i] === 1) {
+            $(`.snare-drum.pad-${i}`).addClass("playing");
+        }
+        if (hihatArray[i] === 1) {
+            $(`.hihat-drum.pad-${i}`).addClass("playing");
+        }
+        if (openhhArray[i] === 1) {
+            $(`.openhh-drum.pad-${i}`).addClass("playing");
+        }
+    }
+
+    // Function to decrease score by one and update shot counter text
+    function minusShots() {
+        shots--;
+        $(".digits").text(shots);
+        sound.play("error");
+    }
+
+    function padActiveCalculator() {
+        if ($("#kick").hasClass("trigger") && $(".kick-drum").hasClass("correct")) {
+            kickCounter++;
+            console.log(`kick counter inside padActive function = ${kickCounter}`);
+        }
+        if ($("#snare").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
+            snareCounter++;
+            console.log(`snare counter inside padActive function = ${snareCounter}`);
+        }
+        if ($("#hi-hats").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
+            hiHatsCounter++;
+            console.log(`HH counter inside padActive function = ${hiHatsCounter}`);
+        }
+        if ($("#open-hh").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
+            openHCounter++;
+            console.log(`OHH counter inside padActive function = ${openHCounter}`);
+        }
+    }
+
+
+    // Funtcion to open try again modal and play sound
+    function youLose() {
+        if (shots == 0) {
+            $("#tryAgainModal").modal("show");
+            sound.play('backSpin');
+            // Set Howler global volume to 50%
+            Howler.volume(0.5);
+        };
+    };
+
+    // Reset
+    function resetConsole() {
+        shots = retry;
+        $(".digits").text(retry);
+        sound.play('backSpin');
+        // Clears all pads when reset
+        $(".kick-drum, .snare-drum, .hihat-drum, .openhh-drum").removeClass("correct wrong");
+        // Revert back to kick instrument pads
+        $(".snare-pads, .hihat-pads, .openhh-pads").hide();
+        $(".kick-pads").show();
+        $("#kick").addClass("trigger");
+        $("#hi-hats, #snare, #open-hh").removeClass("trigger");
+        // Reset Howler global volume to 100%
+        Howler.volume(1);
+    };
+
+    /*--------------------------------- Step Sequencer ------------------------------*/
+
+    class DrumKit {
+        constructor() {
+            this.pads = document.querySelectorAll(".drum-pad");
+            this.playButton = document.querySelector(".play-btn");
+            this.tryAgainButton = document.querySelector(".try-again");
+            this.index = 0;
+            this.bpm = 160;
+        }
+
+        // On/Off toggle for pads
+        activePad() {
+            if (this.classList.contains("playing")) {
+                this.classList.add("correct");
+                padActiveCalculator();
+            } else {
+                this.classList.add("wrong");
+                minusShots();
+                youLose();
+            }
+        }
+
+        cycle() {
+            let step = this.index % 16;
+            const activePad = document.querySelectorAll(`.pad-${step}`);
+
+            // Loop over the pads
+            activePad.forEach(beat => {
+                beat.style.animation = `pulse .65s`;
+                // Check if pads are should play sound based on arrays from setPattern function
+                if (beat.classList.contains("playing")) {
+                    // Check each sound in here
+                    if (beat.classList.contains("kick-drum") && $("#kick").hasClass("trigger")) {
+                        if (beat.classList.contains("kick-drum") && beat.classList.contains("correct")) {
+                            sound.play('kick');
+                        } else {
+                            sound.play('kick2');
+                        }
+                    }
+                    if (beat.classList.contains("snare-drum") && $("#snare").hasClass("trigger")) {
+                        if (beat.classList.contains("snare-drum") && beat.classList.contains("correct")) {
+                            sound.play('snare');
+                        } else {
+                            sound.play('snare2');
+                        }
+                    }
+                    if (beat.classList.contains("hihat-drum") && $("#hi-hats").hasClass("trigger")) {
+                        if (beat.classList.contains("hihat-drum") && beat.classList.contains("correct")) {
+                            sound.play('hihat');
+                        } else {
+                            sound.play('hihat2');
+                        }
+                    }
+                    if (beat.classList.contains("openhh-drum") && $("#open-hh").hasClass("trigger")) {
+                        if (beat.classList.contains("openhh-drum") && beat.classList.contains("correct")) {
+                            sound.play('openhh');
+                        } else {
+                            sound.play('openhh2');
+                        }
+                    }
+                }
+            });
+            this.index++;
+        }
+
+        start() {
+            const interval = (60 / this.bpm) * 500;
+            // Check if it is playing
+            if (!this.isPlaying) {
+                this.isPlaying = setInterval(() => {
+                    this.cycle();
+                }, interval);
+            } else {
+                //Clear the Interval
+                clearInterval(this.isPlaying);
+                this.isPlaying = null;
+                // Reset index back to 0 - Pad plays from beginning
+                this.index = 0;
+                resetConsole();
+            }
+            // Toggle vinyl spin, needle arm rotation and play button scale animations when clicked
+            // Activate drum pads
+            $(".vinyl").toggleClass("spin");
+            $(".needle-arm").toggleClass("rotate");
+            $(".play-btn").toggleClass("scale");
+            $("#all-pads").toggleClass("disabled-drum-pad");
+        }
+
+        updateBtn() {
+            if (!this.isPlaying) {
+                this.playButton.innerText = "RESET";
+                this.playButton.classList.add("retry-btn");
+            } else {
+                this.playButton.innerText = "PLAY";
+                this.playButton.classList.remove("retry-btn");
+                // Resets shots to retry value so minusShots() function begins at original number 
+                // Resets the counter to the correct value for each difficulty
+                // Plays vinyl back spin sound
+            }
+        }
+
+    }
+
+    const drumKit = new DrumKit();
+
+    // Adds animation to each pad when looped over
+    drumKit.pads.forEach(pad => {
+        pad.addEventListener("click", drumKit.activePad);
+        pad.addEventListener("animationend", function () {
+            this.style.animation = "";
+        });
+    });
+
+    // Plays step sequencer when play button is clicked
+    // Changes Play button to Stop button when clicked
+    drumKit.playButton.addEventListener("click", function () {
+        drumKit.updateBtn();
+        drumKit.start();
+    });
+
+    drumKit.tryAgainButton.addEventListener("click", function () {
+        drumKit.updateBtn();
+        drumKit.start();
+    });
+
+}
+
+// Sets the pad pattern
+getData(setPatterns);
+
+
 
 /*--------------------------------- Landing Screen ------------------------------*/
 
@@ -186,184 +419,7 @@ $(".home-btn").click(function () {
 });
 
 
-// Function to decrease score by one and update shot counter text
-function minusShots() {
-    shots--;
-    $(".digits").text(shots);
-    sound.play("error");
-}
 
-
-function padActiveCalculator() {
-    if ($("#kick").hasClass("trigger") && $(".kick-drum").hasClass("correct")) {
-        kickCounter++;
-        console.log(`kick counter inside padActive function = ${kickCounter}`);
-    }
-    if ($("#snare").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
-        snareCounter++;
-        console.log(`snare counter inside padActive function = ${snareCounter}`);
-    }
-    if ($("#hi-hats").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
-        hiHatsCounter++;
-        console.log(`HH counter inside padActive function = ${hiHatsCounter}`);
-    }
-    if ($("#open-hh").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
-        openHCounter++;
-        console.log(`OHH counter inside padActive function = ${openHCounter}`);
-    }
-}
-
-// Funtcion to open try again modal and play sound
-function youLose() {
-    if (shots == 0) {
-        $("#tryAgainModal").modal("show");
-        sound.play('backSpin');
-        // Set Howler global volume to 50%
-        Howler.volume(0.5);
-    };
-};
-
-// Reset
-function resetConsole() {
-    shots = retry;
-    $(".digits").text(retry);
-    sound.play('backSpin');
-    // Clears all pads when reset
-    $(".kick-drum, .snare-drum, .hihat-drum, .openhh-drum").removeClass("correct wrong");
-    // Revert back to kick instrument pads
-    $(".snare-pads, .hihat-pads, .openhh-pads").hide();
-    $(".kick-pads").show();
-    $("#kick").addClass("trigger");
-    $("#hi-hats, #snare, #open-hh").removeClass("trigger");
-    // Reset Howler global volume to 100%
-    Howler.volume(1);
-};
-
-/*--------------------------------- Step Sequencer ------------------------------*/
-
-class DrumKit {
-    constructor() {
-        this.pads = document.querySelectorAll(".drum-pad");
-        this.playButton = document.querySelector(".play-btn");
-        this.tryAgainButton = document.querySelector(".try-again");
-        this.index = 0;
-        this.bpm = 160;
-    }
-
-    // On/Off toggle for pads
-    activePad() {
-        if (this.classList.contains("playing")) {
-            this.classList.add("correct");
-            padActiveCalculator();
-        } else {
-            this.classList.add("wrong");
-            minusShots();
-            youLose();
-        }
-    }
-
-    cycle() {
-        let step = this.index % 16;
-        const activePad = document.querySelectorAll(`.pad-${step}`);
-
-        // Loop over the pads
-        activePad.forEach(beat => {
-            beat.style.animation = `pulse .65s`;
-                        // Check if pads are should play sound based on arrays from setPattern function
-            if (beat.classList.contains("playing")) {
-                // Check each sound in here
-                if (beat.classList.contains("kick-drum") && $("#kick").hasClass("trigger")) {
-                    if (beat.classList.contains("kick-drum") && beat.classList.contains("correct")) {
-                        sound.play('kick');
-                    } else {
-                        sound.play('kick2');
-                    }
-                }
-                if (beat.classList.contains("snare-drum") && $("#snare").hasClass("trigger")) {
-                    if (beat.classList.contains("snare-drum") && beat.classList.contains("correct")) {
-                        sound.play('snare');
-                    } else {
-                        sound.play('snare2');
-                    }
-                }
-                if (beat.classList.contains("hihat-drum") && $("#hi-hats").hasClass("trigger")) {
-                    if (beat.classList.contains("hihat-drum") && beat.classList.contains("correct")) {
-                        sound.play('hihat');
-                    } else {
-                        sound.play('hihat2');
-                    }
-                }
-                if (beat.classList.contains("openhh-drum") && $("#open-hh").hasClass("trigger")) {
-                    if (beat.classList.contains("openhh-drum") && beat.classList.contains("correct")) {
-                        sound.play('openhh');
-                    } else {
-                        sound.play('openhh2');
-                    }
-                }
-            }
-        });
-        this.index++;
-    }
-
-    start() {
-        const interval = (60 / this.bpm) * 500;
-        // Check if it is playing
-        if (!this.isPlaying) {
-            this.isPlaying = setInterval(() => {
-                this.cycle();
-            }, interval);
-        } else {
-            //Clear the Interval
-            clearInterval(this.isPlaying);
-            this.isPlaying = null;
-            // Reset index back to 0 - Pad plays from beginning
-            this.index = 0;
-            resetConsole();
-        }
-        // Toggle vinyl spin, needle arm rotation and play button scale animations when clicked
-        // Activate drum pads
-        $(".vinyl").toggleClass("spin");
-        $(".needle-arm").toggleClass("rotate");
-        $(".play-btn").toggleClass("scale");
-        $("#all-pads").toggleClass("disabled-drum-pad");
-    }
-
-    updateBtn() {
-        if (!this.isPlaying) {
-            this.playButton.innerText = "RESET";
-            this.playButton.classList.add("retry-btn");
-        } else {
-            this.playButton.innerText = "PLAY";
-            this.playButton.classList.remove("retry-btn");
-            // Resets shots to retry value so minusShots() function begins at original number 
-            // Resets the counter to the correct value for each difficulty
-            // Plays vinyl back spin sound
-        }
-    }
-
-}
-
-const drumKit = new DrumKit();
-
-// Adds animation to each pad when looped over
-drumKit.pads.forEach(pad => {
-    pad.addEventListener("click", drumKit.activePad);
-    pad.addEventListener("animationend", function () {
-        this.style.animation = "";
-    });
-});
-
-// Plays step sequencer when play button is clicked
-// Changes Play button to Stop button when clicked
-drumKit.playButton.addEventListener("click", function () {
-    drumKit.updateBtn();
-    drumKit.start();
-});
-
-drumKit.tryAgainButton.addEventListener("click", function () {
-    drumKit.updateBtn();
-    drumKit.start();
-});
 
 
 //Howler.js
@@ -426,58 +482,3 @@ $(".btn-how-to-play, .btn-start-game").hover(function () {
 $(".btn-start-game").click(function () {
     sound.play('start');
 });
-
-// JSON
-
-function getData(loadBeats) {
-    var xhr = new XMLHttpRequest();
-
-    xhr.open("GET", "beats.json");
-    xhr.send();
-
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            loadBeats(JSON.parse(this.responseText));
-        }
-    };
-}
-
-// console.log(`I am above sum Kick array ${sumOfKickArray}`);
-
-function setPatterns(beats) {
-    let beatIndex = [];
-
-    // Creates random number between 0 and 19 to be used to select each json object based on index of 20 beat objeacts
-    let randomNumber = Math.floor((Math.random() * 20));
-    //Pushed random number into beatIndex to be used as the index selector for the beat
-    beatIndex.push(randomNumber);
-
-    // Creates an array from the string of numbers in the json boject for each drum and stores beat pattern array for each drum in a variable
-    let kickArray = Array.from(String((beats)[beatIndex].kick), Number);
-    let snareArray = Array.from(String((beats)[beatIndex].snare), Number);
-    let hihatArray = Array.from(String((beats)[beatIndex].closedHat), Number);
-    let openhhArray = Array.from(String((beats)[beatIndex].openHat), Number);
-
-    // For loop loops through the length of the drum arrays
-    // Then pushes the number to the pads which activates the correct pad
-    // The number 1 in the json object string is active
-    // The number 0 in the json object string is not active
-    // If the pad is = 1 the playing class is applied - this will in turn play the correct sound in the sequencer
-    for (let i = 0; i < kickArray.length; i++) {
-        if (kickArray[i] === 1) {
-            $(`.kick-drum.pad-${i}`).addClass("playing");
-        }
-        if (snareArray[i] === 1) {
-            $(`.snare-drum.pad-${i}`).addClass("playing");
-        }
-        if (hihatArray[i] === 1) {
-            $(`.hihat-drum.pad-${i}`).addClass("playing");
-        }
-        if (openhhArray[i] === 1) {
-            $(`.openhh-drum.pad-${i}`).addClass("playing");
-        }
-    }
-}
-
-// Sets the pad pattern
-getData(setPatterns);
