@@ -168,13 +168,13 @@ function setPatterns(beats) {
             if (this.classList.contains("playing")) {
                 this.classList.add("correct");
                 if(this.classList.contains("correct")) {
-                    $(this).css("pointer-events", "none");
-                }
+                    $(this).addClass("pointer-none");
+                } 
                 padActiveCalculator();
             } else {
                 this.classList.add("wrong");
                 if(this.classList.contains("wrong")) {
-                    $(this).css("pointer-events", "none");
+                    $(this).addClass("pointer-none");
                 }
                 minusShots();
                 youLose();
@@ -254,6 +254,7 @@ function setPatterns(beats) {
             } else {
                 this.playButton.innerText = "PLAY";
                 this.playButton.classList.remove("retry-btn");
+                $(".correct, .wrong").removeClass("pointer-none");
                 // Resets shots to retry value so minusShots() function begins at original number 
                 // Resets the counter to the correct value for each difficulty
                 // Plays vinyl back spin sound
