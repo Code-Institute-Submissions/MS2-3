@@ -167,9 +167,15 @@ function setPatterns(beats) {
         activePad() {
             if (this.classList.contains("playing")) {
                 this.classList.add("correct");
+                if(this.classList.contains("correct")) {
+                    $(this).css("pointer-events", "none");
+                }
                 padActiveCalculator();
             } else {
                 this.classList.add("wrong");
+                if(this.classList.contains("wrong")) {
+                    $(this).css("pointer-events", "none");
+                }
                 minusShots();
                 youLose();
             }
