@@ -507,6 +507,10 @@ button:focus {
     background-color: rgba(201, 109, 109, 0.2);
 }
 
+.pointer-none {
+    pointer-events: none;
+}
+
 /*----------------------------------------------------------- Drum Select Buttons */
 
 .instrument {
