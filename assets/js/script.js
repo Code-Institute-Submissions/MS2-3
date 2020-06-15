@@ -9,6 +9,8 @@ let kickCounter = 0;
 let snareCounter = 0;
 let hiHatsCounter = 0;
 let openHCounter = 0;
+let setTempo = 0;
+
 
 // JSON
 
@@ -217,7 +219,7 @@ function setPatterns(beats) {
         }
 
         start() {
-            const interval = (60 / this.bpm) * 500;
+            let interval = (setTempo / this.bpm) * 500;
             // Check if it is playing
             if (!this.isPlaying) {
                 this.isPlaying = setInterval(() => {
@@ -305,6 +307,7 @@ $("#start-game-easy, #start-game-normal, #start-game-hard").click(function () {
 $("#start-game-easy").click(function () {
     shots = 20;
     retry = 20;
+    setTempo = 80;
     $(".digits").text(20);
     sound.play('start');
 });
@@ -312,6 +315,7 @@ $("#start-game-easy").click(function () {
 $("#start-game-normal").click(function () {
     shots = 10;
     retry = 10;
+    setTempo = 100;
     $(".digits").text(10);
     sound.play('start');
 });
@@ -319,6 +323,7 @@ $("#start-game-normal").click(function () {
 $("#start-game-hard").click(function () {
     shots = 5;
     retry = 5;
+    setTempo = 60;
     $(".digits").text(5);
     sound.play('start');
 });
