@@ -138,6 +138,9 @@ function setPatterns(beats) {
 
     // Reset
     function resetConsole() {
+        // Resets shots to retry value so minusShots() function begins at original number 
+        // Resets the counter to the correct value for each difficulty
+        // Plays vinyl back spin sound
         shots = retry;
         $(".digits").text(retry);
         sound.play('backSpin');
@@ -167,13 +170,13 @@ function setPatterns(beats) {
         activePad() {
             if (this.classList.contains("playing")) {
                 this.classList.add("correct");
-                if(this.classList.contains("correct")) {
+                if (this.classList.contains("correct")) {
                     $(this).addClass("pointer-none");
-                } 
+                }
                 padActiveCalculator();
             } else {
                 this.classList.add("wrong");
-                if(this.classList.contains("wrong")) {
+                if (this.classList.contains("wrong")) {
                     $(this).addClass("pointer-none");
                 }
                 minusShots();
@@ -254,10 +257,13 @@ function setPatterns(beats) {
             } else {
                 this.playButton.innerText = "PLAY";
                 this.playButton.classList.remove("retry-btn");
+                // Remove pointer event class so pads can be clicked again after reset
                 $(".correct, .wrong").removeClass("pointer-none");
-                // Resets shots to retry value so minusShots() function begins at original number 
-                // Resets the counter to the correct value for each difficulty
-                // Plays vinyl back spin sound
+                // Set correct click counters to 0 when game is reset
+                kickCounter = 0;
+                snareCounter = 0;
+                hiHatsCounter = 0;
+                openHCounter = 0;
             }
         }
 
