@@ -416,10 +416,10 @@ button:focus {
 
 @keyframes pulse {
     0% {
-        background-color: rgba(255, 151, 54, .5);
+        background-color: rgba(255, 151, 54, .2);
     }
 
-    10% {
+    0% {
         background-image: radial-gradient(40% 40%, rgba(255, 188, 63, 0.50) 10%, rgba(234, 235, 239, 0.00) 100%);
     }
 }

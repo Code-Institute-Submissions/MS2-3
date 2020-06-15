@@ -181,7 +181,7 @@ function setPatterns(beats) {
 
             // Loop over the pads
             activePad.forEach(beat => {
-                beat.style.animation = `pulse .65s`;
+                beat.style.animation = `pulse .3s`;
                 // Check if pads are should play sound based on arrays from setPattern function
                 if (beat.classList.contains("playing")) {
                     // Check each sound in here
