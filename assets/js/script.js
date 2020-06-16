@@ -119,7 +119,6 @@ function setPatterns(beats) {
         if ($("#open-hh").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
             openHCounter++;
             if (openHCounter - 1 === sumOfOpenHHArray) {
-                resetConsole();
                 drumKit.updateBtn();
                 drumKit.start();
             }
