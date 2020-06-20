@@ -660,6 +660,14 @@ button:focus {
 
 /*------------------------------------------------------------------ Media Queries */
 
+@media screen and (max-width: 992px) {
+
+    .highlight {
+        display: none;
+    }
+
+}
+
 @media screen and (max-width: 768px) {
 
     /* Hide console background for smaller screen sizes */
@@ -678,6 +686,20 @@ button:focus {
         padding: 10px 0 10px 0;
         line-height: 1.8em;
         font-size: .7em;
+    }
+
+    .highlight {
+        display: none;
+    }
+
+    #bronze,
+    #silver,
+    #gold {
+        display: none;
+    }
+
+    #modal-footer {
+        display: flex;
     }
 
 }
@@ -833,10 +855,6 @@ button:focus {
         height: 52vw;
         margin-left: -30.5%;
         margin-top: 14%;
-    }
-
-    .highlight {
-        display: none;
     }
 
 }
