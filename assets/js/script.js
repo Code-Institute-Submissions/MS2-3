@@ -28,7 +28,7 @@ function getData(loadBeats) {
         if (this.readyState == 4 && this.status == 200) {
             loadBeats(JSON.parse(this.responseText));
         }
-    };
+    }
 }
 
 function setPatterns(beats) {
@@ -140,6 +140,7 @@ function advancePads() {
                 $(`.kick-drum.pad-${i}, .snare-drum.pad-${i}, .hihat-drum.pad-${i}, .openhh-drum.pad-${i}`).removeClass("playing");
             }
             //Remove pointer non clas to allow pads to be clicked again
+            // $(`.kick-drum, .snare-drum, .hihat-drum, .openhh-drum`).removeClass("pointer-none");
             $(".correct, .wrong").removeClass("pointer-none");
             drumKit.updateBtn();
             drumKit.start();
@@ -180,8 +181,8 @@ function youLose() {
         sound.play('backSpin');
         // Set Howler global volume to 50%
         Howler.volume(0.5);
-    };
-};
+    }
+}
 
 // Reset
 function resetConsole() {
@@ -196,7 +197,7 @@ function resetConsole() {
     $("#hi-hats, #snare, #open-hh").removeClass("trigger");
     // Reset Howler global volume to 100%
     Howler.volume(1);
-};
+}
 
 // Function to clear pads of setPatterns
 function clearPads() {
