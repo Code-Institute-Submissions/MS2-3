@@ -217,6 +217,7 @@ class DrumKit {
                 $(this).addClass("pointer-none");
             }
             padActiveCalculator();
+            advancePads();
         } else {
             this.classList.add("wrong");
             if (this.classList.contains("wrong")) {
