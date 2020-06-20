@@ -146,6 +146,7 @@ function advancePads() {
             clearCounter();
             levelUp();
             youWin();
+            levelDisplayModal();
         }
     }
 }
@@ -201,6 +202,21 @@ function clearPads() {
     for (let i = 0; i < 16; i++) {
         $(`.kick-drum.pad-${i}, .snare-drum.pad-${i}, .hihat-drum.pad-${i}, .openhh-drum.pad-${i}`).removeClass("playing");
     }
+}
+
+// Function to show next level modal
+function levelDisplayModal() {
+    if (level < 4) {
+        $("#level-number").modal("show");
+        setTimeout(function () {
+            $("#level-number").modal("hide");
+        }, 2000);
+        $(".level-up-modal-number").text(level);
+    }
+    setTimeout(function () {
+        sound.play('yeah');
+    }, 1000);
+    
 }
 
 /*--------------------------------- Step Sequencer ------------------------------*/
