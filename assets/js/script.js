@@ -95,17 +95,31 @@ function minusShots() {
 function padActiveCalculator() {
     if ($("#kick").hasClass("trigger") && $(".kick-drum").hasClass("correct")) {
         kickCounter++;
-        // Checks if kick counter matches the value of the sum of the kick array
-        // If the values are equal the snare is activated
-        if (kickCounter === sumOfKickArray) {
-            $(".kick-pads, .hihat-pads, .openhh-pads").hide();
-            $(".snare-pads").show();
-            $("#snare").addClass("trigger");
-            $("#hi-hats, #open-hh").removeClass("trigger");
-        }
+        console.log(`kick counter inside padActive function = ${kickCounter}`);
     }
     if ($("#snare").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
         snareCounter++;
+        console.log(`snare counter inside padActive function = ${snareCounter}`);
+    }
+    if ($("#hi-hats").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
+        hiHatsCounter++;
+        console.log(`HH counter inside padActive function = ${hiHatsCounter}`);
+    }
+    if ($("#open-hh").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
+        openHCounter++;
+        console.log(`OHH counter inside padActive function = ${openHCounter}`);
+    }
+}
+
+// Function to check to see if the correct clicks match the sum of the corresponding drum array
+function advancePads() {
+    if (kickCounter === sumOfKickArray) {
+        $(".kick-pads, .hihat-pads, .openhh-pads").hide();
+        $(".snare-pads").show();
+        $("#snare").addClass("trigger");
+        $("#hi-hats, #open-hh").removeClass("trigger");
+    }
+    if ($("#snare").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
         if (snareCounter === sumOfSnareArray) {
             $(".snare-pads, .kick-pads, .openhh-pads").hide();
             $(".hihat-pads").show("show");
@@ -114,16 +128,19 @@ function padActiveCalculator() {
         }
     }
     if ($("#hi-hats").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
-        hiHatsCounter++;
-        if (hiHatsCounter - 1 === sumOfHihatArray) {
+        if (hiHatsCounter === sumOfHihatArray) {
             $(".snare-pads, .hihat-pads, .kick-pads").hide();
             $(".openhh-pads").show("show");
             $("#open-hh").addClass("trigger");
         }
     }
     if ($("#open-hh").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
-        openHCounter++;
-        if (openHCounter - 1 === sumOfOpenHHArray) {
+        if (openHCounter === sumOfOpenHHArray) {
+            for (let i = 0; i < kickArray.length; i++) {
+                $(`.kick-drum.pad-${i}, .snare-drum.pad-${i}, .hihat-drum.pad-${i}, .openhh-drum.pad-${i}`).removeClass("playing");
+            }
+            //Remove pointer non clas to allow pads to be clicked again
+            $(`.kick-drum, .snare-drum, .hihat-drum, .openhh-drum`).removeClass("pointer-none");
             drumKit.updateBtn();
             drumKit.start();
         }
