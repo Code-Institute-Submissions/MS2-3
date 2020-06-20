@@ -351,7 +351,7 @@ $("#start-game-easy, #start-game-normal, #start-game-hard").click(function () {
 $("#start-game-easy").click(function () {
     shots = 20;
     retry = 20;
-    setTempo = 80;
+    setTempo = 160;
     $(".digits").text(20);
     sound.play('start');
 });
@@ -367,7 +367,7 @@ $("#start-game-normal").click(function () {
 $("#start-game-hard").click(function () {
     shots = 5;
     retry = 5;
-    setTempo = 60;
+    setTempo = 80;
     $(".digits").text(5);
     sound.play('start');
 });
