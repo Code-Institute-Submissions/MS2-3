@@ -10,6 +10,10 @@ let snareCounter = 0;
 let hiHatsCounter = 0;
 let openHCounter = 0;
 let setTempo = 0;
+let sumOfKickArray = 0;
+let sumOfSnareArray = 0;
+let sumOfHihatArray = 0;
+let sumOfOpenHHArray = 0;
 
 
 // JSON
