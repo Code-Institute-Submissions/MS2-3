@@ -45,20 +45,20 @@ function setPatterns(beats) {
     let openhhArray = Array.from(String((beats)[beatIndex].openHat), Number);
 
     // Gets the sum of the each array and assigns them to variables
-    let sumOfKickArray = kickArray.reduce(function addingKick(a, b) {
+    sumOfKickArray = kickArray.reduce(function addingKick(a, b) {
         return a + b;
     }, 0);
     console.log(`Kick Summ = ${sumOfKickArray}`);
-    let sumOfSnareArray = snareArray.reduce(function addingSnare(a, b) {
+    sumOfSnareArray = snareArray.reduce(function addingSnare(a, b) {
         return a + b;
     }, 0);
     console.log(`Snare Summ = ${sumOfSnareArray}`);
-    let sumOfHihatArray = hihatArray.reduce(function addingHiHat(a, b) {
+    sumOfHihatArray = hihatArray.reduce(function addingHiHat(a, b) {
         return a + b;
     }, 0);
     console.log(`HH Summ = ${sumOfHihatArray}`);
 
-    let sumOfOpenHHArray = openhhArray.reduce(function addingOpenHH(a, b) {
+    sumOfOpenHHArray = openhhArray.reduce(function addingOpenHH(a, b) {
         return a + b;
     }, 0);
     console.log(`OHH Summ = ${sumOfOpenHHArray}`);
