@@ -140,7 +140,7 @@ function advancePads() {
                 $(`.kick-drum.pad-${i}, .snare-drum.pad-${i}, .hihat-drum.pad-${i}, .openhh-drum.pad-${i}`).removeClass("playing");
             }
             //Remove pointer non clas to allow pads to be clicked again
-            $(`.kick-drum, .snare-drum, .hihat-drum, .openhh-drum`).removeClass("pointer-none");
+            $(".correct, .wrong").removeClass("pointer-none");
             drumKit.updateBtn();
             drumKit.start();
             clearPads();
@@ -301,16 +301,8 @@ class DrumKit {
         } else {
             this.playButton.innerText = "PLAY";
             this.playButton.classList.remove("retry-btn");
-            // Remove pointer event class so pads can be clicked again after reset
-            $(".correct, .wrong").removeClass("pointer-none");
-            // Set correct click counters to 0 when game is reset
-            kickCounter = 0;
-            snareCounter = 0;
-            hiHatsCounter = 0;
-            openHCounter = 0;
         }
     }
-
 }
 
 const drumKit = new DrumKit();
@@ -338,8 +330,6 @@ drumKit.tryAgainButton.addEventListener("click", function () {
 // Sets the pad pattern
 getData(setPatterns);
 
-
-
 /*--------------------------------- Landing Screen ------------------------------*/
 
 // Remove landing screen to show main game area when "Start Game" button is clicked 
@@ -356,7 +346,6 @@ $("#start-game-easy, #start-game-normal, #start-game-hard").click(function () {
     // Remove parallax dust particles 
     $(".parallax").removeClass("d-sm-flex");
 });
-
 
 // Set shots counter for each difficulty
 $("#start-game-easy").click(function () {
