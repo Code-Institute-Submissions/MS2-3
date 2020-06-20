@@ -219,14 +219,14 @@ class DrumKit {
         if (this.classList.contains("playing")) {
             this.classList.add("correct");
             if (this.classList.contains("correct")) {
-                $(this).addClass("pointer-none");
+                this.classList.add("pointer-none");
             }
             padActiveCalculator();
             advancePads();
         } else {
             this.classList.add("wrong");
             if (this.classList.contains("wrong")) {
-                $(this).addClass("pointer-none");
+                this.classList.add("pointer-none");
             }
             minusShots();
             youLose();
