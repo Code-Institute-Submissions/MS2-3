@@ -43,6 +43,11 @@ button:focus {
     letter-spacing: 4px;
 }
 
+.level-up-modal-number {
+    font-size: 12em;
+    color: white;
+}
+
 /*----------------------------------------------------------------- Landing Screen */
 
 #landing {
