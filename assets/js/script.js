@@ -14,7 +14,7 @@ let sumOfKickArray = 0;
 let sumOfSnareArray = 0;
 let sumOfHihatArray = 0;
 let sumOfOpenHHArray = 0;
-
+let level = 1;
 
 // JSON
 
@@ -143,11 +143,37 @@ function advancePads() {
             $(`.kick-drum, .snare-drum, .hihat-drum, .openhh-drum`).removeClass("pointer-none");
             drumKit.updateBtn();
             drumKit.start();
+            clearPads();
+            getData(setPatterns);
+            clearCounter();
+            levelUp();
+            youWin();
         }
     }
 }
 
-// Function to open try again modal and play sound
+// Function to increase level by one and update level text 
+function levelUp() {
+    level++;
+    $(".level-up").text(level);
+}
+
+// Function to clear incremental drum counters
+function clearCounter() {
+    kickCounter = 0;
+    snareCounter = 0;
+    hiHatsCounter = 0;
+    openHCounter = 0;
+}
+
+// Function to display win modal if level three is passed
+function youWin() {
+    if (level === 4) {
+        $("#playAgainModal").modal("show");
+    }
+}
+
+// Funtcion to open try again modal and play sound
 function youLose() {
     if (shots == 0) {
         $("#tryAgainModal").modal("show");
@@ -156,6 +182,7 @@ function youLose() {
         Howler.volume(0.5);
     };
 };
+
 
 // Reset
 function resetConsole() {
