@@ -136,9 +136,6 @@ function advancePads() {
     }
     if ($("#open-hh").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
         if (openHCounter === sumOfOpenHHArray) {
-            for (let i = 0; i < kickArray.length; i++) {
-                $(`.kick-drum.pad-${i}, .snare-drum.pad-${i}, .hihat-drum.pad-${i}, .openhh-drum.pad-${i}`).removeClass("playing");
-            }
             //Remove pointer non clas to allow pads to be clicked again
             // $(`.kick-drum, .snare-drum, .hihat-drum, .openhh-drum`).removeClass("pointer-none");
             $(".correct, .wrong").removeClass("pointer-none");
@@ -201,7 +198,7 @@ function resetConsole() {
 
 // Function to clear pads of setPatterns
 function clearPads() {
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 16; i++) {
         $(`.kick-drum.pad-${i}, .snare-drum.pad-${i}, .hihat-drum.pad-${i}, .openhh-drum.pad-${i}`).removeClass("playing");
     }
 }
