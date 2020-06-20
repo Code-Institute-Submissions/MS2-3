@@ -78,219 +78,218 @@ function setPatterns(beats) {
             $(`.openhh-drum.pad-${i}`).addClass("playing");
         }
     }
+}
 
-    // Function to decrease score by one and update shot counter text
-    function minusShots() {
-        shots--;
-        $(".digits").text(shots);
-        sound.play("error");
-    }
+// Function to decrease score by one and update shot counter text
+function minusShots() {
+    shots--;
+    $(".digits").text(shots);
+    sound.play("error");
+}
 
-    // Increments counter variables by 1 if the corresponding pad is clicked
-    function padActiveCalculator() {
-        if ($("#kick").hasClass("trigger") && $(".kick-drum").hasClass("correct")) {
-            kickCounter++;
-            // Checks if kick counter matches the value of the sum of the kick array
-            // If the values are equal the snare is activated
-            if (kickCounter === sumOfKickArray) {
-                $(".kick-pads, .hihat-pads, .openhh-pads").hide();
-                $(".snare-pads").show();
-                $("#snare").addClass("trigger");
-                $("#hi-hats, #open-hh").removeClass("trigger");
-            }
-        }
-        if ($("#snare").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
-            snareCounter++;
-            if (snareCounter === sumOfSnareArray) {
-                $(".snare-pads, .kick-pads, .openhh-pads").hide();
-                $(".hihat-pads").show("show");
-                $("#hi-hats").addClass("trigger");
-                $("#open-hh").removeClass("trigger");
-            }
-        }
-        if ($("#hi-hats").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
-            hiHatsCounter++;
-            if (hiHatsCounter - 1 === sumOfHihatArray) {
-                $(".snare-pads, .hihat-pads, .kick-pads").hide();
-                $(".openhh-pads").show("show");
-                $("#open-hh").addClass("trigger");
-            }
-        }
-        if ($("#open-hh").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
-            openHCounter++;
-            if (openHCounter - 1 === sumOfOpenHHArray) {
-                drumKit.updateBtn();
-                drumKit.start();
-            }
+// Increments counter variables by 1 if the corresponding pad is clicked
+function padActiveCalculator() {
+    if ($("#kick").hasClass("trigger") && $(".kick-drum").hasClass("correct")) {
+        kickCounter++;
+        // Checks if kick counter matches the value of the sum of the kick array
+        // If the values are equal the snare is activated
+        if (kickCounter === sumOfKickArray) {
+            $(".kick-pads, .hihat-pads, .openhh-pads").hide();
+            $(".snare-pads").show();
+            $("#snare").addClass("trigger");
+            $("#hi-hats, #open-hh").removeClass("trigger");
         }
     }
+    if ($("#snare").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
+        snareCounter++;
+        if (snareCounter === sumOfSnareArray) {
+            $(".snare-pads, .kick-pads, .openhh-pads").hide();
+            $(".hihat-pads").show("show");
+            $("#hi-hats").addClass("trigger");
+            $("#open-hh").removeClass("trigger");
+        }
+    }
+    if ($("#hi-hats").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
+        hiHatsCounter++;
+        if (hiHatsCounter - 1 === sumOfHihatArray) {
+            $(".snare-pads, .hihat-pads, .kick-pads").hide();
+            $(".openhh-pads").show("show");
+            $("#open-hh").addClass("trigger");
+        }
+    }
+    if ($("#open-hh").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
+        openHCounter++;
+        if (openHCounter - 1 === sumOfOpenHHArray) {
+            drumKit.updateBtn();
+            drumKit.start();
+        }
+    }
+}
 
-    // Funtcion to open try again modal and play sound
-    function youLose() {
-        if (shots == 0) {
-            $("#tryAgainModal").modal("show");
-            sound.play('backSpin');
-            // Set Howler global volume to 50%
-            Howler.volume(0.5);
-        };
-    };
-
-    // Reset
-    function resetConsole() {
-        // Resets shots to retry value so minusShots() function begins at original number 
-        // Resets the counter to the correct value for each difficulty
-        // Plays vinyl back spin sound
-        shots = retry;
-        $(".digits").text(retry);
+// Function to open try again modal and play sound
+function youLose() {
+    if (shots == 0) {
+        $("#tryAgainModal").modal("show");
         sound.play('backSpin');
-        // Clears all pads when reset
-        $(".kick-drum, .snare-drum, .hihat-drum, .openhh-drum").removeClass("correct wrong");
-        // Revert back to kick instrument pads
-        $(".snare-pads, .hihat-pads, .openhh-pads").hide();
-        $(".kick-pads").show();
-        $("#kick").addClass("trigger");
-        $("#hi-hats, #snare, #open-hh").removeClass("trigger");
-        // Reset Howler global volume to 100%
-        Howler.volume(1);
+        // Set Howler global volume to 50%
+        Howler.volume(0.5);
     };
+};
 
-    /*--------------------------------- Step Sequencer ------------------------------*/
+// Reset
+function resetConsole() {
+    // Resets shots to retry value so minusShots() function begins at original number 
+    // Resets the counter to the correct value for each difficulty
+    // Plays vinyl back spin sound
+    shots = retry;
+    $(".digits").text(retry);
+    sound.play('backSpin');
+    // Clears all pads when reset
+    $(".kick-drum, .snare-drum, .hihat-drum, .openhh-drum").removeClass("correct wrong");
+    // Revert back to kick instrument pads
+    $(".snare-pads, .hihat-pads, .openhh-pads").hide();
+    $(".kick-pads").show();
+    $("#kick").addClass("trigger");
+    $("#hi-hats, #snare, #open-hh").removeClass("trigger");
+    // Reset Howler global volume to 100%
+    Howler.volume(1);
+};
 
-    class DrumKit {
-        constructor() {
-            this.pads = document.querySelectorAll(".drum-pad");
-            this.playButton = document.querySelector(".play-btn");
-            this.tryAgainButton = document.querySelector(".try-again");
-            this.index = 0;
-            this.bpm = 160;
-        }
+/*--------------------------------- Step Sequencer ------------------------------*/
 
-        // On/Off toggle for pads
-        activePad() {
-            if (this.classList.contains("playing")) {
-                this.classList.add("correct");
-                if (this.classList.contains("correct")) {
-                    $(this).addClass("pointer-none");
-                }
-                padActiveCalculator();
-            } else {
-                this.classList.add("wrong");
-                if (this.classList.contains("wrong")) {
-                    $(this).addClass("pointer-none");
-                }
-                minusShots();
-                youLose();
-            }
-        }
-
-        cycle() {
-            let step = this.index % 16;
-            const activePad = document.querySelectorAll(`.pad-${step}`);
-
-            // Loop over the pads
-            activePad.forEach(beat => {
-                beat.style.animation = `pulse .3s`;
-                // Check if pads are should play sound based on arrays from setPattern function
-                if (beat.classList.contains("playing")) {
-                    // Check each sound in here
-                    if (beat.classList.contains("kick-drum") && $("#kick").hasClass("trigger")) {
-                        if (beat.classList.contains("kick-drum") && beat.classList.contains("correct")) {
-                            sound.play('kick');
-                        } else {
-                            sound.play('kick2');
-                        }
-                    }
-                    if (beat.classList.contains("snare-drum") && $("#snare").hasClass("trigger")) {
-                        if (beat.classList.contains("snare-drum") && beat.classList.contains("correct")) {
-                            sound.play('snare');
-                        } else {
-                            sound.play('snare2');
-                        }
-                    }
-                    if (beat.classList.contains("hihat-drum") && $("#hi-hats").hasClass("trigger")) {
-                        if (beat.classList.contains("hihat-drum") && beat.classList.contains("correct")) {
-                            sound.play('hihat');
-                        } else {
-                            sound.play('hihat2');
-                        }
-                    }
-                    if (beat.classList.contains("openhh-drum") && $("#open-hh").hasClass("trigger")) {
-                        if (beat.classList.contains("openhh-drum") && beat.classList.contains("correct")) {
-                            sound.play('openhh');
-                        } else {
-                            sound.play('openhh2');
-                        }
-                    }
-                }
-            });
-            this.index++;
-        }
-
-        start() {
-            let interval = (setTempo / this.bpm) * 500;
-            // Check if it is playing
-            if (!this.isPlaying) {
-                this.isPlaying = setInterval(() => {
-                    this.cycle();
-                }, interval);
-            } else {
-                //Clear the Interval
-                clearInterval(this.isPlaying);
-                this.isPlaying = null;
-                // Reset index back to 0 - Pad plays from beginning
-                this.index = 0;
-                resetConsole();
-            }
-            // Toggle vinyl spin, needle arm rotation and play button scale animations when clicked
-            // Activate drum pads
-            $(".vinyl").toggleClass("spin");
-            $(".needle-arm").toggleClass("rotate");
-            $(".play-btn").toggleClass("scale");
-            $("#all-pads").toggleClass("disabled-drum-pad");
-        }
-
-        updateBtn() {
-            if (!this.isPlaying) {
-                this.playButton.innerText = "RESET";
-                this.playButton.classList.add("retry-btn");
-            } else {
-                this.playButton.innerText = "PLAY";
-                this.playButton.classList.remove("retry-btn");
-                // Remove pointer event class so pads can be clicked again after reset
-                $(".correct, .wrong").removeClass("pointer-none");
-                // Set correct click counters to 0 when game is reset
-                kickCounter = 0;
-                snareCounter = 0;
-                hiHatsCounter = 0;
-                openHCounter = 0;
-            }
-        }
-
+class DrumKit {
+    constructor() {
+        this.pads = document.querySelectorAll(".drum-pad");
+        this.playButton = document.querySelector(".play-btn");
+        this.tryAgainButton = document.querySelector(".try-again");
+        this.index = 0;
+        this.bpm = 160;
     }
 
-    const drumKit = new DrumKit();
+    // On/Off toggle for pads
+    activePad() {
+        if (this.classList.contains("playing")) {
+            this.classList.add("correct");
+            if (this.classList.contains("correct")) {
+                $(this).addClass("pointer-none");
+            }
+            padActiveCalculator();
+        } else {
+            this.classList.add("wrong");
+            if (this.classList.contains("wrong")) {
+                $(this).addClass("pointer-none");
+            }
+            minusShots();
+            youLose();
+        }
+    }
 
-    // Adds animation to each pad when looped over
-    drumKit.pads.forEach(pad => {
-        pad.addEventListener("click", drumKit.activePad);
-        pad.addEventListener("animationend", function () {
-            this.style.animation = "";
+    cycle() {
+        let step = this.index % 16;
+        const activePad = document.querySelectorAll(`.pad-${step}`);
+
+        // Loop over the pads
+        activePad.forEach(beat => {
+            beat.style.animation = `pulse .3s`;
+            // Check if pads are should play sound based on arrays from setPattern function
+            if (beat.classList.contains("playing")) {
+                // Check each sound in here
+                if (beat.classList.contains("kick-drum") && $("#kick").hasClass("trigger")) {
+                    if (beat.classList.contains("kick-drum") && beat.classList.contains("correct")) {
+                        sound.play('kick');
+                    } else {
+                        sound.play('kick2');
+                    }
+                }
+                if (beat.classList.contains("snare-drum") && $("#snare").hasClass("trigger")) {
+                    if (beat.classList.contains("snare-drum") && beat.classList.contains("correct")) {
+                        sound.play('snare');
+                    } else {
+                        sound.play('snare2');
+                    }
+                }
+                if (beat.classList.contains("hihat-drum") && $("#hi-hats").hasClass("trigger")) {
+                    if (beat.classList.contains("hihat-drum") && beat.classList.contains("correct")) {
+                        sound.play('hihat');
+                    } else {
+                        sound.play('hihat2');
+                    }
+                }
+                if (beat.classList.contains("openhh-drum") && $("#open-hh").hasClass("trigger")) {
+                    if (beat.classList.contains("openhh-drum") && beat.classList.contains("correct")) {
+                        sound.play('openhh');
+                    } else {
+                        sound.play('openhh2');
+                    }
+                }
+            }
         });
-    });
+        this.index++;
+    }
 
-    // Plays step sequencer when play button is clicked
-    // Changes Play button to Stop button when clicked
-    drumKit.playButton.addEventListener("click", function () {
-        drumKit.updateBtn();
-        drumKit.start();
-    });
+    start() {
+        let interval = (setTempo / this.bpm) * 500;
+        // Check if it is playing
+        if (!this.isPlaying) {
+            this.isPlaying = setInterval(() => {
+                this.cycle();
+            }, interval);
+        } else {
+            //Clear the Interval
+            clearInterval(this.isPlaying);
+            this.isPlaying = null;
+            // Reset index back to 0 - Pad plays from beginning
+            this.index = 0;
+            resetConsole();
+        }
+        // Toggle vinyl spin, needle arm rotation and play button scale animations when clicked
+        // Activate drum pads
+        $(".vinyl").toggleClass("spin");
+        $(".needle-arm").toggleClass("rotate");
+        $(".play-btn").toggleClass("scale");
+        $("#all-pads").toggleClass("disabled-drum-pad");
+    }
 
-    drumKit.tryAgainButton.addEventListener("click", function () {
-        drumKit.updateBtn();
-        drumKit.start();
-    });
+    updateBtn() {
+        if (!this.isPlaying) {
+            this.playButton.innerText = "RESET";
+            this.playButton.classList.add("retry-btn");
+        } else {
+            this.playButton.innerText = "PLAY";
+            this.playButton.classList.remove("retry-btn");
+            // Remove pointer event class so pads can be clicked again after reset
+            $(".correct, .wrong").removeClass("pointer-none");
+            // Set correct click counters to 0 when game is reset
+            kickCounter = 0;
+            snareCounter = 0;
+            hiHatsCounter = 0;
+            openHCounter = 0;
+        }
+    }
 
 }
+
+const drumKit = new DrumKit();
+
+// Adds animation to each pad when looped over
+drumKit.pads.forEach(pad => {
+    pad.addEventListener("click", drumKit.activePad);
+    pad.addEventListener("animationend", function () {
+        this.style.animation = "";
+    });
+});
+
+// Plays step sequencer when play button is clicked
+// Changes Play button to Stop button when clicked
+drumKit.playButton.addEventListener("click", function () {
+    drumKit.updateBtn();
+    drumKit.start();
+});
+
+drumKit.tryAgainButton.addEventListener("click", function () {
+    drumKit.updateBtn();
+    drumKit.start();
+});
 
 // Sets the pad pattern
 getData(setPatterns);
