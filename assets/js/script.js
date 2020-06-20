@@ -198,6 +198,13 @@ function resetConsole() {
     Howler.volume(1);
 };
 
+// Function to clear pads of setPatterns
+function clearPads() {
+    for (let i = 0; i < 15; i++) {
+        $(`.kick-drum.pad-${i}, .snare-drum.pad-${i}, .hihat-drum.pad-${i}, .openhh-drum.pad-${i}`).removeClass("playing");
+    }
+}
+
 /*--------------------------------- Step Sequencer ------------------------------*/
 
 class DrumKit {
@@ -452,15 +459,10 @@ window.addEventListener('load', function () {
 
 /*--------------------------------- Drum Console ------------------------------*/
 
-//Hide and show pads
-
 //Show kick pads only on load
 $(".snare-pads, .hihat-pads, .openhh-pads").hide();
-// $("#hi-hats, #snare, #open-hh").addClass("disabled-drum-pad");
-
 
 // Return to home screen when drum console home icon is clicked 
-
 $(".home-btn").click(function () {
     sound.play("exit");
     // Sets timeout so exit sound plays in full before reload
