@@ -118,6 +118,7 @@ function advancePads() {
         $(".snare-pads").show();
         $("#snare").addClass("trigger");
         $("#hi-hats, #open-hh").removeClass("trigger");
+        sound.play("yeah2");
     }
     if ($("#snare").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
         if (snareCounter === sumOfSnareArray) {
@@ -125,6 +126,7 @@ function advancePads() {
             $(".hihat-pads").show("show");
             $("#hi-hats").addClass("trigger");
             $("#open-hh").removeClass("trigger");
+            sound.play("yeah2");
         }
     }
     if ($("#hi-hats").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
@@ -132,6 +134,7 @@ function advancePads() {
             $(".snare-pads, .hihat-pads, .kick-pads").hide();
             $(".openhh-pads").show("show");
             $("#open-hh").addClass("trigger");
+            sound.play("yeah2");
         }
     }
     if ($("#open-hh").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
@@ -542,7 +545,7 @@ $("#start-game-hard").hover(function () {
     sound.play('');
 });
 
-$(".btn-how-to-play, .btn-start-game").hover(function () {
+$(".btn-how-to-play, .btn-start-game, .btn-arcade").hover(function () {
     sound.play('button');
 }, function () {
     sound.play('');
@@ -550,5 +553,7 @@ $(".btn-how-to-play, .btn-start-game").hover(function () {
 
 // Play start sound when clicked
 $(".btn-start-game").click(function () {
+    sound.stop();
     sound.play('start');
+    sound.play('nextLevel');
 });
