@@ -110,8 +110,9 @@
                     </div>
                 </div>
                 <div class="modal-footer border-0">
-                    <button type="button" class="btn btn-success pt-3 letter-spacing" data-dismiss="modal">
-                        <h6>Close</h6>
+                    <button id="play-again" data-dismiss="modal"
+                        class="btn btn-arcade col-10 col-md-3 text-uppercase text-center h5 p-2 ml-3 letter-spacing play-again">
+                        <span class="text-change">Ready!</span>
                     </button>
                 </div>
             </div>
@@ -165,8 +166,8 @@
     </div>
 
     <!-- You Win Modal -->
-    <div class="modal fade" id="playAgainModal" tabindex="-1" role="dialog" aria-labelledby="playAgainModal"
-        aria-hidden="true">
+    <div class="modal fade" id="playAgainModal" tabindex="-1" data-backdrop="static" role="dialog"
+        aria-labelledby="playAgainModal" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="row d-flex justify-content-center pt-5">
@@ -186,8 +187,13 @@
                 </div>
                 <div class="modal-footer border-0 d-flex row d-none d-sm-flex justify-content-center my-3">
                     <button id="play-again" data-dismiss="modal"
-                        class="btn btn-arcade col-10 col-md-3 text-uppercase text-center h5 p-2 mr-0 letter-spacing play-again"><span
-                            class="text-change">PLAY AGAIN</span></button>
+                        class="btn btn-arcade col-10 col-md-3 text-uppercase text-center h5 p-2 mr-0 letter-spacing play-again">
+                        <span class="text-change">PLAY AGAIN</span>
+                    </button>
+                    <button id="play-again" data-dismiss="modal"
+                        class="btn btn-arcade col-10 col-md-3 text-uppercase text-center h5 p-2 mr-0 letter-spacing play-again">
+                        <span class="text-change">EXIT GAME</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -216,8 +222,13 @@
                 </div>
                 <div class="modal-footer border-0 d-flex row d-none d-sm-flex justify-content-center my-3">
                     <button id="try-again" data-dismiss="modal"
-                        class="btn btn-arcade col-10 col-md-3 text-uppercase text-center h5 p-2 mr-0 letter-spacing try-again"><span
-                            class="text-change">TRY AGAIN</span></button>
+                        class="btn btn-arcade col-10 col-md-3 text-uppercase text-center h5 p-2 mr-3 letter-spacing try-again">
+                        <span class="text-change">TRY AGAIN</span>
+                    </button>
+                    <button id="play-again" data-dismiss="modal"
+                        class="btn btn-arcade col-10 col-md-3 text-uppercase text-center h5 p-2 ml-3 letter-spacing play-again">
+                        <span class="text-change">EXIT GAME</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -395,8 +406,7 @@
             <div class="d-flex justify-content-center mb-4">
                 <div class="mt-sm-3 mt-2 d-flex">
                     <button class="mr-sm-4 mr-1 home-btn"></button>
-                    <button class="ml-sm-4 mr-sm-4 ml-2 mr-2 play-btn text-uppercase scale">Play</button>
-                    <button class="mr-sm-4 mr-2 retry-btn text-uppercase">Retry</button>
+                    <button class="ml-sm-4 mr-sm-4 mx-5 play-btn text-uppercase scale">Play</button>
                     <button class="mute-btn ml-sm-4 ml-1"></button>
                 </div>
             </div>
