@@ -212,9 +212,12 @@ function levelDisplayModal() {
         $(".level-up-modal-number").text(level);
     }
     setTimeout(function () {
-        sound.play('yeah');
-    }, 1000);
-    
+        sound.play("nextLevel");
+    }, 100);
+    sound.play("start");
+    setTimeout(function () {
+        sound.play("backSpin");
+    }, 2000);
 }
 
 /*--------------------------------- Step Sequencer ------------------------------*/
@@ -261,28 +264,28 @@ class DrumKit {
                     if (beat.classList.contains("kick-drum") && beat.classList.contains("correct")) {
                         sound.play('kick');
                     } else {
-                        sound.play('kick2');
+                        sound.play('blip1');
                     }
                 }
                 if (beat.classList.contains("snare-drum") && $("#snare").hasClass("trigger")) {
                     if (beat.classList.contains("snare-drum") && beat.classList.contains("correct")) {
                         sound.play('snare');
                     } else {
-                        sound.play('snare2');
+                        sound.play('blip1');
                     }
                 }
                 if (beat.classList.contains("hihat-drum") && $("#hi-hats").hasClass("trigger")) {
                     if (beat.classList.contains("hihat-drum") && beat.classList.contains("correct")) {
                         sound.play('hihat');
                     } else {
-                        sound.play('hihat2');
+                        sound.play('blip1');
                     }
                 }
                 if (beat.classList.contains("openhh-drum") && $("#open-hh").hasClass("trigger")) {
                     if (beat.classList.contains("openhh-drum") && beat.classList.contains("correct")) {
                         sound.play('openhh');
                     } else {
-                        sound.play('openhh2');
+                        sound.play('blip1');
                     }
                 }
             }
@@ -487,7 +490,7 @@ $(".home-btn").click(function () {
 //Howler.js
 
 var sound = new Howl({
-    src: ["./assets/sounds/btb-sprite-2.mp3", "./assets/sounds/btb-sprite-2.ogg"],
+    src: ["./assets/sounds/btb-sprite-4.mp3", "./assets/sounds/btb-sprite-4.ogg"],
     sprite: {
         kick: [0, 240],
         snare: [250, 240],
@@ -501,17 +504,22 @@ var sound = new Howl({
         start: [4250, 550],
         error: [5000, 460],
         button: [5500, 500],
-        kick2: [6000, 240],
-        snare2: [6250, 240],
-        hihat2: [6500, 240],
-        openhh2: [6750, 240],
+        blip1: [6000, 240],
+        blip2: [6250, 240],
+        blip3: [6500, 240],
+        success: [6750, 500],
         yeah: [7250, 350],
         letsGo: [7750, 550],
+        yeah2: [8500, 700],
+        btbTitle: [9500, 2500, true],
+        nextLevel: [12500, 2000],
     }
 });
 
 // Plays game title loop
-sound.play("btbTitle");
+setTimeout(function() {
+    sound.play("btbTitle");
+},200);
 
 // Hover Sounds
 
