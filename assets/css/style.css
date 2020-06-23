@@ -394,11 +394,6 @@ button:focus {
     }
 }
 
-.game-title {
-    align-self: flex-end;
-}
-
-
 .hover {
     animation-name: hover;
     animation-timing-function: ease-in-out;
