@@ -211,7 +211,7 @@ function levelDisplayModal() {
         $("#level-number").modal("show");
         setTimeout(function () {
             $("#level-number").modal("hide");
-        }, 2000);
+        }, 3000);
         $(".level-up-modal-number").text(level);
     }
     setTimeout(function () {
