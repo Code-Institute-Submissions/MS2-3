@@ -22,6 +22,7 @@ p {
 
 button {
     font-family: 'Michroma', sans-serif;
+    cursor: pointer;
 }
 
 /* Remove blue border on button when clicked */
