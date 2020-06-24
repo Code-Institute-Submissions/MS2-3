@@ -623,7 +623,7 @@ button:focus {
     letter-spacing: 2.5px;
 }
 
-.retry-btn {
+.pause-btn {
     background-color: #dc3131;
     box-shadow:
         5px 5px 10px 0 rgba(166, 171, 189, 0.8),
@@ -828,7 +828,7 @@ button:focus {
         letter-spacing: 1.5px;
     }
 
-    .retry-btn {
+    .pause-btn {
         height: 30px;
         width: 85px;
         box-shadow:

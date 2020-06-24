@@ -321,11 +321,11 @@ class DrumKit {
 
     updateBtn() {
         if (!this.isPlaying) {
-            this.playButton.innerText = "RESET";
-            this.playButton.classList.add("retry-btn");
+            this.playButton.innerText = "PAUSE";
+            this.playButton.classList.add("pause-btn");
         } else {
             this.playButton.innerText = "PLAY";
-            this.playButton.classList.remove("retry-btn");
+            this.playButton.classList.remove("pause-btn");
         }
     }
 }
