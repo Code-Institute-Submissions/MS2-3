@@ -177,6 +177,10 @@ button:focus {
     content: "You Got This";
 }
 
+.exit-game.btn-arcade:hover:before {
+    content: "Peace Out";
+}
+
 .btn-arcade:hover .highlight {
     transform: translate(-100px, -58px);
     opacity: 1;
