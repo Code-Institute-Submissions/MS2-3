@@ -576,8 +576,17 @@ $(".btn-how-to-play, .btn-start-game, .btn-arcade").hover(function () {
 });
 
 // Play start sound when clicked
-$(".btn-start-game").click(function () {
+$(".btn-start-game, .btn-how-to-play").click(function () {
     sound.stop();
     sound.play('start');
     sound.play('nextLevel');
+});
+
+$(".btn-how-to-play, #ready").click(function () {
+    sound.play('start');
+});
+
+$(".how-to-btn").click(function(){
+    $("#howToPlayModal").modal("show");
+    sound.play("start");
 });
