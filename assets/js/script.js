@@ -1,4 +1,5 @@
 // Global Variables
+let retry = 0;
 let kickArray = [];
 let snareArray = [];
 let hihatArray = [];
@@ -222,6 +223,31 @@ function levelDisplayModal() {
     }, 2000);
 }
 
+// Function to exit to landing screen
+function exitGame() {
+    sound.play("exit");
+    // Sets timeout so exit sound plays in full before reload
+    //ensures that the function will always be called in the context of window.location
+    //SRC: https://stackoverflow.com/questions/39407803/why-does-settimeoutlocation-reload-throw-a-typeerror/39407908
+    window.setTimeout(window.location.reload.bind(window.location), 500);
+}
+
+// Function to reset game from win/lose modals
+function resetGame(){
+    shots = retry;
+    $(".digits").text(shots);
+    $(".correct, .wrong").removeClass("pointer-none");
+    clearPads();
+    clearCounter();
+    resetConsole();
+    getData(setPatterns);
+    sound.play('start');
+    level = 1;
+}
+
+$(".play-again, .try-again").click(function(){
+    resetGame();
+});
 
 /*--------------------------------- Step Sequencer ------------------------------*/
 
@@ -374,6 +400,7 @@ $("#start-game-easy, #start-game-normal, #start-game-hard").click(function () {
 
 // Set shots counter for each difficulty
 $("#start-game-easy").click(function () {
+    retry = 20;
     shots = 20;
     setTempo = 160;
     $(".digits").text(20);
@@ -381,6 +408,7 @@ $("#start-game-easy").click(function () {
 });
 
 $("#start-game-normal").click(function () {
+    retry = 10;
     shots = 10;
     setTempo = 100;
     $(".digits").text(10);
@@ -388,6 +416,7 @@ $("#start-game-normal").click(function () {
 });
 
 $("#start-game-hard").click(function () {
+    retry = 5;
     shots = 5;
     setTempo = 80;
     $(".digits").text(5);
@@ -477,13 +506,11 @@ window.addEventListener('load', function () {
 //Show kick pads only on load
 $(".snare-pads, .hihat-pads, .openhh-pads").hide();
 
+
 // Return to home screen when drum console home icon is clicked 
-$(".home-btn").click(function () {
+$(".home-btn, .exit-game").click(function () {
     sound.play("exit");
-    // Sets timeout so exit sound plays in full before reload
-    //ensures that the function will always be called in the context of window.location
-    //SRC: https://stackoverflow.com/questions/39407803/why-does-settimeoutlocation-reload-throw-a-typeerror/39407908
-    window.setTimeout(window.location.reload.bind(window.location), 500);
+    exitGame();
 });
 
 
@@ -512,7 +539,7 @@ var sound = new Howl({
         letsGo: [7750, 550],
         yeah2: [8500, 700],
         btbTitle: [9500, 2500, true],
-        nextLevel: [12500, 2000],
+        nextLevel: [12500, 2000]
     }
 });
 
