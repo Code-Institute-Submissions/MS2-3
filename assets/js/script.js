@@ -1,5 +1,4 @@
 // Global Variables
-let retry = 0;
 let kickArray = [];
 let snareArray = [];
 let hihatArray = [];
@@ -223,6 +222,7 @@ function levelDisplayModal() {
     }, 2000);
 }
 
+
 /*--------------------------------- Step Sequencer ------------------------------*/
 
 class DrumKit {
@@ -375,7 +375,6 @@ $("#start-game-easy, #start-game-normal, #start-game-hard").click(function () {
 // Set shots counter for each difficulty
 $("#start-game-easy").click(function () {
     shots = 20;
-    retry = 20;
     setTempo = 160;
     $(".digits").text(20);
     sound.play('start');
@@ -383,7 +382,6 @@ $("#start-game-easy").click(function () {
 
 $("#start-game-normal").click(function () {
     shots = 10;
-    retry = 10;
     setTempo = 100;
     $(".digits").text(10);
     sound.play('start');
@@ -391,7 +389,6 @@ $("#start-game-normal").click(function () {
 
 $("#start-game-hard").click(function () {
     shots = 5;
-    retry = 5;
     setTempo = 80;
     $(".digits").text(5);
     sound.play('start');
