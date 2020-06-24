@@ -335,7 +335,6 @@ class DrumKit {
             this.isPlaying = null;
             // Reset index back to 0 - Pad plays from beginning
             this.index = 0;
-            resetConsole();
         }
         // Toggle vinyl spin, needle arm rotation and play button scale animations when clicked
         // Activate drum pads
