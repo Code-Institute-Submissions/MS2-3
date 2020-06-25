@@ -76,6 +76,7 @@ function setPatterns(beats) {
 }
 
 /*--------------------------------- Step Sequencer ------------------------------*/
+/* Based on the step sequencer created by Dev Ed as part of the Creative Javascript Course: https://developedbyed.com/p/the-creative-javascript-course */
 
 class DrumKit {
     constructor() {
