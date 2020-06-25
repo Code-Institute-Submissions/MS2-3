@@ -4,7 +4,7 @@
 
 ![Beat The Break Logo](https://justinmcc066.github.io/MS2/assets/images/btb-logo.png)
 
-## Beat The Break - [Live Site](https://justinmcc066.github.io/MS2/index.html)
+## Beat The Break - [Live Site](https://beatthebreak.com)
 
 Beat The Break is a fun music interactive game based around the famous MPC (Music Production Centre). The MPC is at the heart of most modern music productions but rose to fame in the 80's with the introduction of the Akai MPC60.
 
@@ -236,7 +236,7 @@ The site is hosted on Github Pages and was deployed using the following steps:
 3. Select "settings" on the repository page.
 4. Under "GitHub Pages" section, choose master brance as source.
 
-Live site can be viewed here: [The Blue Note](https://justinmcc066.github.io/MS2/index.html)
+Live site can be viewed here: [Beat The Break](https://justinmcc066.github.io/MS2/index.html)
 
 ### Local
 
