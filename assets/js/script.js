@@ -145,6 +145,7 @@ function advancePads() {
             drumKit.updateBtn();
             drumKit.start();
             clearPads();
+            resetConsole();
             getData(setPatterns);
             clearCounter();
             levelUp();
@@ -243,6 +244,7 @@ function resetGame(){
     getData(setPatterns);
     sound.play('start');
     level = 1;
+    $(".level-up").text(level);
 }
 
 $(".play-again, .try-again").click(function(){
