@@ -153,6 +153,7 @@ button:focus {
     border-radius: 20px;
 }
 
+/* Change button text on hover: https://stackoverflow.com/questions/9913293/change-text-on-hover-then-return-to-the-previous-text/9913526 */
 .btn-arcade:hover .text-change {
     display: none;
 }
@@ -647,7 +648,6 @@ button:focus {
 
 .how-to-btn {
     background-color: #EBECF0;
-    /* background-image: url("../images/volume-icon.png"); */
     background-size: 60%;
     color: #696969;
     background-repeat: no-repeat;
@@ -662,7 +662,6 @@ button:focus {
 }
 
 .how-to-btn:hover {
-    /* background-image: url("../images/mute-volume-icon.png"); */
     box-shadow:
         inset 1px 1px 3px rgba(220, 49, 49, .8),
         inset -1px -1px 3px rgba(250, 251, 255, 1);
@@ -850,7 +849,6 @@ button:focus {
     .how-to-btn {
         height: 30px;
         width: 30px;
-        background-image: url("../images/volume-icon.png");
     }
 
     /* Record and needle arm */
