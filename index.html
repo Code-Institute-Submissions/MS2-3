@@ -35,16 +35,19 @@
                         alt="Beat The Break Game Title">
                 </div>
                 <div class="row d-flex justify-content-center pb-1">
-                    <h1 class="col-10 col-md-8 text-uppercase text-center h5 letter-spacing text-uppercase">Match the
-                        correct beat sequence to beat the break</h1>
+                    <h1 class="col-10 col-md-8 text-uppercase text-center h5 letter-spacing text-uppercase">
+                        Match the correct beat sequence to beat the break
+                    </h1>
                 </div>
                 <div class="row d-flex justify-content-center mt-4 pb-1">
                     <button data-toggle="modal" data-target="#howToPlayModal"
-                        class="btn btn-how-to-play col-10 col-md-3 text-uppercase text-center h5 p-2 mr-0 mr-md-3 letter-spacing text-uppercase">How
-                        To Play</button>
+                        class="btn btn-how-to-play col-10 col-md-3 text-uppercase text-center h5 p-2 mr-0 mr-md-3 letter-spacing text-uppercase">
+                        How To Play
+                    </button>
                     <button data-toggle="modal" data-target="#selectDifficulty"
-                        class="btn btn-start-game col-10 col-md-3 text-uppercase text-center h5 p-2 ml-0 ml-md-3 letter-spacing text-uppercase">Start
-                        Game</button>
+                        class="btn btn-start-game col-10 col-md-3 text-uppercase text-center h5 p-2 ml-0 ml-md-3 letter-spacing text-uppercase">
+                        Start Game
+                    </button>
                 </div>
             </div>
             <div id="boombox" class="row d-none d-sm-flex float-right pb-4 pt-0">
@@ -75,66 +78,82 @@
                 </div>
                 <div class="modal-body p-0">
                     <div class="modal-body p-0">
-                        <div id="carouselControls" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carouselControls" data-slide-to="0" class="active"></li>
-                                <li data-target="#carouselControls" data-slide-to="1"></li>
-                                <li data-target="#carouselControls" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active" data-interval="10000">
-                                    <div class="carousel-caption">
-                                        <h3>Slide One Caption</h3>
-                                        <p>Descriptive Text Added Here</p>
-                                    </div>
-                                    <img class="d-block w-100"
-                                        src="./assets/images/how-to-play-carousel-placeholder.jpg" alt="First slide">
-                                </div>
-                                <div class="carousel-item" data-interval="10000">
-                                    <div class="carousel-caption">
-                                        <h3>Slide Two Caption</h3>
-                                        <p>Descriptive Text Added Here</p>
-                                    </div>
-                                    <img class="d-block w-100"
-                                        src="./assets/images/how-to-play-carousel-placeholder.jpg" alt="Second slide">
-                                </div>
-                                <div class="carousel-item" data-interval="10000">
-                                    <div class="carousel-caption">
-                                        <h3>Slide Three Caption</h3>
-                                        <p>Descriptive Text Added Here</p>
-                                    </div>
-                                    <img class="d-block w-100"
-                                        src="./assets/images/how-to-play-carousel-placeholder.jpg" alt="Third slide">
-                                </div>
+                        <div class="row d-flex justify-content-center my-3">
+                            <div class="col-10 col-md-5 text-center border-right border-left border-danger">
+                                <h5 class="letter-spacing text-uppercase instruction-title mt-2">GAME<br>
+                                    OBJECTIVE</h5>
+                                <p class="text-center px-2">
+                                    Learn how drum beats are programmed into a drum sequencer.<br>
+                                    Match the correct beat sequence for each of the four drums:
+                                    Kick drum, snare drum hi-hat cymbal and open hi-hat cymbal.
+                                    Pass all 3 levels to win.
+                                </p>
                             </div>
-                            <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
+                            <div class="col-10 col-md-5 text-center border-right border-left border-danger">
+                                <h5 class="letter-spacing text-uppercase text-center instruction-title mt-2">GAME<br>
+                                    DIFFICULTY</h5>
+                                <p><span class="font-weight-bold text-uppercase letter-spacing text-bronze">Easy Mode:
+                                    </span><br>20 Shots • Slow Tempo
+                                </p>
+                                <p><span class="font-weight-bold text-uppercase letter-spacing text-silver">Normal Mode:
+                                    </span><br>10 Shots • Medium Tempo
+                                </p>
+                                <p><span class="font-weight-bold text-uppercase letter-spacing text-gold">Hard Mode:
+                                    </span><br>5 Shots • Fast Tempo
+                                </p>
+                            </div>
+                            <div class="col-10 text-left mt-3">
+                                <h5 class="letter-spacing text-uppercase text-center instruction-title mt-2">
+                                    — — — — GAME PLAY — — — —
+                                </h5>
+                                <ul>
+                                    <li>
+                                        <p>Click "PLAY" on the drum console to start the sequencer.</p>
+                                    </li>
+                                    <li>
+                                        <p>Watch the light blink through each pad and click the pad that plays the
+                                            <button id="beep-sound"
+                                                class="text-uppercase border border-danger rounded letter-spacing">
+                                                beep sound
+                                            </button>
+                                            the pad will then turn green and and will program the drum sound to play.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>Select all the correct pads to move to the next drum.</p>
+                                    </li>
+                                    <li>
+                                        <p>Complete each drum pattern to advance to the next level.
+                                            <br>Reach level 3 and you win!
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>Select the wrong pad and lose a shot. Lose all shots and it's game over.</p>
+                                    </li>
+                                </ul>
+                                <h4 class="letter-spacing text-uppercase text-center mt-4">Can you beat the break?</h4>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer border-0">
-                    <button id="ready" data-dismiss="modal"
-                        class="btn btn-arcade col-10 col-md-3 text-uppercase text-center h5 p-2 ml-3 letter-spacing">
-                        <span class="text-change">Ready!</span>
-                    </button>
+                    <div class="modal-footer border-0 justify-content-center">
+                        <button id="ready" data-dismiss="modal"
+                            class="btn btn-arcade col-10 col-md-4 text-uppercase text-center mb-3 letter-spacing">
+                            <span class="text-change">Ready!</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
     <!-- Start Game/Select Difficulty Modal -->
     <div class="modal fade" id="selectDifficulty" tabindex="-1" role="dialog"
         aria-labelledby="selectDifficultyModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header border-0">
-                    <h5 class="modal-title text-uppercase letter-spacing" id="selectDifficulty">Select Difficulty</h5>
+                    <h5 class="modal-title text-uppercase letter-spacing" id="selectDifficulty">Select
+                        Difficulty
+                    </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -185,14 +204,18 @@
                         src="./assets/images/you-win-title.png" alt="Beat The Break Win Title">
                 </div>
                 <div class="row d-none d-sm-flex justify-content-center my-1 my-md-2">
-                    <h4 class="col-8 letter-spacing text-center px-5 pb-2">Listen to the tracks that inspired the beats
+                    <h4 class="col-8 letter-spacing text-center px-5 pb-2">Listen to the tracks that
+                        inspired the
+                        beats
                     </h4>
                     <iframe class="col-8 py-3 green-glow"
                         src="https://open.spotify.com/embed/playlist/1ia7KITMxNwYPVHyJtr1s2" height="250"
-                        frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                        frameborder="0" allowtransparency="true" allow="encrypted-media">
+                    </iframe>
                 </div>
                 <div class="row d-flex d-sm-none justify-content-center my-1 my-md-2">
-                    <h4 class="letter-spacing text-center px-5 py-2 text-uppercase">You are the beat master!</h4>
+                    <h4 class="letter-spacing text-center px-5 py-2 text-uppercase">You are the beat master!
+                    </h4>
                 </div>
                 <div class="modal-footer border-0 d-flex row d-none d-sm-flex justify-content-center my-3">
                     <button id="play-again" data-dismiss="modal"
@@ -218,14 +241,18 @@
                         alt="Beat The Break Lose Title">
                 </div>
                 <div class="row d-none d-sm-flex justify-content-center my-1 my-md-2">
-                    <h4 class="col-8 letter-spacing text-center px-5 pb-2">Listen to the tracks that inspired the beats
+                    <h4 class="col-8 letter-spacing text-center px-5 pb-2">Listen to the tracks that
+                        inspired the
+                        beats
                     </h4>
                     <iframe class="col-8 py-3 green-glow"
                         src="https://open.spotify.com/embed/playlist/1ia7KITMxNwYPVHyJtr1s2" height="250"
-                        frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                        frameborder="0" allowtransparency="true" allow="encrypted-media">
+                    </iframe>
                 </div>
                 <div class="row d-flex d-sm-none justify-content-center my-1 my-md-2">
-                    <h4 class="letter-spacing text-center px-5 py-2 text-uppercase">You have brought shame to the MPC
+                    <h4 class="letter-spacing text-center px-5 py-2 text-uppercase">
+                        Better luck next time
                     </h4>
                 </div>
                 <div class="modal-footer border-0 d-flex row d-none d-sm-flex justify-content-center my-3">
@@ -252,8 +279,8 @@
                         alt="Beat The Break Lose Title">
                 </div>
                 <h2 class="level-up-modal-number mb-5 scale">2</h2>
-                <h2 class="col-12 col-md-12 text-uppercase text-center h5 letter-spacing text-uppercase mb-5">Hit play
-                    when your're ready!</h2>
+                <h2 class="col-12 col-md-12 text-uppercase text-center h5 letter-spacing text-uppercase mb-5">
+                    Hit play when your're ready!</h2>
             </div>
         </div>
     </div>
@@ -331,7 +358,8 @@
                     <div class="d-flex justify-content-center mt-3">
                         <div class="snare-drum mr-3 drum-pad text-left pt-2 text-muted small pad-8">9</div>
                         <div class="snare-drum mr-3 drum-pad text-left pt-2 text-muted small pad-9">10</div>
-                        <div class="snare-drum mr-3 drum-pad text-left pt-2 text-muted small pad-10">11</div>
+                        <div class="snare-drum mr-3 drum-pad text-left pt-2 text-muted small pad-10">11
+                        </div>
                         <div class="snare-drum drum-pad text-left pt-2 text-muted small pad-11">12</div>
                     </div>
                     <div class="d-flex justify-content-center mt-3">
@@ -359,7 +387,8 @@
                     <div class="d-flex justify-content-center mt-3">
                         <div class="hihat-drum mr-3 drum-pad text-left pt-2 text-muted small pad-8">9</div>
                         <div class="hihat-drum mr-3 drum-pad text-left pt-2 text-muted small pad-9">10</div>
-                        <div class="hihat-drum mr-3 drum-pad text-left pt-2 text-muted small pad-10">11</div>
+                        <div class="hihat-drum mr-3 drum-pad text-left pt-2 text-muted small pad-10">11
+                        </div>
                         <div class="hihat-drum drum-pad text-left pt-2 text-muted small pad-11">12</div>
                     </div>
                     <div class="d-flex justify-content-center mt-3">
@@ -422,7 +451,7 @@
                 <div class="mt-sm-3 mt-2 d-flex">
                     <button class="mr-sm-4 mr-1 home-btn"></button>
                     <button class="ml-sm-4 mr-sm-4 mx-5 play-btn text-uppercase scale">Play</button>
-                    <button class="how-to-btn ml-sm-4 ml-1 text-center">?</button>
+                    <button class="how-to-btn ml-sm-4 ml-1 text-center"></button>
                 </div>
             </div>
 
@@ -434,7 +463,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js">
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.min.js"></script>
     <script src="./assets/js/audio.js"></script>
     <script src="./assets/js/sequencer.js"></script>
