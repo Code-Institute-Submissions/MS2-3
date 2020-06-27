@@ -49,6 +49,11 @@ button:focus {
     color: white;
 }
 
+.level-up {
+    color: #dc3130;
+    font-size: 1.3em;
+}
+
 /*----------------------------------------------------------------- Landing Screen */
 
 #landing {
