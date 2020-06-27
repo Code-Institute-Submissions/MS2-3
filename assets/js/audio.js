@@ -57,6 +57,18 @@ $(".btn-how-to-play, .btn-start-game, .btn-arcade").hover(function () {
     sound.play('');
 });
 
+$(".how-to-btn, .home-btn").hover(function () {
+    sound.play('blip3');
+}, function () {
+    sound.play('');
+});
+
+$("#beep-sound").hover(function () {
+    sound.play('blip1');
+}, function () {
+    sound.play('');
+});
+
 // Play start sound when clicked
 $(".btn-start-game, .btn-how-to-play").click(function () {
     sound.stop();
