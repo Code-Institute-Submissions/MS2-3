@@ -394,7 +394,7 @@ button:focus {
     }
 
     50% {
-        transform: scale(1.08);
+        transform: scale(1.2);
     }
 
     100% {
@@ -483,8 +483,8 @@ button:focus {
 .drum-pad {
     background-color: #EBECF0;
     box-shadow:
-        5px 5px 10px 0 rgba(166, 171, 189, 0.8),
-        10px 10px 14px 0 rgba(250, 251, 255, 1);
+        5px 5px 10px rgba(166, 171, 189, 0.8),
+        -5px -5px 10px rgba(250, 251, 255, 1);
     border-radius: 11.51%;
     border: 2px solid rgba(255, 255, 255, 0.16);
     height: 75px;
@@ -620,8 +620,8 @@ button:focus {
 .play-btn {
     background-color: #2bb972;
     box-shadow:
-        5px 5px 10px 0 rgba(166, 171, 189, 0.8),
-        10px 10px 14px 0 rgba(250, 251, 255, 1);
+        5px 5px 10px rgba(166, 171, 189, 0.8),
+        -5px -5px 10px rgba(250, 251, 255, 1);
     border-radius: 20px;
     border: 2px solid rgba(255, 255, 255, 0.16);
     height: 40px;
