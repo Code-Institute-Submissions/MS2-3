@@ -39,20 +39,18 @@ function setPatterns(beats) {
     sumOfKickArray = kickArray.reduce(function addingKick(a, b) {
         return a + b;
     }, 0);
-    console.log(`Kick Summ = ${sumOfKickArray}`);
+
     sumOfSnareArray = snareArray.reduce(function addingSnare(a, b) {
         return a + b;
     }, 0);
-    console.log(`Snare Summ = ${sumOfSnareArray}`);
+
     sumOfHihatArray = hihatArray.reduce(function addingHiHat(a, b) {
         return a + b;
     }, 0);
-    console.log(`HH Summ = ${sumOfHihatArray}`);
 
     sumOfOpenHHArray = openhhArray.reduce(function addingOpenHH(a, b) {
         return a + b;
     }, 0);
-    console.log(`OHH Summ = ${sumOfOpenHHArray}`);
 
     // For loop loops through the length of the drum arrays
     // Then pushes the number to the pads which activates the correct pad

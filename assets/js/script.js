@@ -19,19 +19,15 @@ function minusShots() {
 function padActiveCalculator() {
     if ($("#kick").hasClass("trigger") && $(".kick-drum").hasClass("correct")) {
         kickCounter++;
-        console.log(`kick counter inside padActive function = ${kickCounter}`);
     }
     if ($("#snare").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
         snareCounter++;
-        console.log(`snare counter inside padActive function = ${snareCounter}`);
     }
     if ($("#hi-hats").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
         hiHatsCounter++;
-        console.log(`HH counter inside padActive function = ${hiHatsCounter}`);
     }
     if ($("#open-hh").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
         openHCounter++;
-        console.log(`OHH counter inside padActive function = ${openHCounter}`);
     }
 }
 
