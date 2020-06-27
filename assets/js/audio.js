@@ -76,6 +76,15 @@ $(".btn-start-game, .btn-how-to-play").click(function () {
     sound.play('nextLevel');
 });
 
-$(".btn-how-to-play, #ready").click(function () {
-    sound.play('start');
+$(".btn-how-to-play, .btn-start-game").click(function () {
+    $("#boombox").removeClass("boom-box bounce");
 });
+
+$("#ready, .close").click(function () {
+    if ($("#landing").hasClass("d-flex")) {
+        $("#boombox").addClass("boom-box bounce");
+        sound.play('btbTitle');
+    }
+});
+
+
