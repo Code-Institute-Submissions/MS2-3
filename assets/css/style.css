@@ -54,6 +54,7 @@ button:focus {
 #landing {
     position: absolute;
     background-image: url("../images/btb-splash-background.jpg");
+    background-color: #170c0c;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center bottom;
@@ -679,6 +680,10 @@ button:focus {
 
 @media screen and (max-width: 768px) {
 
+    #landing {
+        background-image: url("../images/btb-splash-background-sm.jpg");
+    }
+
     /* Hide console background for smaller screen sizes */
     .drum-console {
         background-color: transparent;
@@ -743,6 +748,10 @@ button:focus {
 }
 
 @media screen and (max-width: 575px) {
+    body {
+        background-color: #EBECF0;
+        background-image: none;
+    }
 
     .drum-console {
         background-color: transparent;
