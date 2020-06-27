@@ -35,7 +35,7 @@ button:focus {
 .green-glow {
     border: 8px solid rgba(43, 185, 114, .5);
     border-radius: 1.3rem;
-    box-shadow: 0 0 35px 0 rgba(43, 185, 114, .5);
+    box-shadow: 0 0 35px rgba(43, 185, 114, .5);
 }
 
 /*--------------------------------------------------------------------- Typography */
@@ -79,19 +79,19 @@ button:focus {
     color: white;
     border-radius: 20px;
     box-shadow:
-        inset 1px 1px 3px 0 rgba(49, 7, 7, 0.8),
-        inset -2px -2px 5px 0 rgba(46, 7, 7, .8);
+        inset 1px 1px 3px rgba(49, 7, 7, 0.8),
+        inset -2px -2px 5px rgba(46, 7, 7, .8);
     z-index: 1020;
 }
 
 .btn-start-game:hover {
     background-color: #dc3131;
     box-shadow:
-        -8px 7px 0 rgba(166, 171, 189, 0.8),
+        -8px 7px rgba(166, 171, 189, 0.8),
         0 0 0 #dc3131;
     box-shadow:
-        inset 2px 6px 6px 0 rgba(49, 7, 7, 0.8),
-        inset 2px 2px 3px 0 rgb(224, 102, 102);
+        inset 2px 6px 6px rgba(49, 7, 7, 0.8),
+        inset 2px 2px 3px rgb(224, 102, 102);
     color: white;
     border-radius: 20px;
 }
@@ -102,19 +102,19 @@ button:focus {
     color: white;
     border-radius: 20px;
     box-shadow:
-        inset 1px 1px 3px 0 rgba(82, 13, 13, 0.8),
-        inset -2px -2px 5px 0 rgba(46, 7, 7, .8);
+        inset 1px 1px 3px rgba(82, 13, 13, 0.8),
+        inset -2px -2px 5px rgba(46, 7, 7, .8);
     z-index: 1020;
 }
 
 .btn-how-to-play:hover {
     background-color: #29ABE0;
     box-shadow:
-        -8px 7px 0 rgba(166, 171, 189, 0.8),
+        -8px 7px rgba(166, 171, 189, 0.8),
         0 0 0 #29ABE0;
     box-shadow:
-        inset -2px 6px 6px 0 rgba(21, 64, 105, 0.8),
-        inset 2px 2px 3px 0 rgb(10, 49, 71);
+        inset -2px 6px 6px rgba(21, 64, 105, 0.8),
+        inset 2px 2px 3px rgb(10, 49, 71);
     color: white;
     border-radius: 20px;
 }
@@ -126,7 +126,7 @@ button:focus {
     border: 8px solid rgba(220, 49, 49, .5);
     border-radius: 1.3rem;
     color: white;
-    box-shadow: 0 0 90px 0 rgba(220, 49, 49, .6);
+    box-shadow: 0 0 90px rgba(220, 49, 49, .6);
 }
 
 .btn-arcade {
@@ -135,8 +135,8 @@ button:focus {
     color: white;
     border-radius: 20px;
     box-shadow:
-        inset 1px 1px 3px 0 rgba(49, 7, 7, 0.8),
-        inset -2px -2px 5px 0 rgba(46, 7, 7, .8);
+        inset 1px 1px 3px rgba(49, 7, 7, 0.8),
+        inset -2px -2px 5px rgba(46, 7, 7, .8);
     z-index: 1020;
     cursor: pointer;
 }
@@ -144,11 +144,11 @@ button:focus {
 .btn-arcade:hover {
     background-color: #dc3131;
     box-shadow:
-        -8px 7px 0 rgba(166, 171, 189, 0.8),
+        -8px 7px rgba(166, 171, 189, 0.8),
         0 0 0 #dc3131;
     box-shadow:
-        inset 2px 6px 6px 0 rgba(49, 7, 7, 0.8),
-        inset 2px 2px 3px 0 rgb(224, 102, 102);
+        inset 2px 6px 6px rgba(49, 7, 7, 0.8),
+        inset 2px 2px 3px rgb(224, 102, 102);
     color: white;
     border-radius: 20px;
 }
@@ -195,7 +195,7 @@ button:focus {
     border: 2px solid rgba(220, 49, 49, 1);
     border-radius: 50%;
     color: white;
-    box-shadow: 0 0 90px 0 rgba(220, 49, 49, .6);
+    box-shadow: 0 0 90px rgba(220, 49, 49, .6);
     color: #000;
     height: 200px;
     width: 200px;
@@ -439,7 +439,7 @@ button:focus {
     width: 490px;
     min-height: 400px;
     background: #EBECF0;
-    box-shadow: -9px -9px 17px 0 #FAFBFF, 9px 9px 17px 0 rgba(166, 171, 189, 0.80);
+    box-shadow: -9px -9px 17px 0 #FAFBFF, 9px 9px 17px rgba(166, 171, 189, 0.80);
     border-radius: 28px;
     font-family: 'Michroma', sans-serif;
     color: #696969;
@@ -459,7 +459,7 @@ button:focus {
     background-image: linear-gradient(-42deg, rgba(255, 255, 255, 0.0) 0%, #45474E 100%);
     border: 2px solid #DC3131;
     box-shadow: -6px -6px 12px 0 #FAFBFF,
-        6px 6px 12px 0 rgba(166, 171, 189, 0.80);
+        6px 6px 12px rgba(166, 171, 189, 0.80);
     border-radius: 11px;
     height: 40px;
     width: 145px;
@@ -525,8 +525,8 @@ button:focus {
 .instrument {
     background-color: #EBECF0;
     box-shadow:
-        1px 1px 3px 0 rgba(166, 171, 189, 0.8),
-        -1px -1px 3px 0 rgba(250, 251, 255, 1);
+        1px 1px 3px rgba(166, 171, 189, 0.8),
+        -1px -1px 3px rgba(250, 251, 255, 1);
     border-radius: 50%;
     height: 68px;
     width: 68px;
@@ -601,8 +601,8 @@ button:focus {
     background-repeat: no-repeat;
     background-position: center center;
     box-shadow:
-        1px 1px 3px 0 rgba(166, 171, 189, 0.8),
-        -1px -1px 3px 0 rgba(250, 251, 255, 1);
+        1px 1px 3px rgba(166, 171, 189, 0.8),
+        -1px -1px 3px rgba(250, 251, 255, 1);
     border-radius: 50%;
     border: 2px solid rgba(255, 255, 255, 0.16);
     height: 40px;
@@ -612,8 +612,8 @@ button:focus {
 .home-btn:hover {
     background-image: url("../images/home-icon.png");
     box-shadow:
-        inset 1px 1px 3px 0 rgba(220, 49, 49, .8),
-        inset -1px -1px 3px 0 rgba(250, 251, 255, 1);
+        inset 1px 1px 3px rgba(220, 49, 49, .8),
+        inset -1px -1px 3px rgba(250, 251, 255, 1);
 
 }
 
@@ -634,8 +634,8 @@ button:focus {
 .pause-btn {
     background-color: #dc3131;
     box-shadow:
-        5px 5px 10px 0 rgba(166, 171, 189, 0.8),
-        10px 10px 14px 0 rgba(250, 251, 255, 1);
+        5px 5px 10px rgba(166, 171, 189, 0.8),
+        10px 10px 14px rgba(250, 251, 255, 1);
     border-radius: 20px;
     border: 2px solid rgba(255, 255, 255, 0.16);
     height: 40px;
@@ -653,8 +653,8 @@ button:focus {
     background-repeat: no-repeat;
     background-position: center center;
     box-shadow:
-        1px 1px 3px 0 rgba(166, 171, 189, 0.8),
-        -1px -1px 3px 0 rgba(250, 251, 255, 1);
+        1px 1px 3px rgba(166, 171, 189, 0.8),
+        -1px -1px 3px rgba(250, 251, 255, 1);
     border-radius: 50%;
     border: 2px solid rgba(255, 255, 255, 0.16);
     height: 40px;
@@ -664,8 +664,8 @@ button:focus {
 .how-to-btn:hover {
     /* background-image: url("../images/mute-volume-icon.png"); */
     box-shadow:
-        inset 1px 1px 3px 0 rgba(220, 49, 49, .8),
-        inset -1px -1px 3px 0 rgba(250, 251, 255, 1);
+        inset 1px 1px 3px rgba(220, 49, 49, .8),
+        inset -1px -1px 3px rgba(250, 251, 255, 1);
 }
 
 /*------------------------------------------------------------------ Media Queries */
@@ -788,8 +788,8 @@ button:focus {
         height: 55px;
         width: 100px;
         box-shadow:
-            4px 4px 8px 0 rgba(166, 171, 189, 0.8),
-            8px 8px 10px 0 rgba(250, 251, 255, 1);
+            4px 4px 8px rgba(166, 171, 189, 0.8),
+            8px 8px 10px rgba(250, 251, 255, 1);
         border: 2px solid rgba(255, 255, 255, 0.16);
         font-size: .5em;
         padding: 0 0 0 10px;
@@ -831,8 +831,8 @@ button:focus {
         height: 30px;
         width: 85px;
         box-shadow:
-            4px 4px 8px 0 rgba(166, 171, 189, 0.8),
-            8px 8px 10px 0 rgba(250, 251, 255, 1);
+            4px 4px 8px rgba(166, 171, 189, 0.8),
+            8px 8px 10px rgba(250, 251, 255, 1);
         font-size: .75em;
         letter-spacing: 1.5px;
     }
@@ -841,8 +841,8 @@ button:focus {
         height: 30px;
         width: 85px;
         box-shadow:
-            4px 4px 8px 0 rgba(166, 171, 189, 0.8),
-            8px 8px 10px 0 rgba(250, 251, 255, 1);
+            4px 4px 8px rgba(166, 171, 189, 0.8),
+            8px 8px 10px rgba(250, 251, 255, 1);
         font-size: .75em;
         letter-spacing: 1.5px;
     }
