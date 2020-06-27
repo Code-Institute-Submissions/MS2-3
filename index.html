@@ -14,9 +14,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="./assets/images/favicon/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./assets/images/favicon/android-chrome-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
 </head>
 
 <body>
@@ -261,9 +262,13 @@
 
     <!-- Spinning Vinyl -->
     <div id="spinningVinyl" class="container-fluid d-none">
-        <div class="d-flex align-items-center">
+        <div class="d-none d-sm-flex align-items-center">
             <img class="needle-arm rotate" src="./assets/images/needle-arm.png" alt="Rotating Vinyl">
             <img class="vinyl spin" src="./assets/images/vinyl.png" alt="Rotating Vinyl">
+        </div>
+        <div class="d-flex d-sm-none align-items-center">
+            <img class="needle-arm rotate" src="./assets/images/needle-arm-sm.png" alt="Rotating Vinyl">
+            <img class="vinyl spin" src="./assets/images/vinyl-sm.png" alt="Rotating Vinyl">
         </div>
     </div>
 
