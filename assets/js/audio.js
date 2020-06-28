@@ -30,46 +30,46 @@ setTimeout(function() {
 
 // Plays sound when hovering over disks
 $("#start-game-easy").hover(function () {
-    sound.play('difficulty');
+    sound.play("difficulty");
 }, function () {
-    sound.play('');
+    sound.play("");
 });
 
 $("#start-game-normal").hover(function () {
-    sound.play('difficulty');
+    sound.play("difficulty");
 }, function () {
-    sound.play('');
+    sound.play("");
 });
 
 $("#start-game-hard").hover(function () {
-    sound.play('difficulty');
+    sound.play("difficulty");
 }, function () {
-    sound.play('');
+    sound.play("");
 });
 
 $(".btn-how-to-play, .btn-start-game, .btn-arcade").hover(function () {
-    sound.play('button');
+    sound.play("button");
 }, function () {
-    sound.play('');
+    sound.play("");
 });
 
 $(".how-to-btn, .home-btn, .close").hover(function () {
-    sound.play('hoverButton');
+    sound.play("hoverButton");
 }, function () {
-    sound.play('');
+    sound.play("");
 });
 
 $("#beep-sound").hover(function () {
-    sound.play('beep');
+    sound.play("beep");
 }, function () {
-    sound.play('');
+    sound.play("");
 });
 
 // Play start sound when clicked
 $(".btn-start-game, .btn-how-to-play").click(function () {
     sound.stop();
-    sound.play('start');
-    sound.play('titleFade');
+    sound.play("start");
+    sound.play("titleFade");
 });
 
 $(".btn-how-to-play, .btn-start-game").click(function () {
@@ -79,7 +79,7 @@ $(".btn-how-to-play, .btn-start-game").click(function () {
 $("#ready, .close").click(function () {
     if ($("#landing").hasClass("d-flex")) {
         $("#boombox").addClass("boom-box bounce");
-        sound.play('btbTitle');
+        sound.play("btbTitle");
     }
 });
 

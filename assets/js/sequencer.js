@@ -121,30 +121,30 @@ class DrumKit {
                 // Check each sound in here
                 if (beat.classList.contains("kick-drum") && $("#kick").hasClass("trigger")) {
                     if (beat.classList.contains("kick-drum") && beat.classList.contains("correct")) {
-                        sound.play('kick');
+                        sound.play("kick");
                     } else {
-                        sound.play('beep');
+                        sound.play("beep");
                     }
                 }
                 if (beat.classList.contains("snare-drum") && $("#snare").hasClass("trigger")) {
                     if (beat.classList.contains("snare-drum") && beat.classList.contains("correct")) {
-                        sound.play('snare');
+                        sound.play("snare");
                     } else {
-                        sound.play('beep');
+                        sound.play("beep");
                     }
                 }
                 if (beat.classList.contains("hihat-drum") && $("#hi-hats").hasClass("trigger")) {
                     if (beat.classList.contains("hihat-drum") && beat.classList.contains("correct")) {
-                        sound.play('hihat');
+                        sound.play("hihat");
                     } else {
-                        sound.play('beep');
+                        sound.play("beep");
                     }
                 }
                 if (beat.classList.contains("openhh-drum") && $("#open-hh").hasClass("trigger")) {
                     if (beat.classList.contains("openhh-drum") && beat.classList.contains("correct")) {
-                        sound.play('openhh');
+                        sound.play("openhh");
                     } else {
-                        sound.play('beep');
+                        sound.play("beep");
                     }
                 }
             }

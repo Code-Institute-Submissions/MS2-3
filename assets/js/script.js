@@ -107,7 +107,7 @@ function youWin() {
 function youLose() {
     if (shots == 0) {
         $("#tryAgainModal").modal("show");
-        sound.play('backSpin');
+        sound.play("backSpin");
         // Set Howler global volume to 50%
         Howler.volume(0.5);
     }
@@ -172,7 +172,7 @@ function resetGame(){
     clearCounter();
     resetConsole();
     getData(setPatterns);
-    sound.play('start');
+    sound.play("start");
     level = 1;
     $(".level-up").text(level);
 }
@@ -201,7 +201,7 @@ $("#start-game-easy").click(function () {
     shots = 20;
     setTempo = 160;
     $(".digits").text(20);
-    sound.play('start');
+    sound.play("start");
     // Sets the pad pattern
         getData(setPatterns);
 });
@@ -211,7 +211,7 @@ $("#start-game-normal").click(function () {
     shots = 10;
     setTempo = 100;
     $(".digits").text(10);
-    sound.play('start');
+    sound.play("start");
     // Sets the pad pattern
     getData(setPatterns);
 });
@@ -221,7 +221,7 @@ $("#start-game-hard").click(function () {
     shots = 5;
     setTempo = 80;
     $(".digits").text(5);
-    sound.play('start');
+    sound.play("start");
     // Sets the pad pattern
     getData(setPatterns);
 });
