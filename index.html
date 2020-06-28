@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description"
-        content="Explore the MPC Drum Sequencer and test your concentration, reaction and listening skills in this fun-filled game. Can you beat the break?">
+    <meta name="description" content="Explore the MPC Drum Sequencer and test your concentration, reaction and listening skills in this fun-filled game. Can you beat the break?">
     <meta name="keywords" content="HTML, CSS, JavaScript, Bootstrap, Game, Sequencer">
     <meta name="author" content="Justin McCarthy">
     <title>Beat The Break | Drum Sequencing Game</title>
@@ -22,14 +21,13 @@
 
 <body>
 
-    <!-------------------------------------- Landing Screen -------------------------------------->
+    <!--======================================== Landing Screen ========================================-->
 
     <div id="landing" class="container-fluid d-flex align-items-center align-items-sm-end vh-100">
         <div class="container-fluid p-0">
             <div class="container game-landing">
                 <div class="row d-flex justify-content-center">
-                    <img class="col-12 col-md-8 align-self-center hover" src="./assets/images/BTB-Splash-Title.png"
-                        alt="Beat The Break Game Title">
+                    <img class="col-12 col-md-8 align-self-center hover" src="./assets/images/BTB-Splash-Title.png" alt="Beat The Break Game Title">
                 </div>
                 <div class="row d-flex justify-content-center pb-1">
                     <h1 class="col-10 col-md-8 text-uppercase text-center h5 letter-spacing text-uppercase">
@@ -48,27 +46,26 @@
                 </div>
             </div>
             <div class="row d-none d-sm-flex float-right pb-4 pt-0">
-                <img id="boombox" class="col-8 col-md-11 align-self-center boom-box bounce"
-                    src="./assets/images/btb-splash-boombox.png" alt="Animated boom-box">
+                <img id="boombox" class="col-8 col-md-11 align-self-center boom-box bounce" src="./assets/images/btb-splash-boombox.png" alt="Animated boom-box">
             </div>
         </div>
     </div>
 
     <!-- Parallax dust particles based on source: https://codepen.io/SabAsan/pen/gOaRJzV -->
-
     <div class="parallax d-none d-sm-flex">
         <div class="parallax-layer parallax-layer__1" data-parallax-deep="-1000"></div>
         <div class="parallax-layer" data-parallax-deep="-100"></div>
     </div>
 
     <!-- How To Play Modal -->
-    <div class="modal fade" id="howToPlayModal" tabindex="-1" role="dialog" aria-labelledby="howToPlayModalCenterTitle"
+    <div class="modal fade" id="howToPlayModal" tabindex="-1" role="dialog" aria-labelledby="howToPlayModal"
         aria-hidden="true" data-backdrop="static">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header border-0">
-                    <h5 class="modal-title text-uppercase letter-spacing" id="howToPlayModalTitle">How To
-                        Play</h5>
+                    <h5 class="modal-title text-uppercase letter-spacing" id="howToPlayModalTitle">
+                        How To Play
+                    </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -77,8 +74,9 @@
                     <div class="modal-body p-0">
                         <div class="row d-flex justify-content-center my-3">
                             <div class="col-10 col-md-5 text-center border-right border-left border-danger">
-                                <h5 class="letter-spacing text-uppercase instruction-title mt-2">GAME<br>
-                                    OBJECTIVE</h5>
+                                <h5 class="letter-spacing text-uppercase instruction-title mt-2">
+                                    GAME<br>OBJECTIVE
+                                </h5>
                                 <p class="text-center px-2">
                                     Learn how drum beats are programmed into a drum sequencer.<br>
                                     Match the correct beat sequence for each of the four drums:
@@ -100,17 +98,14 @@
                                 </p>
                             </div>
                             <div class="col-10 text-left mt-3">
-                                <h5 class="letter-spacing text-uppercase text-center instruction-title mt-2">
-                                    — — — — GAME PLAY — — — —
-                                </h5>
+                                <h5 class="letter-spacing text-uppercase text-center instruction-title mt-2">— GAME PLAY —</h5>
                                 <ul>
                                     <li>
                                         <p>Click "PLAY" on the drum console to start the sequencer.</p>
                                     </li>
                                     <li>
                                         <p>Watch the light blink through each pad and click the pad that plays the
-                                            <button id="beep-sound"
-                                                class="text-uppercase border border-danger rounded letter-spacing">
+                                            <button id="beep-sound" class="text-uppercase border border-danger rounded letter-spacing">
                                                 beep sound
                                             </button>
                                             the pad will then turn green and and will program the drum sound to play.
@@ -133,8 +128,7 @@
                         </div>
                     </div>
                     <div class="modal-footer border-0 justify-content-center">
-                        <button id="ready" data-dismiss="modal"
-                            class="btn btn-arcade col-10 col-md-4 text-uppercase text-center mb-3 letter-spacing">
+                        <button id="ready" data-dismiss="modal" class="btn btn-arcade col-10 col-md-4 text-uppercase text-center mb-3 letter-spacing">
                             <span class="text-change">Ready!</span>
                         </button>
                     </div>
@@ -144,8 +138,8 @@
     </div>
 
     <!-- Start Game/Select Difficulty Modal -->
-    <div class="modal fade" id="selectDifficulty" tabindex="-1" role="dialog"
-        aria-labelledby="selectDifficultyModalCenterTitle" aria-hidden="true" data-backdrop="static">
+    <div class="modal fade" id="selectDifficulty" tabindex="-1" role="dialog" aria-labelledby="selectDifficulty"
+        aria-hidden="true" data-backdrop="static">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header border-0">
@@ -159,24 +153,20 @@
                     <div class="row d-none d-sm-flex justify-content-center my-3">
                         <img id="bronze" class="text-uppercase text-center align-self-center p-2 col-10 col-md-3"
                             src="./assets/images/difficulty-easy.png" alt="Bronze vinyl record">
-                        <img id="silver"
-                            class="text-uppercase text-center align-self-center p-2 mx-md-3 col-10 col-md-3"
+                        <img id="silver" class="text-uppercase text-center align-self-center p-2 mx-md-3 col-10 col-md-3"
                             src="./assets/images/difficulty-normal.png" alt="Silver vinyl record">
                         <img id="gold" class="text-uppercase text-center align-self-center p-2 col-10 col-md-3"
                             src="./assets/images/difficulty-hard.png" alt="Gold vinyl record">
                     </div>
                     <div class="row d-flex justify-content-center pb-sm-3">
-                        <button id="start-game-easy" data-dismiss="modal"
-                            class="btn btn-arcade col-10 col-md-3 text-uppercase text-center h5 p-2 mr-0 letter-spacing">
+                        <button id="start-game-easy" data-dismiss="modal" class="btn btn-arcade col-10 col-md-3 text-uppercase text-center h5 p-2 mr-0 letter-spacing">
                             <span class="highlight"></span>
                             <span class="text-change">Easy</span>
                         </button>
-                        <button id="start-game-normal" data-dismiss="modal"
-                            class="btn btn-arcade col-10 col-md-3 text-uppercase text-center h5 p-2 mr-0 mx-md-3 letter-spacing">
+                        <button id="start-game-normal" data-dismiss="modal" class="btn btn-arcade col-10 col-md-3 text-uppercase text-center h5 p-2 mr-0 mx-md-3 letter-spacing">
                             <span class="highlight"></span>
                             <span class="text-change">Normal</span></button>
-                        <button id="start-game-hard" data-dismiss="modal"
-                            class="btn btn-arcade col-10 col-md-3 text-uppercase text-center h5 p-2 mr-0 letter-spacing">
+                        <button id="start-game-hard" data-dismiss="modal" class="btn btn-arcade col-10 col-md-3 text-uppercase text-center h5 p-2 mr-0 letter-spacing">
                             <span class="highlight"></span>
                             <span class="text-change">Hard</span>
                         </button>
@@ -192,21 +182,17 @@
     </div>
 
     <!-- You Win Modal -->
-    <div class="modal fade" id="playAgainModal" tabindex="-1" data-backdrop="static" role="dialog"
-        aria-labelledby="playAgainModal" aria-hidden="true">
+    <div class="modal fade" id="playAgainModal" tabindex="-1" data-backdrop="static" role="dialog" aria-labelledby="playAgainModal" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="row d-flex justify-content-center pt-5">
-                    <img class="col-10 col-md-6 game-title hover align-self-center"
-                        src="./assets/images/you-win-title.png" alt="Beat The Break Win Title">
+                    <img class="col-10 col-md-6 game-title hover align-self-center" src="./assets/images/you-win-title.png" alt="Beat The Break Win Title">
                 </div>
                 <div class="row d-none d-sm-flex justify-content-center my-1 my-md-2">
                     <h4 class="col-8 letter-spacing text-center px-5 pb-2">
                         Listen to the tracks that inspired the beats
                     </h4>
-                    <iframe class="col-8 py-3 green-glow"
-                        src="https://open.spotify.com/embed/playlist/1ia7KITMxNwYPVHyJtr1s2" height="250"
-                        allow="encrypted-media">
+                    <iframe class="col-8 py-3 green-glow" src="https://open.spotify.com/embed/playlist/1ia7KITMxNwYPVHyJtr1s2" height="250" allow="encrypted-media">
                     </iframe>
                 </div>
                 <div class="row d-flex d-sm-none justify-content-center my-1 my-md-2">
@@ -214,12 +200,10 @@
                     </h4>
                 </div>
                 <div class="modal-footer border-0 d-flex row d-none d-sm-flex justify-content-center my-3">
-                    <button id="play-again" data-dismiss="modal"
-                        class="btn btn-arcade col-10 col-md-3 text-uppercase text-center h5 p-2 mr-md-3 letter-spacing play-again">
+                    <button id="play-again" data-dismiss="modal" class="btn btn-arcade col-10 col-md-3 text-uppercase text-center h5 p-2 mr-md-3 letter-spacing play-again">
                         <span class="text-change">PLAY AGAIN</span>
                     </button>
-                    <button data-dismiss="modal"
-                        class="btn btn-arcade col-10 col-md-3 text-uppercase text-center h5 p-2 ml-md-3 letter-spacing exit-game">
+                    <button data-dismiss="modal" class="btn btn-arcade col-10 col-md-3 text-uppercase text-center h5 p-2 ml-md-3 letter-spacing exit-game">
                         <span class="text-change">EXIT GAME</span>
                     </button>
                 </div>
@@ -233,17 +217,13 @@
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="row d-flex justify-content-center pt-5">
-                    <img class="col-10 col-md-6 hover align-self-center" src="./assets/images/you-lose-title.png"
-                        alt="Beat The Break Lose Title">
+                    <img class="col-10 col-md-6 hover align-self-center" src="./assets/images/you-lose-title.png" alt="Beat The Break Lose Title">
                 </div>
                 <div class="row d-none d-sm-flex justify-content-center my-1 my-md-2">
-                    <h4 class="col-8 letter-spacing text-center px-5 pb-2">Listen to the tracks that
-                        inspired the
-                        beats
+                    <h4 class="col-8 letter-spacing text-center px-5 pb-2">
+                        Listen to the tracks that inspired the beats
                     </h4>
-                    <iframe class="col-8 py-3 green-glow"
-                        src="https://open.spotify.com/embed/playlist/1ia7KITMxNwYPVHyJtr1s2" height="250"
-                        allow="encrypted-media">
+                    <iframe class="col-8 py-3 green-glow" src="https://open.spotify.com/embed/playlist/1ia7KITMxNwYPVHyJtr1s2" height="250"  allow="encrypted-media">
                     </iframe>
                 </div>
                 <div class="row d-flex d-sm-none justify-content-center my-1 my-md-2">
@@ -252,12 +232,10 @@
                     </h4>
                 </div>
                 <div class="modal-footer border-0 d-flex row d-none d-sm-flex justify-content-center my-3">
-                    <button id="try-again" data-dismiss="modal"
-                        class="btn btn-arcade col-10 col-md-3 text-uppercase text-center h5 p-2 mr-md-3 letter-spacing try-again">
+                    <button id="try-again" data-dismiss="modal" class="btn btn-arcade col-10 col-md-3 text-uppercase text-center h5 p-2 mr-md-3 letter-spacing try-again">
                         <span class="text-change">TRY AGAIN</span>
                     </button>
-                    <button data-dismiss="modal"
-                        class="btn btn-arcade col-10 col-md-3 text-uppercase text-center h5 p-2 ml-md-3 letter-spacing exit-game">
+                    <button data-dismiss="modal" class="btn btn-arcade col-10 col-md-3 text-uppercase text-center h5 p-2 ml-md-3 letter-spacing exit-game">
                         <span class="text-change">EXIT GAME</span>
                     </button>
                 </div>
@@ -266,22 +244,21 @@
     </div>
 
     <!-- Level Up Modal -->
-    <div class="modal fade" id="level-number" data-backdrop="static" tabindex="-1" role="dialog"
-        aria-labelledby="level-number" aria-hidden="true">
+    <div class="modal fade" id="level-number" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="level-number" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content text-center">
                 <div class="row d-flex justify-content-center pt-5">
-                    <img class="col-10 col-md-6 align-self-center" src="./assets/images/level-title.png"
-                        alt="Beat The Break Lose Title">
+                    <img class="col-10 col-md-6 align-self-center" src="./assets/images/level-title.png" alt="Beat The Break Level Title">
                 </div>
                 <h2 class="level-up-modal-number mb-5 scale">2</h2>
                 <h2 class="col-12 col-md-12 text-uppercase text-center h5 letter-spacing text-uppercase mb-5">
-                    Hit play when your're ready!</h2>
+                    Hit play when your're ready!
+                </h2>
             </div>
         </div>
     </div>
 
-    <!-------------------------------------- Main Game Area -------------------------------------->
+    <!--======================================== Main Game Area ========================================-->
 
     <!-- Spinning Vinyl -->
     <div id="spinningVinyl" class="container-fluid d-none">
@@ -298,8 +275,7 @@
     <main class="d-none align-items-center vh-100">
         <div class="container-fluid text-center drum-console">
             <div class="row d-flex justify-content-center">
-                <img class="col-sm-9 mt-sm-4 pt-2 title" src="./assets/images/beat-the-break-title.png"
-                    alt="Beat The Break Game Title">
+                <img class="col-sm-9 mt-sm-4 pt-2 title" src="./assets/images/beat-the-break-title.png" alt="Beat The Break Game Title">
             </div>
             <div class="row d-flex justify-content-center mt-3 mb-2 pb-1">
                 <div class="col-5 level text-left mt-2">LEVEL:<span class="level-up">1</span></div>
@@ -455,8 +431,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js">
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.min.js"></script>
     <script src="./assets/js/audio.js"></script>
     <script src="./assets/js/sequencer.js"></script>
