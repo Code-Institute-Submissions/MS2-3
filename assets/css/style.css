@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;600&display=swap');
 
 /*------------------------------------------------------------------------ General */
+
 body {
     background-color: #EAECF2;
     background-image: url("../images/game-background-main-screen.jpg");
@@ -26,7 +27,6 @@ button {
     cursor: pointer;
 }
 
-/* Remove blue border on button when clicked */
 button:focus {
     outline: 0;
 }
@@ -76,8 +76,6 @@ button:focus {
     font-size: 1.1em;
     letter-spacing: .9px;
     font-weight: 200;
-    /* border-left: 5px solid #29ABE0;
-    border-right: 5px solid #29ABE0; */
 }
 
 /*----------------------------------------------------------------- Landing Screen */
@@ -104,6 +102,16 @@ button:focus {
 .top-index {
     z-index: 1020;
 }
+
+.modal-content {
+    background-color: #0f1215;
+    border: 8px solid rgba(220, 49, 49, .5);
+    border-radius: 1.3rem;
+    color: white;
+    box-shadow: 0 0 90px rgba(220, 49, 49, .6);
+}
+
+/*----------------------------------------------------------------- Buttons */
 
 .btn-start-game {
     background-color: #dc3131;
@@ -151,16 +159,6 @@ button:focus {
     border-radius: 20px;
 }
 
-/* Modal */
-
-.modal-content {
-    background-color: #0f1215;
-    border: 8px solid rgba(220, 49, 49, .5);
-    border-radius: 1.3rem;
-    color: white;
-    box-shadow: 0 0 90px rgba(220, 49, 49, .6);
-}
-
 .btn-arcade {
     background-color: #dc3131;
     border: 2px solid rgba(73, 8, 8, 0.16);
@@ -186,6 +184,7 @@ button:focus {
 }
 
 /* Change button text on hover: https://stackoverflow.com/questions/9913293/change-text-on-hover-then-return-to-the-previous-text/9913526 */
+
 .btn-arcade:hover .text-change {
     display: none;
 }
@@ -244,6 +243,153 @@ button:focus {
     text-align: center;
     white-space: nowrap;
     cursor: pointer;
+}
+
+/*----------------------------------------------------------- Drum Select Buttons */
+
+.instrument {
+    background-color: #EBECF0;
+    box-shadow:
+        1px 1px 3px rgba(166, 171, 189, 0.8),
+        -1px -1px 3px rgba(250, 251, 255, 1);
+    border-radius: 50%;
+    height: 68px;
+    width: 68px;
+    padding: 2px 0 0 10px;
+    cursor: pointer;
+}
+
+.trigger {
+    box-shadow: inset 3px 3px 6px #6EC59A;
+    background-color: rgba(173, 226, 130, 0.15);
+    border-radius: 50%;
+    border: 2px solid #6EC59A;
+}
+
+#kick {
+    background-image: url("../images/kick-icon.png");
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#kick:hover {
+    border: 2px solid #6EC59A;
+}
+
+#snare {
+    background-image: url("../images/snare-icon.png");
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#snare:hover {
+    border: 2px solid #6EC59A;
+}
+
+#hi-hats {
+    background-image: url("../images/hihat-icon.png");
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#hi-hats:hover {
+    border: 2px solid #6EC59A;
+}
+
+#open-hh {
+    background-image: url("../images/hhopen-icon.png");
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#open-hh:hover {
+    border: 2px solid #6EC59A;
+}
+
+.tags {
+    height: 10px;
+    width: 72px;
+    font-size: .5em;
+    letter-spacing: 1px;
+}
+
+/*------------------------------------------------- Drum Console Transport Buttons */
+
+.home-btn {
+    background-color: #EBECF0;
+    background-image: url("../images/home-icon.png");
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    box-shadow:
+        1px 1px 3px rgba(166, 171, 189, 0.8),
+        -1px -1px 3px rgba(250, 251, 255, 1);
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.16);
+    height: 40px;
+    width: 40px;
+}
+
+.home-btn:hover {
+    background-image: url("../images/home-icon.png");
+    box-shadow:
+        inset 1px 1px 3px rgba(220, 49, 49, .8),
+        inset -1px -1px 3px rgba(250, 251, 255, 1);
+
+}
+
+.play-btn {
+    background-color: #2bb972;
+    box-shadow:
+        5px 5px 10px rgba(166, 171, 189, 0.8),
+        -5px -5px 10px rgba(250, 251, 255, 1);
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.16);
+    height: 40px;
+    width: 115px;
+    font-size: .9em;
+    color: white;
+    letter-spacing: 2.5px;
+}
+
+.pause-btn {
+    background-color: #dc3131;
+    box-shadow:
+        5px 5px 10px rgba(166, 171, 189, 0.8),
+        10px 10px 14px rgba(250, 251, 255, 1);
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.16);
+    height: 40px;
+    width: 115px;
+    font-size: .9em;
+    color: white;
+    letter-spacing: 2.5px;
+}
+
+.how-to-btn {
+    background-color: #EBECF0;
+    background-size: 60%;
+    color: #696969;
+    background-image: url("../images/how-to-play-icon.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    box-shadow:
+        1px 1px 3px rgba(166, 171, 189, 0.8),
+        -1px -1px 3px rgba(250, 251, 255, 1);
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.16);
+    height: 40px;
+    width: 40px;
+}
+
+.how-to-btn:hover {
+    box-shadow:
+        inset 1px 1px 3px rgba(220, 49, 49, .8),
+        inset -1px -1px 3px rgba(250, 251, 255, 1);
 }
 
 /*----------------------------------------------------------------------- Parallax */
@@ -553,159 +699,16 @@ button:focus {
     pointer-events: none;
 }
 
-/*----------------------------------------------------------- Drum Select Buttons */
-
-.instrument {
-    background-color: #EBECF0;
-    box-shadow:
-        1px 1px 3px rgba(166, 171, 189, 0.8),
-        -1px -1px 3px rgba(250, 251, 255, 1);
-    border-radius: 50%;
-    height: 68px;
-    width: 68px;
-    padding: 2px 0 0 10px;
-    cursor: pointer;
-}
-
-.trigger {
-    box-shadow: inset 3px 3px 6px #6EC59A;
-    background-color: rgba(173, 226, 130, 0.15);
-    border-radius: 50%;
-    border: 2px solid #6EC59A;
-}
-
-#kick {
-    background-image: url("../images/kick-icon.png");
-    background-size: 60%;
-    background-repeat: no-repeat;
-    background-position: center center;
-}
-
-#kick:hover {
-    border: 2px solid #6EC59A;
-}
-
-#snare {
-    background-image: url("../images/snare-icon.png");
-    background-size: 60%;
-    background-repeat: no-repeat;
-    background-position: center center;
-}
-
-#snare:hover {
-    border: 2px solid #6EC59A;
-}
-
-#hi-hats {
-    background-image: url("../images/hihat-icon.png");
-    background-size: 60%;
-    background-repeat: no-repeat;
-    background-position: center center;
-}
-
-#hi-hats:hover {
-    border: 2px solid #6EC59A;
-}
-
-#open-hh {
-    background-image: url("../images/hhopen-icon.png");
-    background-size: 60%;
-    background-repeat: no-repeat;
-    background-position: center center;
-}
-
-#open-hh:hover {
-    border: 2px solid #6EC59A;
-}
-
-.tags {
-    height: 10px;
-    width: 72px;
-    font-size: .5em;
-    letter-spacing: 1px;
-}
-
-/*------------------------------------------------- Drum Console Transport Buttons */
-
-.home-btn {
-    background-color: #EBECF0;
-    background-image: url("../images/home-icon.png");
-    background-size: 70%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    box-shadow:
-        1px 1px 3px rgba(166, 171, 189, 0.8),
-        -1px -1px 3px rgba(250, 251, 255, 1);
-    border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.16);
-    height: 40px;
-    width: 40px;
-}
-
-.home-btn:hover {
-    background-image: url("../images/home-icon.png");
-    box-shadow:
-        inset 1px 1px 3px rgba(220, 49, 49, .8),
-        inset -1px -1px 3px rgba(250, 251, 255, 1);
-
-}
-
-.play-btn {
-    background-color: #2bb972;
-    box-shadow:
-        5px 5px 10px rgba(166, 171, 189, 0.8),
-        -5px -5px 10px rgba(250, 251, 255, 1);
-    border-radius: 20px;
-    border: 2px solid rgba(255, 255, 255, 0.16);
-    height: 40px;
-    width: 115px;
-    font-size: .9em;
-    color: white;
-    letter-spacing: 2.5px;
-}
-
-.pause-btn {
-    background-color: #dc3131;
-    box-shadow:
-        5px 5px 10px rgba(166, 171, 189, 0.8),
-        10px 10px 14px rgba(250, 251, 255, 1);
-    border-radius: 20px;
-    border: 2px solid rgba(255, 255, 255, 0.16);
-    height: 40px;
-    width: 115px;
-    font-size: .9em;
-    color: white;
-    letter-spacing: 2.5px;
-}
-
-.how-to-btn {
-    background-color: #EBECF0;
-    background-size: 60%;
-    color: #696969;
-    background-image: url("../images/how-to-play-icon.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    box-shadow:
-        1px 1px 3px rgba(166, 171, 189, 0.8),
-        -1px -1px 3px rgba(250, 251, 255, 1);
-    border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.16);
-    height: 40px;
-    width: 40px;
-}
-
-.how-to-btn:hover {
-    box-shadow:
-        inset 1px 1px 3px rgba(220, 49, 49, .8),
-        inset -1px -1px 3px rgba(250, 251, 255, 1);
-}
-
 /*------------------------------------------------------------------ Media Queries */
 
 @media screen and (max-width: 992px) {
 
     .highlight {
         display: none;
+    }
+
+    .btn-arcade {
+        font-size: .6em;
     }
 
 }
@@ -716,7 +719,6 @@ button:focus {
         background-image: url("../images/btb-splash-background-sm.jpg");
     }
 
-    /* Hide console background for smaller screen sizes */
     .drum-console {
         background-color: transparent;
         box-shadow: none;
@@ -748,10 +750,16 @@ button:focus {
         display: flex;
     }
 
+    .btn-arcade {
+        font-size: .8em;
+    }
+
 }
 
 /* Scale for short screen height */
+
 @media screen and (max-height: 700px) {
+
     .drum-console {
         transform: scale(0.5);
     }
@@ -759,6 +767,7 @@ button:focus {
 }
 
 /* Landscape iPad */
+
 @media screen and (max-height: 768px) {
 
     #boombox {
@@ -780,6 +789,7 @@ button:focus {
 }
 
 @media screen and (max-width: 575px) {
+    
     body {
         background-color: #EBECF0;
         background-image: none;
@@ -860,8 +870,6 @@ button:focus {
         background-color: rgba(201, 109, 109, 0.2);
     }
 
-    /* Transport Buttons */
-
     .home-btn {
         height: 30px;
         width: 30px;
@@ -891,8 +899,6 @@ button:focus {
         height: 30px;
         width: 30px;
     }
-
-    /* Record and needle arm */
 
     .needle-arm {
         height: 29vw;
