@@ -1,29 +1,25 @@
 //Howler.js
 
 var sound = new Howl({
-    src: ["./assets/sounds/btb-sprite-4.mp3", "./assets/sounds/btb-sprite-4.ogg"],
+    src: ["./assets/sounds/btb-sprite.mp3", "./assets/sounds/btb-sprite.ogg"],
     sprite: {
         kick: [0, 240],
         snare: [250, 240],
         hihat: [500, 240],
         openhh: [750, 240],
         backSpin: [1000, 900],
-        easy: [2000, 400],
-        normal: [2500, 450],
-        hard: [3000, 520],
-        exit: [3750, 420],
-        start: [4250, 550],
-        error: [5000, 460],
-        button: [5500, 500],
-        blip1: [6000, 240],
-        blip2: [6250, 240],
-        blip3: [6500, 240],
-        success: [6750, 500],
-        yeah: [7250, 350],
-        letsGo: [7750, 550],
-        yeah2: [8500, 700],
-        btbTitle: [9500, 2500, true],
-        nextLevel: [12500, 2000]
+        difficulty: [2000, 400],
+        exit: [2500, 420],
+        start: [3000, 550],
+        error: [3750, 460],
+        yeah: [4250, 500],
+        hoverButton: [5000, 250],
+        button: [5500, 250],
+        beep: [6000, 200],
+        finalRound: [6100, 1400],
+        btbTitle: [8000, 2500, true],
+        titleFade: [11000, 2500],
+        crowd: [14000, 5000]
     }
 });
 
@@ -34,19 +30,19 @@ setTimeout(function() {
 
 // Plays sound when hovering over disks
 $("#start-game-easy").hover(function () {
-    sound.play('easy');
+    sound.play('difficulty');
 }, function () {
     sound.play('');
 });
 
 $("#start-game-normal").hover(function () {
-    sound.play('normal');
+    sound.play('difficulty');
 }, function () {
     sound.play('');
 });
 
 $("#start-game-hard").hover(function () {
-    sound.play('hard');
+    sound.play('difficulty');
 }, function () {
     sound.play('');
 });
@@ -57,14 +53,14 @@ $(".btn-how-to-play, .btn-start-game, .btn-arcade").hover(function () {
     sound.play('');
 });
 
-$(".how-to-btn, .home-btn").hover(function () {
-    sound.play('blip3');
+$(".how-to-btn, .home-btn, .close").hover(function () {
+    sound.play('hoverButton');
 }, function () {
     sound.play('');
 });
 
 $("#beep-sound").hover(function () {
-    sound.play('blip1');
+    sound.play('beep');
 }, function () {
     sound.play('');
 });
@@ -73,7 +69,7 @@ $("#beep-sound").hover(function () {
 $(".btn-start-game, .btn-how-to-play").click(function () {
     sound.stop();
     sound.play('start');
-    sound.play('nextLevel');
+    sound.play('titleFade');
 });
 
 $(".btn-how-to-play, .btn-start-game").click(function () {

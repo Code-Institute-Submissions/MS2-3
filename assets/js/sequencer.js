@@ -52,11 +52,12 @@ function setPatterns(beats) {
         return a + b;
     }, 0);
 
-    // For loop loops through the length of the drum arrays
-    // Then pushes the number to the pads which activates the correct pad
-    // The number 1 in the json object string is active
-    // The number 0 in the json object string is not active
-    // If the pad is = 1 the playing class is applied - this will in turn play the correct sound in the sequencer
+    /* For loop loops through the length of the drum arrays
+    * Then pushes the number to the pads which activates the correct pad
+    * The number 1 in the json object string is active
+    * The number 0 in the json object string is not active
+    * If the pad is = 1 the playing class is applied - this will in turn play the correct sound in the sequencer
+    */
     for (let i = 0; i < kickArray.length; i++) {
         if (kickArray[i] === 1) {
             $(`.kick-drum.pad-${i}`).addClass("playing");
@@ -74,7 +75,11 @@ function setPatterns(beats) {
 }
 
 /*--------------------------------- Step Sequencer ------------------------------*/
-/* Based on the step sequencer created by Dev Ed as part of the Creative Javascript Course: https://developedbyed.com/p/the-creative-javascript-course */
+
+/* Based on the step sequencer created by Dev Ed as part of the Creative Javascript
+* Course: https://developedbyed.com/p/the-creative-javascript-course
+*/
+
 
 class DrumKit {
     constructor() {
@@ -118,28 +123,28 @@ class DrumKit {
                     if (beat.classList.contains("kick-drum") && beat.classList.contains("correct")) {
                         sound.play('kick');
                     } else {
-                        sound.play('blip1');
+                        sound.play('beep');
                     }
                 }
                 if (beat.classList.contains("snare-drum") && $("#snare").hasClass("trigger")) {
                     if (beat.classList.contains("snare-drum") && beat.classList.contains("correct")) {
                         sound.play('snare');
                     } else {
-                        sound.play('blip1');
+                        sound.play('beep');
                     }
                 }
                 if (beat.classList.contains("hihat-drum") && $("#hi-hats").hasClass("trigger")) {
                     if (beat.classList.contains("hihat-drum") && beat.classList.contains("correct")) {
                         sound.play('hihat');
                     } else {
-                        sound.play('blip1');
+                        sound.play('beep');
                     }
                 }
                 if (beat.classList.contains("openhh-drum") && $("#open-hh").hasClass("trigger")) {
                     if (beat.classList.contains("openhh-drum") && beat.classList.contains("correct")) {
                         sound.play('openhh');
                     } else {
-                        sound.play('blip1');
+                        sound.play('beep');
                     }
                 }
             }

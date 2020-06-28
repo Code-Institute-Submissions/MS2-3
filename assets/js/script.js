@@ -31,14 +31,19 @@ function padActiveCalculator() {
     }
 }
 
-// Function to check to see if the correct clicks match the sum of the corresponding drum array
+/*
+* Function to check to see if the correct clicks match the sum of the corresponding drum array
+* If the correct clicks match the sum of the array the current 16 pads are hidden and next drum typ pads are displayed
+* If all drum types have all the correct pads selected the sequencer resets, pad counters are cleared,
+* a new set of patterns are loaded, the level increase and the next level modal is displayed.
+*/
 function advancePads() {
     if (kickCounter === sumOfKickArray) {
         $(".kick-pads, .hihat-pads, .openhh-pads").hide();
         $(".snare-pads").show();
         $("#snare").addClass("trigger");
         $("#hi-hats, #open-hh").removeClass("trigger");
-        sound.play("yeah2");
+        sound.play("yeah");
     }
     if ($("#snare").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
         if (snareCounter === sumOfSnareArray) {
@@ -46,7 +51,7 @@ function advancePads() {
             $(".hihat-pads").show("show");
             $("#hi-hats").addClass("trigger");
             $("#open-hh").removeClass("trigger");
-            sound.play("yeah2");
+            sound.play("yeah");
         }
     }
     if ($("#hi-hats").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
@@ -54,13 +59,11 @@ function advancePads() {
             $(".snare-pads, .hihat-pads, .kick-pads").hide();
             $(".openhh-pads").show("show");
             $("#open-hh").addClass("trigger");
-            sound.play("yeah2");
+            sound.play("yeah");
         }
     }
     if ($("#open-hh").hasClass("trigger") && $(".snare-drum").hasClass("correct")) {
         if (openHCounter === sumOfOpenHHArray) {
-            //Remove pointer non clas to allow pads to be clicked again
-            // $(`.kick-drum, .snare-drum, .hihat-drum, .openhh-drum`).removeClass("pointer-none");
             $(".correct, .wrong").removeClass("pointer-none");
             drumKit.updateBtn();
             drumKit.start();
@@ -93,6 +96,10 @@ function clearCounter() {
 function youWin() {
     if (level === 4) {
         $("#playAgainModal").modal("show");
+        sound.play("crowd");
+    }
+    if (level === 3) {
+        sound.play("finalRound");
     }
 }
 
@@ -106,7 +113,10 @@ function youLose() {
     }
 }
 
-// Reset
+/*
+* Function to reset the drum console:
+* Drum pads colour style is removed and kick drum pads are activated
+*/
 function resetConsole() {
     // Clears all pads when reset
     $(".kick-drum, .snare-drum, .hihat-drum, .openhh-drum").removeClass("correct wrong");
@@ -136,7 +146,7 @@ function levelDisplayModal() {
         $(".level-up-modal-number").text(level);
     }
     setTimeout(function () {
-        sound.play("nextLevel");
+        sound.play("titleFade");
     }, 100);
     sound.play("start");
     setTimeout(function () {
@@ -171,11 +181,7 @@ $(".play-again, .try-again").click(function(){
     resetGame();
 });
 
-
-/*--------------------------------- Landing Screen ------------------------------*/
-
 // Remove landing screen to show main game area when "Start Game" button is clicked 
-
 $("#start-game-easy, #start-game-normal, #start-game-hard").click(function () {
     $("#landing").removeClass("d-flex");
     $("#landing").addClass("d-none");
@@ -230,7 +236,6 @@ $("#start-game-easy").hover(
     }
 );
 
-// Flip records when hovering difficulty select buttons 
 $("#start-game-easy").hover(
     function () {
         $("#bronze").addClass("flip");
@@ -260,7 +265,6 @@ $("#start-game-hard").hover(
 
 //Show kick pads only on load
 $(".snare-pads, .hihat-pads, .openhh-pads").hide();
-
 
 // Return to home screen when drum console home icon is clicked 
 $(".home-btn, .exit-game").click(function () {
