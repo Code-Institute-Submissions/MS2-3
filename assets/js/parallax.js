@@ -27,7 +27,7 @@ function Parallax(options) {
                             layers[j].style.transform = 'translateX(' + itemX + '%) translateY(' + itemY + '%)';
                         })(j);
                     }
-                })
+                });
             })(i);
         }
     };
