@@ -19,7 +19,7 @@ function getData(loadBeats) {
         if (this.readyState == 4 && this.status == 200) {
             loadBeats(JSON.parse(this.responseText));
         }
-    }
+    };
 }
 
 function setPatterns(beats) {
