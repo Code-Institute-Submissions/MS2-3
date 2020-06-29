@@ -189,8 +189,8 @@ $("#start-game-easy, #start-game-normal, #start-game-hard").click(function () {
     $("#spinningVinyl").removeClass("d-none");
     $("#spinningVinyl").addClass("d-flex");
     // Display main game console 
-    $("main").removeClass("d-none");
-    $("main").addClass("d-flex");
+    $("#main-game").removeClass("d-none");
+    $("#main-game").addClass("d-flex");
     // Remove parallax dust particles 
     $(".parallax").removeClass("d-sm-flex");
 });
