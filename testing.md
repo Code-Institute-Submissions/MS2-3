@@ -23,16 +23,15 @@ Further testing was done using [Responsive Test Tool](http://responsivetesttool.
 Responsiveness was also tested using the Lambdatest App.
 
 ![Responsiveness Testing](https://raw.githubusercontent.com/JustinMcC066/MS2/master/readme_images/site-responsiveness.jpg)
-
 ![Testing Feedback Table](https://raw.githubusercontent.com/JustinMcC066/MS2/master/readme_images/site-testing.jpg)
-
 
 ## Code Validation
 All html pages were checked using [W3C Markup Validation](https://validator.w3.org/) and passed with no errors.
 
 The CSS file was checked using [W3C CSS Validation](https://jigsaw.w3.org/css-validator/) and passed with no errors.
 
-All JavaScript files were checked using [JS Hint](https://jigsaw.w3.org/css-validator/) No errors were reported.
+All JavaScript files were checked using [JS Hint](https://jshint.com/) No errors were reported.
+
 
 ## User Story Testing
 
@@ -40,7 +39,7 @@ All JavaScript files were checked using [JS Hint](https://jigsaw.w3.org/css-vali
   * Landing screen is complete with audio and animations that set the atmosphere and tone for the game.
 
 * "As a user I want to understand the game before I play."
-  * "How To Play" button is centered on screen and coloured individually to stand out. A how to play modal is displayed when clicked.
+  * "How To Play" button is centered on screen and coloured individually to stand out. A how to play modal is displayed when clicked with all necessary information to undestand gameplay. A breakdown of the the differences between each difficulty is also included.
 
 * "As a user I want easy navigation from launch screen to gameplay."
   * "Start Game" button is positioned in the middle of the screen and is vibrantly coloured to be easily accesible. When clicked "Select difficulty" modal is displayed allowing the user to start the game at their preferred difficulty.
@@ -132,17 +131,9 @@ Logging values to the console was key to identifying incorrect calculations and 
   * A data-backdrop="static" attribute was applied to each modal to prevent the user from dismissing the modal. This forces the user to reset the game by chosing "Play Again" or "Try Again" buttons or exit the game.
 
 3.  ##### Issue
-  * When testing with family and friends I found that they ignored the play button which is necessary to start the sequencer. Instead they clicked the pads first which confused the game-play.
-3.  ##### Fix
-  * I added a scale animation to the play button to draw the users attention.
-  * I dropped the opacity of the drum pads making them look disabled.
-  * A pointer event of none was also applied to the drum pads which prevented the user from clicking the pads and running down their shot counter before the game began.
-
-4.  ##### Issue
   * The pads advance when the number of correct click are equal to the number of pads in the pattern. However, the user could continue to click one correct pad which would increment the variable used to check the number of correct click by 1. This caused a nuber of issues: the pads advanced before all correct pads were selected causing the beep to play in the position of the previous and current drum type.
   * The user could also accidentally double click an incorrect pad and lose two shots.
-
-4.  ##### Fix
+3.  ##### Fix
   * A class was created with the pointer event of none which was added to each pad when clicked. This disabled the pads fom further clicks. This class was then removed when the user reaches a new level or resets the game.
 
 #### Design
@@ -163,6 +154,5 @@ Logging values to the console was key to identifying incorrect calculations and 
 
 2.  ##### Issue
   * When testing with family and friends I noticed that they found it difficult to keep up with the speed of the game.
-  
 2.  ##### Fix
   * A variable was created to store a tempo value which was set for each difficulty. The tempo now differs for each difficulty making the easy mode much slower alowing for a much more enjoyable experience for unfamiliar users. Users are now more engaged at the easier difficulty and gives them the confidence to try the harder difficulties.
