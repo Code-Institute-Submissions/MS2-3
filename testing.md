@@ -1,10 +1,22 @@
-## Testing
+# Testing
 
-### Browsers
+## Contents
+
+1.  [Browsers](#Browsers "Goto Browsers")
+2.  [Responsiveness / Mobile-Friendly](#Responsiveness-/-Mobile-Friendly "Goto Responsiveness / Mobile-Friendly")
+3.  [Code Validation](#Code-Validation "Goto Code Validation")
+4.  [User Story Testing](#User-Story-Testing "Goto User Story Testing")
+5.  [Manual Testing](#Manual-Testing "Goto User Manual Testing")
+    * [Audio](#Audio "Goto Audio")
+    * [Game Functionality](#Game-Functionality "Goto Game Functionality")
+    * [Design](#Design "Goto Design")
+    * [Gameplay](#Gameplay "Goto Gameplay")
+
+## Browsers
 The site was tested across multiple browsers - Chrome, Safari, Firefox and Opera to ensure each page displayed correctly.
 Browser compatibility was also tested using the Lambdatest App.
 
-### Responsiveness / Mobile-Friendly
+## Responsiveness / Mobile-Friendly
 The site's reponsiveness was continuously monitored during the development stage using Chromes *Dev Tools*.
 Media queries have been added to ensure all elements resize with any issues at the various Bootstrap breakpoints.
 Further testing was done using [Responsive Test Tool](http://responsivetesttool.com/) which allowed for testing on additional devices - no errors were recorded.
@@ -12,14 +24,14 @@ Responsiveness was also tested using the Lambdatest App.
 
 ![Testing Feedback Table](https://raw.githubusercontent.com/JustinMcC066/MS2/master/readme_images/site-testing.jpg)
 
-### Code Validation
+## Code Validation
 All html pages were checked using [W3C Markup Validation](https://validator.w3.org/) and passed with no errors.
 
 The CSS file was checked using [W3C CSS Validation](https://jigsaw.w3.org/css-validator/) and passed with no errors.
 
 All JavaScript files were checked using [JS Hint](https://jigsaw.w3.org/css-validator/) No errors were reported.
 
-### User Story Testing
+## User Story Testing
 
 * "As a user I want to be engaged by the landing screen."
   * Landing screen is complete with audio and animations that set the atmosphere and tone for the game.
@@ -64,12 +76,12 @@ All JavaScript files were checked using [JS Hint](https://jigsaw.w3.org/css-vali
 * "As a user I want to be able to exit the game from the main game area without using the back button."
   * A home button is located on the drum console in the main game area. This exits the game when clicked and brings the user to the landing screen.
 
-### Manual Testing
+## Manual Testing
 
 Manual testing was completed at various stages throughout development. This ensured all elements responded correctly to each interaction as intended and functions ouput the correct result.
 Logging values to the console was key to identifying incorrect calculations and outcomes. [Chrome Developers Tools](https://developers.google.com/web/tools/chrome-devtools)Chrome Developers Tools was used throughout all stages of development.
 
-#### Audio
+### Audio
 
 1.  ##### Issue
   * Audio was loaded and called using the < audio > html element. However after deploying the site to github pages and viewing on mobile there was an issue with playback.
@@ -137,7 +149,7 @@ Logging values to the console was key to identifying incorrect calculations and 
 1.  ##### Fix
   * Align-self classes were used to fix this issue.
 
-#### Game Play
+#### Gameplay
 
 1.  ##### Issue
   * When testing with family and friends I found that they ignored the play button which is necessary to start the sequencer. Instead they clicked the pads first which caused confused.
