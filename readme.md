@@ -226,7 +226,10 @@ The game title music was produced in Ableton Live and is based on the late 80's 
   * Framework used to form the layout of each page.
 
 * [Howler.js](https://howlerjs.com/)
-  * Javascript audio library user to call and playback audio.
+  * Javascript audio library used to call and playback audio.
+
+* [Autoprefixer CSS](https://autoprefixer.github.io/)
+  * USed for adding prefixes to CSS classes to ensure browser consistency and compatibility.
 
 * [Google Fonts](https://fonts.google.com/)
   * For linking fonts for use on the site.
