@@ -203,7 +203,7 @@ $("#start-game-easy").click(function () {
     $(".digits").text(20);
     sound.play("start");
     // Sets the pad pattern
-        getData(setPatterns);
+    getData(setPatterns);
 });
 
 $("#start-game-normal").click(function () {
