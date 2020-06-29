@@ -6,9 +6,9 @@
 
 ## Beat The Break - [Live Site](https://beatthebreak.com)
 
-Beat The Break is a fun music interactive game based around the famous MPC (Music Production Centre). The MPC is at the heart of most modern music productions but rose to fame in the 80's with the introduction of the Akai MPC60.
+Beat The Break is an interactive music game based around the famous MPC (Music Production Centre). The MPC is at the heart of most modern music productions but rose to fame in the 80's with the introduction of the Akai MPC60.
 
-This game aims to teach the user the basic operation of a drum sequencer. They will learn how different beats/breaks are programmed across a grid of 16 pads and four differnt drums (Kick, Snare, Hi-Hat and Open Hi-Hat). 
+This game aims to teach the user the basic operation of a MPC sequencer. They will learn how different drum beats/breaks are programmed across a grid of 16 pads and four main drums (Kick, Snare, Hi-Hat and Open Hi-Hat). 
 
  - - - - 
 
@@ -40,13 +40,13 @@ This game aims to teach the user the basic operation of a drum sequencer. They w
 
 The goal of this game is to:
 
-* Match corresponding pad when you hear the beep. If you click correctly then you will get visual feedback from the pad and the sequencer will now play the sound of the drum type you have programmed.
+* Click the pad that plays the beep sound. If you select the correct pad you will get visual feedback from the pad and the sequencer will now play the sound of the drum type you have programmed when looped over.
 
 * Provide a fun interactive way to learn the art of drum sequencing.
 
 * Create both an audio and visual response to users hover and click actions for an immersive experience.
 
-* Open up the world of music production and sound sequencing.
+* Open up the world of music production and sound sequencing to users.
 
 
 ### User Stories
@@ -63,7 +63,7 @@ The goal of this game is to:
 
 * "As a user I would like the option to make the game more challenging."
 
-* "As a user I would like the game test my concentration."
+* "As a user I would like the game to test my concentration."
 
 * "As a user I want know my current score."
 
@@ -120,17 +120,17 @@ The landing screen is dark and hazy to mimic the the atmosphere of old arcade ha
 
 The design is stylistically retro and reminiscent of classic arcade games ie. Street Fighter
 
-A sense of depth is created with parallax effect that reacts to the users mousemove which subtly moves dust particle images.
+A sense of depth is created with a parallax effect that reacts to the users mouse move which subtly moves dust particle images.
 
 The main game area is bright and contrasting to the landing screen. It is like stepping in to a new world, quite like how the introduction of the MPC (Music Production Center) opened up a new world of possibilities in music production.
 
 Neumorphism is used to add a futuristic look to the drum console and pads. This adds a softness to the drum pads which benefits the design as MPC pads are made from a rubber material.
 
-Vibrant borders and drop shadows are used to highlight modals and separate them from the background. This also adds to the sense of depth in the game.
+Vibrant borders and drop shadows are used to highlight modals and separate them from the background. This also adds to the sense of depth to the game screen.
 
 #### Typography
 
-The font used is quite square in form and lends to a futuristic feel.
+The main font used is quite square in form and lends to a futuristic feel.
 
 Fonts used are:
 * [Michroma](https://fonts.google.com/specimen/Michroma)
@@ -154,10 +154,9 @@ The game title music was produced in Ableton Live and is based on the late 80's 
 #### Landing Screen:
    - The landing screen is simple in form and has a subltle parallax animaiton based on the users mouse move.
    - An audio track plays in the background and the boombox image is animated to the beat of the music.
-   - The landing screen is simple in form and has a subltle parallax animaiton based on the users mouse move.
 
 #### Navigation:
-   - Navigation is provided via two buttons on the landing screen, "How to Play" and "Start Game". Further navigation is provided within the modals that these buttons activate.
+   - Navigation is provided via two buttons on the landing screen, "How to Play" and "Start Game". The "Start Game" launched a "Select Difficulty modal. This modal has three button options, "Easy", "Normal" and "Hard" and will navigate to the main game screen when one selected.
 
 #### Modals:
    - Modals are used throughout the game to display various elements e.g. "How To Play", "Select Difficulty", "You Win" & "You Lose". This prevents any need for further pages.
@@ -165,14 +164,14 @@ The game title music was produced in Ableton Live and is based on the late 80's 
    - The "You Lose" modal gives the user the option to try again or exit to the home/landing screen. A spotify playlist is also embedded in an iFrame within. This playlist contains songs that influenced the beat patterns used in the game.
    - The "You Win" modal gives the user the option to start the game again or exit to the home/landing screen. The same Spotify playlist is also included in this modal.
    - The "How To Play" modal contains all necessary information to play the game. Information on each difficulty setting is also included.
-   - A level modal is inluded which is displayed when the user passes the level. This modal announces the next level and then fades.
+   - A level modal is included which is displayed when the user passes the level. This modal announces the next level and then fades.
 
 #### Animations:
    - Animations are used throughout to enhance the user experience and prompt the user if an action is needed.
-   - The landing screen has a mousemove parallax animaiton to create depth and atmosphere.
+   - The landing screen has a mouse move parallax animaiton to create depth and atmosphere.
    - The game title on the landing screen hovers on the y-axis giving life to the logo.
    - The boombox image is animated to the beat of the music that plays in the background making the landing screen more immersive and less static.
-   - In the main game area a vinyl record spins and record needle arm animates to mimic the playing of the record. This animation is activated when the user hits play on the drum console.
+   - In the main game area a vinyl record spins and record needle arm animates to mimic the playing of a record. This animation is activated when the user hits play on the drum console.
    - The drum console play button animates with a scale effect to prompt the user to hit play when ready.
 
 #### Buttons:
@@ -185,9 +184,9 @@ The game title music was produced in Ableton Live and is based on the late 80's 
    - A sound sprite is used to contain all audio sounds in one single audio file. This fixes issues with playback on ios devices.
 
 #### Drum Patterns:
-   - A list of 20 drum patterns are housed withing a JSON file. Each contain a key and value. Each drum, of which there are four (Kinc, Snare, hihat, Open Hi- hat) has a value of 16 digits.
+   - A list of 20 drum patterns are housed withing a JSON file. Each contain a key and value. Each drum, of which there are four (Kick, Snare, Hihat, Open Hi-hat) has a value of 16 digits.
    - These digits are either 1 or 0. These 16 numbers represent the 16 pads.
-   - The number 1 represents active and zero is inactive. The pad receives a class if it has the number one and plays a sound. No sound is played if the pad is zero as no class is added. This is how the drum patterns are programmed for each drum.
+   - The number 1 represents active and zero is inactive. The pad receives a class if it has the number 1 and plays a sound. No sound is played if the pad is zero as no class is added. This is how the drum patterns are programmed for each drum.
 
 #### Game Console:
    - The game console in the main game area contains all gameplay feedback i.e. score, level, active drum, 16 sequencer pads, transport buttons and how to play button.
@@ -200,7 +199,7 @@ The game title music was produced in Ableton Live and is based on the late 80's 
 
 #### Shot Counter:
    - The word "shot" as opposed to "points" is used as traditionally sounds loaded into MPC pads are referred to as "one shots".
-   - A shot counter is displayed on the drum console. This informs the user on how many shots/clicks they have remainig. The score decreases by 1 selects an incorrect pad.
+   - A shot counter is displayed on the drum console. This informs the user on how many shots/clicks they have remainig. The score decreases by 1 when an incorrect pad is clicked.
    - When the shot counter reaches 0, the "You Lose" modal is diaplayed giving the user the option to check out the spotify playlist, try again or exit.
 
 #### Level Display:
@@ -293,7 +292,7 @@ The existing ANAME record IP address on the domain was updated to:
 185.199.108.153
 ```
 
-A further three ANAME records were added to the domain which point the domain to the IP addresses for GitHub Pages.
+Three further ANAME records were added to the domain which point the domain to the IP addresses for GitHub Pages.
 
 ```
 185.199.109.153
