@@ -26,14 +26,10 @@ This game aims to teach the user the basic operation of a drum sequencer. They w
 3. [Technologies Used](#Technologies-Used "Goto Technologies Used")
 
 4. [Testing](#Testing "Goto Testing")
-    * [Browsers](#Browsers "Goto Browsers")
-    * [Responsiveness / Mobile-Friendly](#Responsiveness-/-Mobile-Friendly "Goto Responsiveness / Mobile-Friendly")
-    * [W3C Validation](#W3C-Validation "Goto W3C Validation")
-    * [User Story Testing](#User-Story-Testing "Goto User Story Testing")
 
 5. [Deployment](#Deployment "Goto Deployment")
+
 6. [Credits](#Credits "Goto Credits")
-    * [Content](#Content "Goto Content")
     * [Code](#Code "Goto Code")
     * [Media](#Media "Goto Media")
     * [Acknowledgements](#Acknowledgements "Goto Acknowledgements")
@@ -143,6 +139,12 @@ Fonts used are:
 
 Fonts are linked from [Google Fonts](https://fonts.google.com/) in the Style Sheet.
 
+#### Audio
+
+The audio for the game is heavily based around the 80's era arcade game sounds.
+
+The game title music was produced in Ableton Live and is based on the late 80's hip hop, sample heavy sound.
+
  - - - - 
 
 ## Features
@@ -162,7 +164,8 @@ Fonts are linked from [Google Fonts](https://fonts.google.com/) in the Style She
    - The select difficulty modal has three options, easy, normal and hard. Hover animations are used and text changes within the button for each to inform the user on how many shots they have to pass the game.
    - The "You Lose" modal gives the user the option to try again or exit to the home/landing screen. A spotify playlist is also embedded in an iFrame within. This playlist contains songs that influenced the beat patterns used in the game.
    - The "You Win" modal gives the user the option to start the game again or exit to the home/landing screen. The same Spotify playlist is also included in this modal.
-   - The "How To Play" modal is made up of a carousel 
+   - The "How To Play" modal contains all necessary information to play the game. Information on each difficulty setting is also included.
+   - A level modal is inluded which is displayed when the user passes the level. This modal announces the next level and then fades.
 
 #### Animations:
    - Animations are used throughout to enhance the user experience and prompt the user if an action is needed.
@@ -196,6 +199,7 @@ Fonts are linked from [Google Fonts](https://fonts.google.com/) in the Style She
    - When clicked, their style and colour change. If the user selects the correct pad it turns green or red if incorrect.
 
 #### Shot Counter:
+   - The word "shot" as opposed to "points" is used as traditionally sounds loaded into MPC pads are referred to as "one shots".
    - A shot counter is displayed on the drum console. This informs the user on how many shots/clicks they have remainig. The score decreases by 1 selects an incorrect pad.
    - When the shot counter reaches 0, the "You Lose" modal is diaplayed giving the user the option to check out the spotify playlist, try again or exit.
 
@@ -204,9 +208,9 @@ Fonts are linked from [Google Fonts](https://fonts.google.com/) in the Style She
    - When the player finishes level three the "You Win" modal is diaplayed giving the user the option to check out the spotify playlist, play again or exit.
 
 ### Features Left to Implement
-* A feature I would like to implement is a free play mode allowing the player to use the drum sequencer and program their own beats.
-* I would also like to add an option to change the drum sounds.
+* A feature I would like to implement is a free play mode allowing the player to use the drum sequencer and program their own beats and change the drum sounds.
 * I would like to add volume controls to set the volume for gameplay.
+* I would like to add more drum patterns to the current JSON list of 20 drum patterns.
 
  - - - - 
 
@@ -262,7 +266,7 @@ Fonts are linked from [Google Fonts](https://fonts.google.com/) in the Style She
 ## Testing
 Various methods of testing were used throughout all stages of development.
 
-All methods of testing can be viewed within the [testing.md](https://https://github.com/JustinMcC066/MS2/blob/master/testing.md/) file.
+All methods of testing can be viewed within the [testing.md](https://github.com/JustinMcC066/MS2/blob/master/testing.md) file.
 
  - - - - 
 
@@ -278,13 +282,27 @@ The site is hosted on Github Pages and was deployed using the following steps:
 
 #### Custom Domain
 
-The site is hosted on Githb Pages but points to a custom domain: [beatthebreak.com](https://beatthebreak.com)
+The site is hosted on Githb Pages and is served from a custom domain: [beatthebreak.com](https://beatthebreak.com)
 
-ANAME records were added to the domain DNS which point the domain to the IP addresses for GitHub Pages.
+The existing ANAME record IP address on the domain was updated to:
 
-A CNAME file was added to the root of my repository with the custom domain typed inside. This points the repository to the custom domain.
+```
+185.199.108.153
+```
 
-Live site can be viewed here: [Beat The Break](https://beatthebreak.com)
+A further three ANAME records were added to the domain which point the domain to the IP addresses for GitHub Pages.
+
+```
+185.199.109.153
+185.199.110.153
+185.199.111.153
+```
+
+A CNAME file was added to the root of my repository with the custom domain listed inside. This points the repository to the custom domain.
+
+Finally, **Enforce HTTPS** was selected in the Github Pages section of the settings page for the repository.
+
+The live site can be viewed here: [Beat The Break](https://beatthebreak.com)
 
 ### Local
 
