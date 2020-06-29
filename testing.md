@@ -22,7 +22,10 @@ Media queries have been added to ensure all elements resize with any issues at t
 Further testing was done using [Responsive Test Tool](http://responsivetesttool.com/) which allowed for testing on additional devices - no errors were recorded.
 Responsiveness was also tested using the Lambdatest App.
 
+![Responsiveness Testing](https://raw.githubusercontent.com/JustinMcC066/MS2/master/readme_images/site-responsiveness.jpg)
+
 ![Testing Feedback Table](https://raw.githubusercontent.com/JustinMcC066/MS2/master/readme_images/site-testing.jpg)
+
 
 ## Code Validation
 All html pages were checked using [W3C Markup Validation](https://validator.w3.org/) and passed with no errors.
